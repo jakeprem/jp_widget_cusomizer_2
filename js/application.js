@@ -16,20 +16,28 @@ var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ c
 var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
 var key='';
 var selectColor='';
-$(document).ready(function(){hide_border_options();
-	get_widget();initiate_color_picker();
-	border_options();reset_all_settings();
-	added_select_boxes();settings_options();
+$(document).ready(function(){
+	hide_border_options();
+	get_widget();
+	initiate_color_picker();
+	border_options();
+	reset_all_settings();
+	added_select_boxes();
+	settings_options();
 });
-function get_widget(){var iframe=$('<iframe/>').attr({src:url,id:'widget_iframe',frameborder:'0'});
-$('#widget').fadeOut('slow',function(){$(this).html('').append(iframe);$(this).fadeIn('slow');
-	$('#textarea').click(function(){$(this).select();
+
+//
+function get_widget(){
+	var iframe=$('<iframe/>').attr({src:url,id:'widget_iframe',frameborder:'0'});
+
+	$('#widget').fadeOut('slow',function(){$(this).html('').append(iframe);$(this).fadeIn('slow');
+		$('#textarea').click(function(){$(this).select();
+		});
+		var scriptUrl=url.replace("/widget.php","/upgotd_customizer.php");
+		$('#textarea').text("<script src='"+scriptUrl+"' type='text/javascript' charset='utf-8'></script><noscript><a href='http://legacy.joshuaproject.net/upgotdfeed.php'>View Unreached People of the Day</a></noscript>");
 	});
-	var scriptUrl=url.replace("/widget.php","/upgotd_customizer.php");
-	$('#textarea').text("<script src='"+scriptUrl+"' type='text/javascript' charset='utf-8'></script><noscript><a href='http://legacy.joshuaproject.net/upgotdfeed.php'>View Unreached People of the Day</a></noscript>");
-});
-;
 };
+
 function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
 get_widget();
 };
