@@ -92,7 +92,6 @@ function initiate_color_picker(){
 	    beforeShow: function () {},
 	    hide: function () {},
 	    change: function() {
-	    	alert("Hello there");
 	    	added_select_boxes();
 	    },
 	    palette: [
@@ -192,7 +191,7 @@ function settings_options(){
 				$('button.advanced_on').text('Off')});
 		}
 	);
-}*/
+}
 
 
 //Deprecated
@@ -205,7 +204,7 @@ function settings_options(){
  * in relation to the color the user selected. We also think this is deprecated. 
  */
 function added_select_boxes(){
-	$('select').change(function(){
+	$('input').change(function(){
 		key=$(this).attr('id');
 		selectColor=$(this).val();
 		$('#'+ key).css('background-color','#'+ selectColor);
