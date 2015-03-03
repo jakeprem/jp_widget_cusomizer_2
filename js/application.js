@@ -125,6 +125,8 @@ function reset_all_settings(){
 		bdw='0px';
 		bdc='FFFFFF';
 		$('select').val(0);
+		$('input').val('');
+		initiate_color_picker();
 		update_Widget();
 	});
 }
