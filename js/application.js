@@ -41,7 +41,7 @@ function get_widget(){
 }
 
 //Updates URL with new options and calls get_widget to refresh the widget
-function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+function update_Widget(){url='/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
 	get_widget();
 }
 
