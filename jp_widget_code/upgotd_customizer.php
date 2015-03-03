@@ -81,7 +81,7 @@ $table_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 
 $overall_font_type = (isset($_GET['oft'])) ? $_GET['oft'] : 'Arial';
 $font_size = (isset($_GET['fsz'])) ? $_GET['fsz'] : '12px';
-echo "here";
+
 header("Content-type: application/x-javascript");
 ?>
 
@@ -94,7 +94,7 @@ document.write('.upgotd-title { font-weight: bold; font-size:<?php echo $font_si
 document.write('.upgotd-box .upgotd-title a { font-weight: bold; font-size:<?php echo $banner_font_size; ?> !important; margin-bottom: 5px; color: <?php echo $banner_link_color; ?>;}\n');
 document.write('.upgotd-box .upgotd-title a:hover { color: <?php echo $banner_hover_color; ?>;}\n');
 document.write('.upgotd-footer { font-weight: normal ;font-size: 11px;  margin-top: 3px; padding: 3px; background-color: <?php echo $footer_bg_color; ?>; color: <?php echo $footer_font_color; ?>;}\n');
-document.write('.upgotd-box .upgotd-footer a {font-weight: normal ;font-size: <?php echo $footer_font_size; ?>;  margin-top: 3px; color: <?php echo $footer_link_color; ?>;}\n');
+document.write('.upgotd-box .upgotd-footer a {font-weight: normal ;font-size: <?php echo $font_size; ?>;  margin-top: 3px; color: <?php echo $footer_link_color; ?>;}\n');
 document.write('.upgotd-box .upgotd-footer a:hover { color: <?php echo $footer_hover_color; ?>;}\n');
 document.write('.upgotd-image { text-align: center; }\n');
 document.write('.upgotd-pray { font-style: italic; font-weight: normal; padding: 3px 0px; font-size: <?php echo $center_font_size; ?>;}\n');
