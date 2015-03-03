@@ -77,7 +77,10 @@ function initiate_color_picker(){
 	    show: function () {},
 	    beforeShow: function () {},
 	    hide: function () {},
-	    change: function() {},
+	    change: function() {
+	    	alert("Hello there");
+	    	added_select_boxes();
+	    },
 	    palette: [
 	        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
 	        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
@@ -151,7 +154,7 @@ function reset_all_settings(){
 }*/
 
 //Deprecated, needs to be carefully extracted without breaking anything
-function settings_options(){
+/*function settings_options(){
 	$('.background_color').hide();
 	$('.advanced_on').toggle(function(){
 			$('.background_color').fadeIn('slow',function(){
@@ -162,12 +165,22 @@ function settings_options(){
 				$('button.advanced_on').text('Off')});
 		}
 	);
-}
+}*/
 
 //Deprecated
-function added_select_boxes(){
+/*function added_select_boxes(){
 	$('select').change(function(){
 		key=$(this).attr('rel');
+		selectColor=$(this).val();
+		$('#'+ key).css('background-color','#'+ selectColor);
+		eval(''+key+' = "'+selectColor+'"');
+		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+		get_widget();
+	});
+}*/
+function added_select_boxes(){
+	$('select').change(function(){
+		key=$(this).attr('id');
 		selectColor=$(this).val();
 		$('#'+ key).css('background-color','#'+ selectColor);
 		eval(''+key+' = "'+selectColor+'"');
