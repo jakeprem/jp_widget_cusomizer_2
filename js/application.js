@@ -1,3 +1,5 @@
+//created by Joshua Shuster
+//https://github.com/naysayer
 var cfc='000000';
 var chc='0000ff';
 var clc='000000';
@@ -20,7 +22,7 @@ $(document).ready(function(){
 	//hide_border_options();
 	get_widget();
 	initiate_color_picker();
-	border_options();
+	//border_options();
 	reset_all_settings();
 	added_select_boxes();
 	settings_options();
@@ -96,7 +98,7 @@ function initiate_color_picker(){
 }
 
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
-function border_options(){
+/*function border_options(){
 	$('#select').click(function(){
 		bdt=$('#select').val();
 		update_Widget();
@@ -105,7 +107,7 @@ function border_options(){
 		bdw=$('#border_width').val();
 		update_Widget();
 	});
-}
+}*/
 
 //Resets all settings
 function reset_all_settings(){
