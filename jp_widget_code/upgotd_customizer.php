@@ -81,9 +81,10 @@ $table_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 
 $overall_font_type = (isset($_GET['oft'])) ? $_GET['oft'] : 'Arial';
 $font_size = (isset($_GET['fsz'])) ? $_GET['fsz'] : '12px';
-
+echo "here";
 header("Content-type: application/x-javascript");
 ?>
+
 document.write('<style type="text/css">\n');
 document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
 document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> text-align: center; width:<?php echo $width; ?>; font-size:12px;}\n');
