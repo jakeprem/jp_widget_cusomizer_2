@@ -65,19 +65,6 @@ function update_Widget(){
 	get_widget();
 }
 
-//Deprecated
-/*function initiate_color_picker(){$('.background_color').ColorPicker({onSubmit:function(hsb,hex,rgb,el){$(el).ColorPickerHide();
-	key=$(el).attr('id');
-	if($.inArray(key,safety_vars)!=-1){var color=hex.toUpperCase();
-		eval(''+key+' = "'+color+'"');
-		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
-		get_widget();
-		$('#'+key).css('background-color','#'+hex);
-	}},onBeforeShow:function(){$(this).ColorPickerSetColor(this.value);
-	}}).bind('keyup',function(){$(this).ColorPickerSetColor(this.value);
-	});
-}*/
-
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
@@ -169,22 +156,6 @@ function settings_options(){
 		}
 	);
 }
-
-//Deprecated
-/**
- * This function listens for all select input feilds to be changed. 
- * Once they are, they change the color of their corresponding element
- * on the widget. They also change the color of the corresponding swatch
- * in relation to the color the user selected. We also think this is deprecated. 
- */
-/*function added_select_boxes(){
-	$('input').change(function(){
-		key=$(this).attr('id');
-		selectColor=$(this).val();
-		urlObj[key] = selectColor;
-		update_Widget();
-	});
-}*/
 
 //Font style, type and size
 function choose_font() {
