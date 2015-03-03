@@ -1,19 +1,5 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
-/*var cfc='000000';
-var chc='0000ff';
-var clc='000000';
-var cbg='eeeeee';
-var bbg='2870C0';
-var blc='FFFFFF';
-var bhc='FFFFFF';
-var fbg='2870C0';
-var ffc='FFFFFF';
-var flc='FFFFFF';
-var fhc='FFFFFF';
-var bdt='double';
-var bdw='0px';
-var bdc='FFFFFF';*/
 var urlObj = {
 	'cfc': '000000',
 	'chc' : '0000ff',
@@ -28,29 +14,27 @@ var urlObj = {
 	'fhc' : 'FFFFFF',
 	'bdt' : 'double',
 	'bdw' : '0px',
-	'bdc' : 'FFFFFF'
+	'bdc' : 'FFFFFF',
+	'oft' : 'Tahoma, Geneva, sans-serif',
+	'fsz' : '12'
 }
-var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] +'';
+var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft'+urlObj['oft'] + '&fsz'+urlObj['fsz'+ ''];
 var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
 var key='';
 var selectedColor='';
+
 $(document).ready(function(){
-	//hide_border_options();
+	hide_border_options();
 	get_widget();
 	initiate_color_picker();
-	//border_options();
+	border_options();
 	reset_all_settings();
 	//added_select_boxes();
 	settings_options();
 	choose_font();
 });
 
-/**
- * Generates the widget in an iframe (via HTML). This appends the widget to
- * the div with a class with widget, and has it fade in.
- * This function is also called upon when any of the variables are upated, this updates
- * the URL variable, and changes the widget accoding to the users specifications. 
- */
+//Generates the widget in an iframe (via HTML)
 function get_widget(){
 	var iframe=$('<iframe/>').attr({src:url,id:'widget_iframe',frameborder:'0'});
 
@@ -85,21 +69,14 @@ function update_Widget(){
 	});
 }*/
 
-/**
- * This adds the color picker to all of the input forums wiht a class of backgroud-color
- * the color swatches are technically input forums in readonly mode, with an image on top 
- * to signify that you can select colors from it. 
- */
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
-	    allowEmpty: true,
 	    showInput: true,
 	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
 	    showSelectionPalette: true,
 	    hideAfterPaletteSelect:true,
-	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
 	    localStorageKey: "colorpicker.local",
@@ -133,7 +110,7 @@ function initiate_color_picker(){
 }
 
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
-/*function border_options(){
+function border_options(){
 	$('#select').click(function(){
 		bdt=$('#select').val();
 		update_Widget();
@@ -142,13 +119,9 @@ function initiate_color_picker(){
 		bdw=$('#border_width').val();
 		update_Widget();
 	});
-}*/
+}
 
-/**
- * When this button is clicked, it changes all of the global variables back to
- * their original state then calls on the get_widget method, and updates the
- * widget itself.
- */
+//Resets all settings
 function reset_all_settings(){
 	$('button.reset').click(function(){
 		/*cfc='000000';
@@ -182,18 +155,16 @@ function reset_all_settings(){
 			'bdc' : 'FFFFFF'
 		};
 		$('select').val(0);
-		$('input').val('');
-		initiate_color_picker();
 		update_Widget();
 	});
 }
 
 //Deprecated (to be replaced with padding options) & border radius
-/*function hide_border_options(){
+function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
-			url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+			url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'&fsz='+fsz+'px'+'';
 			get_widget();
 	});
 	$('button#button_no').click(function(){
@@ -203,18 +174,9 @@ function reset_all_settings(){
 			bdc='FFFFFF';
 			update_Widget();
 	});
-}*/
-
+}
 
 //Deprecated, needs to be carefully extracted without breaking anything
-/*function settings_options(){
-=======
-/**
- * Deprecated, needs to be carefully extracted without breaking anything.
- * The original comment, with good grammer: "On DOM ready, this funciton hides
- * the color picking swatches and listens for the appropriate button to fade
- * in the 'advance option color swatches' and displays them accordingly."
- */
 function settings_options(){
 	$('.background_color').hide();
 	$('.advanced_on').toggle(function(){
@@ -228,10 +190,7 @@ function settings_options(){
 	);
 }
 
-
 //Deprecated
-/*function added_select_boxes(){
-=======
 /**
  * This function listens for all select input feilds to be changed. 
  * Once they are, they change the color of their corresponding element
@@ -249,7 +208,15 @@ function settings_options(){
 
 //Font style, type and size
 function choose_font() {
-	$('.font-size').change(function() {
-		var newFontSize = $('font-size').val();
+	$('.fonts').change(function() {
+		oft = $('#font-type').val();
+		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'&fsz='+fsz+'px'+'';
+		get_widget();
+	});
+
+	$('.font-sz').change(function() {
+		fsz = $('#font-size').val(); 
+		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'&fsz='+fsz+'px'+'';
+		get_widget();
 	});
 }
