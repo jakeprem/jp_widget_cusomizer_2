@@ -29,7 +29,12 @@ $(document).ready(function(){
 	choose_font();
 });
 
-//Generates the widget in an iframe (via HTML)
+/**
+ * Generates the widget in an iframe (via HTML). This appends the widget to
+ * the div with a class with widget, and has it fade in.
+ * This function is also called upon when any of the variables are upated, this updates
+ * the URL variable, and changes the widget accoding to the users specifications. 
+ */
 function get_widget(){
 	var iframe=$('<iframe/>').attr({src:url,id:'widget_iframe',frameborder:'0'});
 
@@ -42,8 +47,12 @@ function get_widget(){
 	});
 }
 
-//Updates URL with new options and calls get_widget to refresh the widget
-function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+/**
+ * Updates URL with new options and calls get_widget to refresh the widget. It
+ * is called after every color changing funciton.
+ */
+function update_Widget(){
+        url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
 	get_widget();
 }
 
@@ -60,6 +69,11 @@ function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?
 	});
 }*/
 
+/**
+ * This adds the color picker to all of the input forums wiht a class of backgroud-color
+ * the color swatches are technically input forums in readonly mode, with an image on top 
+ * to signify that you can select colors from it. 
+ */
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    allowEmpty: true,
@@ -112,7 +126,11 @@ function initiate_color_picker(){
 	});
 }*/
 
-//Resets all settings
+/**
+ * When this button is clicked, it changes all of the global variables back to
+ * their original state then calls on the get_widget method, and updates the
+ * widget itself.
+ */
 function reset_all_settings(){
 	$('button.reset').click(function(){
 		cfc='000000';
@@ -153,8 +171,17 @@ function reset_all_settings(){
 	});
 }*/
 
+
 //Deprecated, needs to be carefully extracted without breaking anything
 /*function settings_options(){
+=======
+/**
+ * Deprecated, needs to be carefully extracted without breaking anything.
+ * The original comment, with good grammer: "On DOM ready, this funciton hides
+ * the color picking swatches and listens for the appropriate button to fade
+ * in the 'advance option color swatches' and displays them accordingly."
+ */
+function settings_options(){
 	$('.background_color').hide();
 	$('.advanced_on').toggle(function(){
 			$('.background_color').fadeIn('slow',function(){
@@ -167,17 +194,16 @@ function reset_all_settings(){
 	);
 }*/
 
+
 //Deprecated
 /*function added_select_boxes(){
-	$('select').change(function(){
-		key=$(this).attr('rel');
-		selectColor=$(this).val();
-		$('#'+ key).css('background-color','#'+ selectColor);
-		eval(''+key+' = "'+selectColor+'"');
-		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
-		get_widget();
-	});
-}*/
+=======
+/**
+ * This function listens for all select input feilds to be changed. 
+ * Once they are, they change the color of their corresponding element
+ * on the widget. They also change the color of the corresponding swatch
+ * in relation to the color the user selected. We also think this is deprecated. 
+ */
 function added_select_boxes(){
 	$('select').change(function(){
 		key=$(this).attr('id');
