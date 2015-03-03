@@ -1,6 +1,6 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
-var cfc='000000';
+/*var cfc='000000';
 var chc='0000ff';
 var clc='000000';
 var cbg='eeeeee';
@@ -13,18 +13,34 @@ var flc='FFFFFF';
 var fhc='FFFFFF';
 var bdt='double';
 var bdw='0px';
-var bdc='FFFFFF';
-var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+var bdc='FFFFFF';*/
+var urlObj = {
+	'cfc': '000000',
+	'chc' : '0000ff',
+	'clc' : '000000',
+	'cbg' : 'eeeeee',
+	'bbg' : '2870C0',
+	'blc' : 'FFFFFF',
+	'bhc' : 'FFFFFF',
+	'fbg' : '2870C0',
+	'ffc' : 'FFFFFF',
+	'flc' : 'FFFFFF',
+	'fhc' : 'FFFFFF',
+	'bdt' : 'double',
+	'bdw' : '0px',
+	'bdc' : 'FFFFFF'
+}
+var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] +'';
 var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
 var key='';
-var selectColor='';
+var selectedColor='';
 $(document).ready(function(){
 	//hide_border_options();
 	get_widget();
 	initiate_color_picker();
 	//border_options();
 	reset_all_settings();
-	added_select_boxes();
+	//added_select_boxes();
 	settings_options();
 	choose_font();
 });
@@ -52,7 +68,7 @@ function get_widget(){
  * is called after every color changing funciton.
  */
 function update_Widget(){
-        url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+    url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] +'';
 	get_widget();
 }
 
@@ -78,7 +94,7 @@ function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    allowEmpty: true,
 	    showInput: true,
-	    className: "color",
+	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
 	    showSelectionPalette: true,
@@ -87,12 +103,14 @@ function initiate_color_picker(){
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
 	    localStorageKey: "colorpicker.local",
-	    move: function (color) {   },
+	    move: function () {   },
 	    show: function () {},
 	    beforeShow: function () {},
 	    hide: function () {},
-	    change: function() {
-	    	added_select_boxes();
+	    change: function(color) {
+	    	key = $(this).attr('id')
+	    	urlObj[key] = color.toHexString();
+	    	update_Widget();
 	    },
 	    palette: [
 	        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
@@ -132,7 +150,7 @@ function initiate_color_picker(){
  */
 function reset_all_settings(){
 	$('button.reset').click(function(){
-		cfc='000000';
+		/*cfc='000000';
 		chc='0000FF';
 		clc='000000';
 		cbg='EEE';
@@ -145,7 +163,23 @@ function reset_all_settings(){
 		fhc='';
 		bdt='double';
 		bdw='0px';
-		bdc='FFFFFF';
+		bdc='FFFFFF';*/
+		urlObj = {
+			'cfc': '000000',
+			'chc' : '0000ff',
+			'clc' : '000000',
+			'cbg' : 'eeeeee',
+			'bbg' : '2870C0',
+			'blc' : 'FFFFFF',
+			'bhc' : 'FFFFFF',
+			'fbg' : '2870C0',
+			'ffc' : 'FFFFFF',
+			'flc' : 'FFFFFF',
+			'fhc' : 'FFFFFF',
+			'bdt' : 'double',
+			'bdw' : '0px',
+			'bdc' : 'FFFFFF'
+		};
 		$('select').val(0);
 		$('input').val('');
 		initiate_color_picker();
@@ -203,16 +237,14 @@ function settings_options(){
  * on the widget. They also change the color of the corresponding swatch
  * in relation to the color the user selected. We also think this is deprecated. 
  */
-function added_select_boxes(){
+/*function added_select_boxes(){
 	$('input').change(function(){
 		key=$(this).attr('id');
 		selectColor=$(this).val();
-		$('#'+ key).css('background-color','#'+ selectColor);
-		eval(''+key+' = "'+selectColor+'"');
-		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
-		get_widget();
+		urlObj[key] = selectColor;
+		update_Widget();
 	});
-}
+}*/
 
 //Font style, type and size
 function choose_font() {
