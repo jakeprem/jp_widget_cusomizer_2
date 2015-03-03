@@ -109,7 +109,8 @@ function initiate_color_picker(){
 	    hide: function () {},
 	    change: function(color) {
 	    	key = $(this).attr('id')
-	    	urlObj[key] = color.toHexString();
+	    	str = color.toHexString().replace('#','');
+	    	urlObj[key] = str;
 	    	update_Widget();
 	    },
 	    palette: [
