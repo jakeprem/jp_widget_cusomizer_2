@@ -214,8 +214,14 @@ function choose_font() {
 		get_widget();
 	});
 
-	$('.font-sz').change(function() {
-		urlObj['fsz'] = $('#font-size').val(); 
+	$('.font-sz1').change(function() {
+		urlObj['fsz'] = $('#font-size1').val(); console.log("here " + urlObj['fsz'])
+		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		get_widget();
+	});
+
+	$('.font-sz2').change(function() {
+		urlObj['fsz'] = $('#font-size2').val(); 
 		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
 		get_widget();
 	});
