@@ -1,4 +1,6 @@
- var cfc='000000';
+//created by Joshua Shuster
+//https://github.com/naysayer
+var cfc='000000';
 var chc='0000ff';
 var clc='000000';
 var cbg='eeeeee';
@@ -17,10 +19,10 @@ var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fh
 var key='';
 var selectColor='';
 $(document).ready(function(){
-	hide_border_options();
+	//hide_border_options();
 	get_widget();
 	initiate_color_picker();
-	border_options();
+	//border_options();
 	reset_all_settings();
 	added_select_boxes();
 	settings_options();
@@ -60,15 +62,17 @@ function update_Widget(){url='/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc
 
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
-	    color: "#ECC",
+	    allowEmpty: true,
 	    showInput: true,
-	    className: "full-spectrum",
+	    className: "color",
 	    showInitial: true,
 	    showPalette: true,
 	    showSelectionPalette: true,
+	    hideAfterPaletteSelect:true,
+	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
-	    localStorageKey: "spectrum.demo",
+	    localStorageKey: "colorpicker.local",
 	    move: function (color) {   },
 	    show: function () {},
 	    beforeShow: function () {},
@@ -94,7 +98,7 @@ function initiate_color_picker(){
 }
 
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
-function border_options(){
+/*function border_options(){
 	$('#select').click(function(){
 		bdt=$('#select').val();
 		update_Widget();
@@ -103,7 +107,7 @@ function border_options(){
 		bdw=$('#border_width').val();
 		update_Widget();
 	});
-}
+}*/
 
 //Resets all settings
 function reset_all_settings(){
@@ -128,7 +132,7 @@ function reset_all_settings(){
 }
 
 //Deprecated (to be replaced with padding options) & border radius
-function hide_border_options(){
+/*function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
@@ -142,7 +146,7 @@ function hide_border_options(){
 			bdc='FFFFFF';
 			update_Widget();
 	});
-}
+}*/
 
 //Deprecated, needs to be carefully extracted without breaking anything
 function settings_options(){
