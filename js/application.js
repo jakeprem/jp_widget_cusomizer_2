@@ -1,6 +1,22 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
-var urlObj = {
+var urlObj = {}
+var url, key, selectedColor = '';
+
+$(document).ready(function(){
+	init_variables();
+	build_url();
+	hide_border_options();
+	get_widget();
+	initiate_color_picker();
+	border_options();
+	reset_all_settings();
+	settings_options();
+	choose_font();
+});
+
+function init_variables(){
+	urlObj = {
 	'cfc': '000000',
 	'chc' : '0000ff',
 	'clc' : '000000',
@@ -17,22 +33,15 @@ var urlObj = {
 	'bdc' : 'FFFFFF',
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'fsz' : '12'
+	};
+	build_url();
+	key='';
+	selectedColor='';
 }
-var url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
-var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
-var key='';
-var selectedColor='';
 
-$(document).ready(function(){
-	hide_border_options();
-	get_widget();
-	initiate_color_picker();
-	border_options();
-	reset_all_settings();
-	//added_select_boxes();
-	settings_options();
-	choose_font();
-});
+function build_url(){
+	url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+}
 
 //Generates the widget in an iframe (via HTML)
 function get_widget(){
@@ -52,7 +61,7 @@ function get_widget(){
  * is called after every color changing funciton.
  */
 function update_Widget(){
-    url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+    build_url();
 	get_widget();
 }
 
@@ -124,22 +133,7 @@ function border_options(){
 //Resets all settings
 function reset_all_settings(){
 	$('button.reset').click(function(){
-		urlObj = {
-			'cfc': '000000',
-			'chc' : '0000ff',
-			'clc' : '000000',
-			'cbg' : 'eeeeee',
-			'bbg' : '2870C0',
-			'blc' : 'FFFFFF',
-			'bhc' : 'FFFFFF',
-			'fbg' : '2870C0',
-			'ffc' : 'FFFFFF',
-			'flc' : 'FFFFFF',
-			'fhc' : 'FFFFFF',
-			'bdt' : 'double',
-			'bdw' : '0px',
-			'bdc' : 'FFFFFF'
-		};
+		init_variables();
 		$('select').val("");
 		update_Widget();
 	});
@@ -150,7 +144,7 @@ function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
-			url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+			build_url();
 			get_widget();
 	});
 	$('button#button_no').click(function(){
@@ -196,19 +190,19 @@ function settings_options(){
 function choose_font() {
 	$('.fonts').change(function() {
 		urlObj['oft'] = $('#font-type').val();
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 
 	$('.font-sz1').change(function() {
 		urlObj['fsz'] = $('#font-size1').val(); console.log("here " + urlObj['fsz'])
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 
 	$('.font-sz2').change(function() {
 		urlObj['fsz'] = $('#font-size2').val(); 
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 }
