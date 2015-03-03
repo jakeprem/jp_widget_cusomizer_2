@@ -38,9 +38,10 @@
 
 		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/colorpicker.css" type="text/css" media="screen" title="no title" charset="utf-8">
-		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/spectrum.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/colorpicker.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="js/spectrum.js" type="text/javascript" charset="utf-8"></script>	
 		<script type="text/javascript">
 			/* <![CDATA[ */
 			/*var _gaq = _gaq || [];
@@ -71,190 +72,40 @@
 		
 	<div id="container">
         <center><h2>Unreached of the Day Widget</h2></center>
-		<div id="selectors" class="left">Advanced color options: 
-			<button class="advanced_on">Off</button>
-			<br/ >
-			<br/ >
+		<div id="selectors" class="left">
 			Background: 
-				<select rel="cbg">
-					<option>Select Color</option>
-					<option value="EEE">Default</option>
-					<option value="FFFFFF">White</option>
-           			<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="cbg" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
+				<input type="text" id="cbg" class="colorpicker"/>
+				<br>
 			Header: 
-				<select rel="bbg">
-					<option>Select Color</option>
-					<option value="2870C0">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				
-				<input type="text" id="bbg" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="bbg" class="colorpicker"/>
 				<br/>
 			Header Font: 
-				<select rel="blc">
-					<option>Select Color</option>
-					<option value="FFF">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				
-				<input type="text" id="blc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="blc" class="colorpicker"/>
 				<br/>
 			Header Font Hover: 
-				<select rel="bhc">
-					<option>Select Color</option>
-					<option value="FFFFFF">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-
-				<input type="text" id="bhc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="bhc" class="colorpicker"/>
 				<br/>
 			Center Font: 
-				<select rel="cfc">
-					<option>Select Color</option>
-					<option value="000000">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				
-				<input type="text" id="cfc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="cfc" class="colorpicker"/>
 				<br/>
-
 			Center Font Link: 
-				<select rel="clc">
-					<option>Select Color</option>
-					<option value="000000">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="clc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="clc" class="colorpicker"/>
 				<br/>
-			Center Font Link Hover: 
-				<select rel="chc">
-					<option>Select Color</option>
-					<option value="0000FF">Default</option>
-					<option value="FFFFFF">White</option>
-            		<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="chc" readonly class="background_color" size="17" maxlength="8" />
+			Center Font Link Hover:
+				<input type="text" id="chc" class="colorpicker"/>
 				<br/>
 			Footer Background: 
-				<select rel="fbg">
-					<option>Select Color</option>
-					<option value="2870C0">Default</option>
-					<option value="FFFFFF">White</option>
-        			<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-			<input type="text" id="fbg" readonly class="background_color" size="17" maxlength="8" />
-			<br/>
+				<input type="text" id="fbg" class="colorpicker"/>
+				<br/>
 			Footer Font: 
-				<select rel="ffc">
-					<option>Select Color</option>
-					<option value="FFF">Default</option>
-					<option value="FFFFFF">White</option>
-        			<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="ffc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="ffc" class="colorpicker"/>
 				<br/>
 			Footer Links: 
-				<select rel="flc">
-					<option>Select Color</option>
-					<option value="FFF">Default</option>
-					<option value="FFFFFF">White</option>
-        			<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="flc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="flc" class="colorpicker"/>
 				<br/>
 			Footer Link Hover: 
-				<select rel="fhc">
-					<option>Select Color</option>
-					<option value="">Default</option>
-					<option value="FFFFFF">White</option>
-        			<option value="000000">Black</option>
-                    <option value="848484">Gray</option>
-                    <option value="FF0000">Red</option>
-                    <option value="FF8000">Orange</option>
-                    <option value="F7FE2E">Yellow</option>
-                    <option value="00FF00">Green</option>
-					<option value="0101DF">Blue</option>
-					<option value="DF01D7">Purple</option>
-				</select>
-				<input type="text" id="fhc" readonly class="background_color" size="17" maxlength="8" />
+				<input type="text" id="fhc" class="colorpicker"/>
+				<br/>
 				<br/><br/>
 			Would you like a border? 	
 				<button id="button_yes">Yes</button><button id="button_no">No</button>
