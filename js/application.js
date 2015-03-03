@@ -124,20 +124,6 @@ function border_options(){
 //Resets all settings
 function reset_all_settings(){
 	$('button.reset').click(function(){
-		/*cfc='000000';
-		chc='0000FF';
-		clc='000000';
-		cbg='EEE';
-		bbg='2870C0';
-		blc='FFF';
-		bhc='FFFFFF';
-		fbg='2870C0';
-		ffc='FFF';
-		flc='FFF';
-		fhc='';
-		bdt='double';
-		bdw='0px';
-		bdc='FFFFFF';*/
 		urlObj = {
 			'cfc': '000000',
 			'chc' : '0000ff',
@@ -154,7 +140,7 @@ function reset_all_settings(){
 			'bdw' : '0px',
 			'bdc' : 'FFFFFF'
 		};
-		$('select').val(0);
+		$('select').val("");
 		update_Widget();
 	});
 }
