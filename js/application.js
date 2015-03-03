@@ -17,7 +17,7 @@ var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fh
 var key='';
 var selectColor='';
 $(document).ready(function(){
-	hide_border_options();
+	//hide_border_options();
 	get_widget();
 	initiate_color_picker();
 	border_options();
@@ -128,7 +128,7 @@ function reset_all_settings(){
 }
 
 //Deprecated (to be replaced with padding options) & border radius
-function hide_border_options(){
+/*function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
@@ -142,7 +142,7 @@ function hide_border_options(){
 			bdc='FFFFFF';
 			update_Widget();
 	});
-}
+}*/
 
 //Deprecated, needs to be carefully extracted without breaking anything
 function settings_options(){
