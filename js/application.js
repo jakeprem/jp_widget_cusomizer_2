@@ -1,4 +1,4 @@
- var cfc='000000';
+var cfc='000000';
 var chc='0000ff';
 var clc='000000';
 var cbg='eeeeee';
@@ -60,15 +60,17 @@ function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?
 
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
-	    color: "#ECC",
+	    allowEmpty: true,
 	    showInput: true,
-	    className: "full-spectrum",
+	    className: "color",
 	    showInitial: true,
 	    showPalette: true,
 	    showSelectionPalette: true,
+	    hideAfterPaletteSelect:true,
+	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
-	    localStorageKey: "spectrum.demo",
+	    localStorageKey: "colorpicker.local",
 	    move: function (color) {   },
 	    show: function () {},
 	    beforeShow: function () {},
