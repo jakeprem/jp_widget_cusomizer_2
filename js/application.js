@@ -1,4 +1,4 @@
-var cfc='000000';
+ var cfc='000000';
 var chc='0000ff';
 var clc='000000';
 var cbg='eeeeee';
@@ -24,6 +24,7 @@ $(document).ready(function(){
 	reset_all_settings();
 	added_select_boxes();
 	settings_options();
+	choose_font();
 });
 
 //Generates the widget in an iframe (via HTML)
@@ -131,5 +132,12 @@ function added_select_boxes(){
 		eval(''+key+' = "'+selectColor+'"');
 		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
 		get_widget();
+	});
+}
+
+//Font style, type and size
+function choose_font() {
+	$('.font-size').change(function() {
+		var newFontSize = $('font-size').val();
 	});
 }
