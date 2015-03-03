@@ -1,6 +1,4 @@
-//created by Joshua Shuster
-//https://github.com/naysayer
-var cfc='000000';
+ var cfc='000000';
 var chc='0000ff';
 var clc='000000';
 var cbg='eeeeee';
@@ -14,15 +12,19 @@ var fhc='FFFFFF';
 var bdt='double';
 var bdw='0px';
 var bdc='FFFFFF';
-var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+
+var oft="Tahoma, Geneva, sans-serif";
+
+var url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'';
 var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
 var key='';
 var selectColor='';
+
 $(document).ready(function(){
-	//hide_border_options();
+	hide_border_options();
 	get_widget();
 	initiate_color_picker();
-	//border_options();
+	border_options();
 	reset_all_settings();
 	added_select_boxes();
 	settings_options();
@@ -43,7 +45,7 @@ function get_widget(){
 }
 
 //Updates URL with new options and calls get_widget to refresh the widget
-function update_Widget(){url='/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+function update_Widget(){url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'';
 	get_widget();
 }
 
@@ -62,17 +64,15 @@ function update_Widget(){url='/jp_widget_code/widget.php?cfc='+ cfc+'&chc='+ chc
 
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
-	    allowEmpty: true,
+	    color: "#ECC",
 	    showInput: true,
-	    className: "color",
+	    className: "full-spectrum",
 	    showInitial: true,
 	    showPalette: true,
 	    showSelectionPalette: true,
-	    hideAfterPaletteSelect:true,
-	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
-	    localStorageKey: "colorpicker.local",
+	    localStorageKey: "spectrum.demo",
 	    move: function (color) {   },
 	    show: function () {},
 	    beforeShow: function () {},
@@ -98,7 +98,7 @@ function initiate_color_picker(){
 }
 
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
-/*function border_options(){
+function border_options(){
 	$('#select').click(function(){
 		bdt=$('#select').val();
 		update_Widget();
@@ -107,7 +107,7 @@ function initiate_color_picker(){
 		bdw=$('#border_width').val();
 		update_Widget();
 	});
-}*/
+}
 
 //Resets all settings
 function reset_all_settings(){
@@ -132,11 +132,11 @@ function reset_all_settings(){
 }
 
 //Deprecated (to be replaced with padding options) & border radius
-/*function hide_border_options(){
+function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
-			url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+			url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'';
 			get_widget();
 	});
 	$('button#button_no').click(function(){
@@ -146,7 +146,7 @@ function reset_all_settings(){
 			bdc='FFFFFF';
 			update_Widget();
 	});
-}*/
+}
 
 //Deprecated, needs to be carefully extracted without breaking anything
 function settings_options(){
@@ -169,14 +169,21 @@ function added_select_boxes(){
 		selectColor=$(this).val();
 		$('#'+ key).css('background-color','#'+ selectColor);
 		eval(''+key+' = "'+selectColor+'"');
-		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
+		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'';
 		get_widget();
 	});
 }
 
 //Font style, type and size
 function choose_font() {
+	$('.fonts').change(function() {
+		oft = $('#font-type').val();
+		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'&oft='+oft+'';
+		get_widget();
+	});
+
 	$('.font-size').change(function() {
-		var newFontSize = $('font-size').val();
+		var newFontSize = $('#font-size').val();
+		
 	});
 }

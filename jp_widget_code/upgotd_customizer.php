@@ -79,10 +79,12 @@ $footer_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 $more_font_size = ($is_narrow == 'true') ? '9px' : '10px';
 $table_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 
+$overall_font_type = (isset($_GET['oft'])) ? $_GET['oft'] : 'Arial';
+
 header("Content-type: application/x-javascript");
 ?>
 document.write('<style type="text/css">\n');
-document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: Arial, Helvetica, Verdana, sans-serif; }\n');
+document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
 document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> text-align: center; width:<?php echo $width; ?>; font-size:12px;}\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
@@ -96,7 +98,7 @@ document.write('.upgotd-image { text-align: center; }\n');
 document.write('.upgotd-pray { font-style: italic; font-weight: normal; padding: 3px 0px; font-size: <?php echo $center_font_size; ?>;}\n');
 document.write('.upgotd-people { font-weight: normal; font-size:<?php echo $center_font_size; ?> !important; padding-bottom:4px; }\n');
 document.write('.upgotd-people a { font-weight: bold; }\n');
-document.write('.upgotd-table td { font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size:<?php echo $table_font_size; ?>; font-weight: normal; color: <?php echo $center_font_color ?>; line-height: 14px; text-align: left; border: 0px; background-color: <?php echo $center_bg_color; ?>; margin: 0px; padding: 0px 0px 0px 3px; }\n');
+document.write('.upgotd-table td { font-family: <?php echo $overall_font_type; ?>; font-size:<?php echo $table_font_size; ?>; font-weight: normal; color: <?php echo $center_font_color ?>; line-height: 14px; text-align: left; border: 0px; background-color: <?php echo $center_bg_color; ?>; margin: 0px; padding: 0px 0px 0px 3px; }\n');
 document.write('.upgotd-more, .upgotd-more a { font-size: <?php echo $more_font_size; ?>; }\n');
 document.write('</style>\n');
 
