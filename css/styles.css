@@ -40,11 +40,6 @@ body {
 	text-align:center;
 }
 
-
-#border_options {
-	display:none;
-}
-
 .clear {
 	display:block;
 	clear:both;
@@ -57,7 +52,7 @@ float:left;
 
 iframe#widget_iframe {
 	height:400px;
-	width:250px;
+	width:400px;
 }
 
 input {
@@ -103,9 +98,22 @@ select {
 #cfc,#clc {
 	background-color:#000;
 }
+
 .reset {
 	margin-top:5px;
 }
+
 #radioset {
 	margin-top:5px;
 }
+
+#result {
+	margin-left: 20px;
+	padding: 0;
+}
+
+#widget-container {
+	text-align: left;
+	margin: auto;
+}
+

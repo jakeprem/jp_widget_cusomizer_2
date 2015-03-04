@@ -178,8 +178,8 @@ function choose_font() {
 
 //Widget orientation
 function choose_orientation() {
-	$('.widget-orientation').change(function() {
-		urlObj['ori'] = $('input:radio[name=orientation:checked').val();
+	$('#radioset').change(function() {
+		urlObj['ori'] = $('input:radio[name=radio:checked').val();
 		build_url();
 		get_widget();
 	});
