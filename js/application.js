@@ -34,8 +34,8 @@ function init_variables(){
 	'tfsz' : '14',
 	'pfsz' : '12',
 	'ifsz' : '11.5',
-	'ffsz' : '13'
-	'ori' : "ver";
+	'ffsz' : '13',
+	'ori' : "vert"
 	};
 
 	baseUrl = "http://192.168.87.196/widget.php"
@@ -47,7 +47,10 @@ function init_variables(){
 }
 
 function build_url(){
-	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + '&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '';
+	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +
+					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
+					'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + 
+					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '';
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -175,5 +178,9 @@ function choose_font() {
 
 //Widget orientation
 function choose_orientation() {
-	
+	$('.widget-orientation').change(function() {
+		urlObj['ori'] = $('input:radio[name=orientation:checked').val();
+		build_url();
+		get_widget();
+	});
 }
