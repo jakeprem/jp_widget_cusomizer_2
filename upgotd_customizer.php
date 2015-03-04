@@ -92,7 +92,7 @@ document.write('.upgotd-people a:hover { color: <?php echo $center_hover_color; 
 document.write('.upgotd-table { margin-bottom: 5px; text-align: left; }\n');
 document.write('.upgotd-table tr { border:none; text-align: left;}\n');
 document.write('.upgotd-table td { background-color:<?php echo $center_bg_color; ?>; font-family: <?php echo $center_font_color ?>; font-size:<?php echo $info_font_size ?>; font-weight: normal; color: <?php echo $center_font_color ?>; line-height: 12px; text-align: left; border: 0px;  margin: 0px; padding: 0px 0px 0px 5px; line-height: 18px; }\n');
-document.write('.upgotd-footer { display:inline-block; margin-top: 7px; background-color:<?php echo $footer_bg_color; ?>; color: <?php echo $footer_font_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
+document.write('.upgotd-footer { width: 100%; display:inline-block; padding-top: 7px; background-color:<?php echo $footer_bg_color; ?>; color: <?php echo $footer_font_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
 document.write('.upgotd-footer a { color: <?php echo $footer_link_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
 document.write('.upgotd-footer a:hover { color: <?php echo $footer_hover_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
 document.write('.upgotd-cite, .upgotd-cite a { color: #7b7670 !important; font-weight: normal ;font-size: 10px;  }\n');
