@@ -80,7 +80,10 @@ $more_font_size = ($is_narrow == 'true') ? '9px' : '10px';
 $table_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 
 $overall_font_type = (isset($_GET['oft'])) ? $_GET['oft'] : 'Arial';
-$font_size = (isset($_GET['fsz'])) ? $_GET['fsz'] : '12px'; 
+$title_font_size = (isset($_GET['tfsz'])) ? $_GET['tfsz'] : '14px'; 
+$people_font_size = (isset($_GET['pfsz'])) ? $_GET['pfsz'] : '12px';
+$info_font_size = (isset($_GET['ifsz'])) ? $_GET['ifsz'] : '11.5px'; 
+$footer_font_size = (isset($_GET['ffsz'])) ? $_GET['ffsz'] : '14px'; 
 
 header("Content-type: application/x-javascript");
 ?>
@@ -90,16 +93,16 @@ document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: 
 document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> text-align: center; width:<?php echo $width; ?>; font-size:12px;}\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
-document.write('.upgotd-title, { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $font_size; ?> !important; margin-bottom: 7px; }\n');
-document.write('.upgotd-title a {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: normal; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $font_size; ?> !important; margin-bottom: 7px; }\n');
+document.write('.upgotd-title, { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
+document.write('.upgotd-title a {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: normal; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
 document.write('.upgotd-image { text-align: center; }\n');
-document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 9px;}\n');
-document.write('.upgotd-people { font-weight: normal; font-size:12px !important; padding-bottom:2px; }\n');
-document.write('.upgotd-people a { color: #ed7c31 !important; font-size: 15px; font-family:sans-serif; font-weight: 800; }\n');
+document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 9px;}\n'); // **ADD CHANGE ABILITY
+document.write('.upgotd-people { font-weight: normal; font-size:<?php echo $people_font_size; ?> !important; padding-bottom:2px; }\n');
+document.write('.upgotd-people a { color: #ed7c31 !important; font-size: <?php echo $people_font_size; ?>; font-family:sans-serif; font-weight: 800; }\n');
 document.write('.upgotd-table { margin-bottom: 5px; text-align: left; }\n');
 document.write('.upgotd-table tr { border:none; text-align: left;}\n');
-document.write('.upgotd-table td { background-color:#ffffff; font-family: sans-serif; font-size:11.5px; font-weight: normal; color: #7b7670; line-height: 12px; text-align: left; border: 0px;  margin: 0px; padding: 0px 0px 0px 5px; line-height: 18px; }\n');
-document.write('.upgotd-footer, .upgotd-footer a { color: #ed7c31 !important; font-weight: normal ;font-size: 13px; }\n');
+document.write('.upgotd-table td { background-color:<?php echo $center_bg_color; ?>; font-family: <?php echo $center_font_color ?>; font-size:<?php echo $info_font_size ?>; font-weight: normal; color: <?php echo $center_font_color ?>; line-height: 12px; text-align: left; border: 0px;  margin: 0px; padding: 0px 0px 0px 5px; line-height: 18px; }\n');
+document.write('.upgotd-footer, .upgotd-footer a { color: <?php echo $footer_link_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
 document.write('.upgotd-cite, .upgotd-cite a { color: #7b7670 !important; font-weight: normal ;font-size: 10px;  }\n');
 document.write('.upgotd-logo {padding: 0px 2px 4px 2px; width: 22px; height: 20px; }\n');
 document.write('</style>\n');

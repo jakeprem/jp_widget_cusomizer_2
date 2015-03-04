@@ -35,8 +35,12 @@ function init_variables(){
 	'bdw' : '0px',
 	'bdc' : 'FFFFFF',
 	'oft' : 'Tahoma, Geneva, sans-serif',
-	'fsz' : '12'
+	'tfsz' : '14',
+	'pfsz' : '12',
+	'ifsz' : '11.5',
+	'ffsz' : '13'
 	};
+
 	baseUrl = "http://192.168.87.196:/widget.php"
 	build_url();
 	key='';
@@ -46,7 +50,7 @@ function init_variables(){
 }
 
 function build_url(){
-	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + '&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '';
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -163,20 +167,32 @@ function hide_border_options(){
 
 //Font style, type and size
 function choose_font() {
-	$('.fonts').change(function() {
-		urlObj['oft'] = $('#font-type').val();
+	$('.title-font-sz').change(function() {
+		urlObj['tfsz'] = $('#title-sz').val();
 		build_url();
 		get_widget();
 	});
 
-	$('.font-sz1').change(function() {
-		urlObj['fsz'] = $('#font-size1').val(); console.log("here " + urlObj['fsz'])
+	$('.people-font-sz').change(function() {
+		urlObj['pfsz'] = $('#people-sz').val();
+		build_url();
+		get_widget();
+	});
+
+	$('.info-font-sz').change(function() {
+		urlObj['ifsz'] = $('#info-sz').val(); 
+		build_url();
+		get_widget();
+	});
+
+	$('.footer-font-sz').change(function() {
+		urlObj['ffsz'] = $('#footer-sz').val(); 
 		build_url();
 		get_widget();
 	});
 
 	$('.font-sz2').change(function() {
-		urlObj['fsz'] = $('#font-size2').val(); 
+		urlObj['ffsz'] = $('#font-size2').val(); 
 		build_url();
 		get_widget();
 	});
