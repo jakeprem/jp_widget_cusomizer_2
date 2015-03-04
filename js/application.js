@@ -1,6 +1,22 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
-var urlObj = {
+var urlObj = {}
+var url, key, selectedColor = '';
+
+$(document).ready(function(){
+	init_variables();
+	build_url();
+	hide_border_options();
+	get_widget();
+	initiate_color_picker();
+	border_options();
+	reset_all_settings();
+	settings_options();
+	choose_font();
+});
+
+function init_variables(){
+	urlObj = {
 	'cfc': '000000',
 	'chc' : '0000ff',
 	'clc' : '000000',
@@ -17,22 +33,15 @@ var urlObj = {
 	'bdc' : 'FFFFFF',
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'fsz' : '12'
+	};
+	build_url();
+	key='';
+	selectedColor='';
 }
-var url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
-var safety_vars=['bbg','cbg','cfc','chc','clc','blc','bhc','fbg','ffc','flc','fhc','bdt','bdw','bdc'];
-var key='';
-var selectedColor='';
 
-$(document).ready(function(){
-	hide_border_options();
-	get_widget();
-	initiate_color_picker();
-	border_options();
-	reset_all_settings();
-	//added_select_boxes();
-	settings_options();
-	choose_font();
-});
+function build_url(){
+	url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+}
 
 //Generates the widget in an iframe (via HTML)
 function get_widget(){
@@ -52,22 +61,9 @@ function get_widget(){
  * is called after every color changing funciton.
  */
 function update_Widget(){
-    url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+    build_url();
 	get_widget();
 }
-
-//Deprecated
-/*function initiate_color_picker(){$('.background_color').ColorPicker({onSubmit:function(hsb,hex,rgb,el){$(el).ColorPickerHide();
-	key=$(el).attr('id');
-	if($.inArray(key,safety_vars)!=-1){var color=hex.toUpperCase();
-		eval(''+key+' = "'+color+'"');
-		url='http://legacy.joshuaproject.net/widget/widget.php?cfc='+ cfc+'&chc='+ chc+'&clc='+ clc+'&cbg='+ cbg+'&bbg='+ bbg+'&blc='+ blc+'&bhc='+ bhc+'&fbg='+ fbg+'&ffc='+ ffc+'&flc='+ flc+'&fhc='+ fhc+'&bdt='+ bdt+'&bdw='+ bdw+'&bdc='+ bdc+'';
-		get_widget();
-		$('#'+key).css('background-color','#'+hex);
-	}},onBeforeShow:function(){$(this).ColorPickerSetColor(this.value);
-	}}).bind('keyup',function(){$(this).ColorPickerSetColor(this.value);
-	});
-}*/
 
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
@@ -124,37 +120,8 @@ function border_options(){
 //Resets all settings
 function reset_all_settings(){
 	$('button.reset').click(function(){
-		/*cfc='000000';
-		chc='0000FF';
-		clc='000000';
-		cbg='EEE';
-		bbg='2870C0';
-		blc='FFF';
-		bhc='FFFFFF';
-		fbg='2870C0';
-		ffc='FFF';
-		flc='FFF';
-		fhc='';
-		bdt='double';
-		bdw='0px';
-		bdc='FFFFFF';*/
-		urlObj = {
-			'cfc': '000000',
-			'chc' : '0000ff',
-			'clc' : '000000',
-			'cbg' : 'eeeeee',
-			'bbg' : '2870C0',
-			'blc' : 'FFFFFF',
-			'bhc' : 'FFFFFF',
-			'fbg' : '2870C0',
-			'ffc' : 'FFFFFF',
-			'flc' : 'FFFFFF',
-			'fhc' : 'FFFFFF',
-			'bdt' : 'double',
-			'bdw' : '0px',
-			'bdc' : 'FFFFFF'
-		};
-		$('select').val(0);
+		init_variables();
+		$('select').val("");
 		update_Widget();
 	});
 }
@@ -164,7 +131,7 @@ function hide_border_options(){
 	$('button#button_yes').click(function(){
 		$('#border_options').slideDown('slow');
 			bdw='1px';
-			url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+			build_url();
 			get_widget();
 	});
 	$('button#button_no').click(function(){
@@ -190,39 +157,23 @@ function settings_options(){
 	);
 }
 
-//Deprecated
-/**
- * This function listens for all select input feilds to be changed. 
- * Once they are, they change the color of their corresponding element
- * on the widget. They also change the color of the corresponding swatch
- * in relation to the color the user selected. We also think this is deprecated. 
- */
-/*function added_select_boxes(){
-	$('input').change(function(){
-		key=$(this).attr('id');
-		selectColor=$(this).val();
-		urlObj[key] = selectColor;
-		update_Widget();
-	});
-}*/
-
 //Font style, type and size
 function choose_font() {
 	$('.fonts').change(function() {
 		urlObj['oft'] = $('#font-type').val();
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 
 	$('.font-sz1').change(function() {
 		urlObj['fsz'] = $('#font-size1').val(); console.log("here " + urlObj['fsz'])
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 
 	$('.font-sz2').change(function() {
 		urlObj['fsz'] = $('#font-size2').val(); 
-		url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+		build_url();
 		get_widget();
 	});
 }
