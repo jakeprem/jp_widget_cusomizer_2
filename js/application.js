@@ -6,6 +6,7 @@ var baseUrl, url, key, selectedColor = '';
 $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
+	init_accordion();
 	build_url();
 	hide_border_options();
 	get_widget();
@@ -82,6 +83,12 @@ function init_colors() {
 	});
 }
 
+function init_accordion(){
+	$( ".accordion" ).accordion({
+		collapsible: true,
+		active:false
+	});
+}
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
