@@ -8,9 +8,7 @@ $(document).ready(function(){
 	init_variables();
 	init_accordion();
 	build_url();
-	hide_border_options();
 	get_widget();
-	border_options();
 	reset_all_settings();
 	//settings_options();
 	choose_font();
@@ -32,9 +30,6 @@ function init_variables(){
 	'ffc' : 'ed7c31',
 	'flc' : 'ed7c31',
 	'fhc' : 'ed7c31',
-	'bdt' : 'double',
-	'bdw' : '0px',
-	'bdc' : 'FFFFFF',
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'tfsz' : '14',
 	'pfsz' : '12',
@@ -51,7 +46,7 @@ function init_variables(){
 }
 
 function build_url(){
-	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + '&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '';
+	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + '&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '';
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -76,6 +71,7 @@ function update_Widget(){
 	get_widget();
 }
 
+// Set the colors displayed by the colorpicker to the defaults
 function init_colors() {
 	$('.colorpicker').each(function () {
 		var id = $(this).attr('id');
@@ -134,41 +130,12 @@ function initiate_color_picker(){
 	});	
 }
 
-//Deprecated (not within project specifications, not completely functional, ugly, breaks design)
-function border_options(){
-	$('#select').click(function(){
-		bdt=$('#select').val();
-		update_Widget();
-	});
-	$('#border_width').click(function(){
-		bdw=$('#border_width').val();
-		update_Widget();
-	});
-}
-
 //Resets all settings
 function reset_all_settings(){
 	$('button.reset').click(function(){
 		init_variables();
 		$('select').val("");
 		update_Widget();
-	});
-}
-
-//Deprecated (to be replaced with padding options) & border radius
-function hide_border_options(){
-	$('button#button_yes').click(function(){
-		$('#border_options').slideDown('slow');
-			bdw='1px';
-			build_url();
-			get_widget();
-	});
-	$('button#button_no').click(function(){
-		$('#border_options').slideUp('slow');
-			bdt='double';
-			bdw='0px';
-			bdc='FFFFFF';
-			update_Widget();
 	});
 }
 
