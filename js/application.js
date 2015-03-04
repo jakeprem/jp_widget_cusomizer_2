@@ -31,8 +31,7 @@ function init_variables(){
 	'ffc' : 'ed7c31',
 	'flc' : 'ed7c31',
 	'fhc' : 'ed7c31',
-	'bdt' : 'double',
-	'bdw' : '0px',
+	'bdr' : 'false',
 	'bdc' : 'FFFFFF',
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'tfsz' : '14',
@@ -75,6 +74,7 @@ function update_Widget(){
 	get_widget();
 }
 
+// Set the colors displayed by the colorpicker to the defaults
 function init_colors() {
 	$('.colorpicker').each(function () {
 		var id = $(this).attr('id');
@@ -125,7 +125,7 @@ function initiate_color_picker(){
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
 function border_options(){
 	$('#select').click(function(){
-		bdt=$('#select').val();
+		bdr=$('#select').val();
 		update_Widget();
 	});
 	$('#border_width').click(function(){
