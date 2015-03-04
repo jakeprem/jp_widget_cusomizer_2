@@ -28,7 +28,7 @@ function init_variables(){
 	'blc' : 'FFFFFF',
 	'bhc' : 'FFFFFF',
 	'fbg' : 'FFFFFF',
-	'ffc' : 'FFFFFF',
+	'ffc' : 'ed7c31',
 	'flc' : 'ed7c31',
 	'fhc' : 'ed7c31',
 	'bdt' : 'double',
