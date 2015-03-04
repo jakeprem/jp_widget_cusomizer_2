@@ -41,7 +41,7 @@ function init_variables(){
 	'ffsz' : '13'
 	};
 
-	baseUrl = "http://192.168.87.196:/widget.php"
+	baseUrl = "http://192.168.87.196/widget.php"
 	build_url();
 	key='';
 	selectedColor='';
