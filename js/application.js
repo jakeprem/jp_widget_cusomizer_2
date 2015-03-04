@@ -83,6 +83,7 @@ function init_jQuery_UI(){
 		active:false
 	});
 	$( "#radioset" ).buttonset();
+	$( ".reset" ).button();
 }
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({

@@ -103,3 +103,9 @@ select {
 #cfc,#clc {
 	background-color:#000;
 }
+.reset {
+	margin-top:5px;
+}
+#radioset {
+	margin-top:5px;
+}
