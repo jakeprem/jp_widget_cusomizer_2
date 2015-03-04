@@ -9,7 +9,7 @@ body {
 	height:100%;
 	margin:auto;
 	background-color:white;
-	padding: 5px;
+	padding: 10px;
 }
 
 #selectors {
@@ -106,6 +106,7 @@ select {
 #radioset {
 	margin-top:5px;
 }
+<<<<<<< HEAD
 
 #result {
 	margin-left: 20px;
@@ -117,3 +118,14 @@ select {
 	margin: auto;
 }
 
+=======
+.slider {
+	margin-top:5px;
+	margin-left:1px;
+	margin-right:1px;
+}
+#width_spinner {
+	margin-top:5px;
+	text-align: center;
+}
+>>>>>>> e7b88a3293faa25b814c4b55b7952f7ecf6d4ed8

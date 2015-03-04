@@ -84,10 +84,13 @@ function init_colors() {
 function init_jQuery_UI(){
 	$( ".accordion" ).accordion({
 		collapsible: true,
-		active:false
+		active:0,
+		heightStyle: "content",
 	});
 	$( "#radioset" ).buttonset();
 	$( ".reset" ).button();
+	$( ".slider" ).slider();
+	$( ".spinner" ).spinner();
 }
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
