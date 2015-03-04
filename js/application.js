@@ -89,8 +89,15 @@ function init_jQuery_UI(){
 	});
 	$( "#radioset" ).buttonset();
 	$( ".reset" ).button();
-	$( ".slider" ).slider();
-	$( ".spinner" ).spinner();
+	$( ".slider" ).slider({
+		min: 175,
+		max: 250,
+		value: 215,
+	});
+	$( ".spinner" ).spinner({
+		min: 175,
+		max: 250,
+	});
 }
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
@@ -181,8 +188,8 @@ function choose_font() {
 
 //Widget orientation
 function choose_orientation() {
-	$('#radioset').change(function() {
-		urlObj['ori'] = $('input:radio[name=radio:checked').val();
+	$('.widget-orientation').change(function() {
+		urlObj['ori'] = $('input:radio[name=orientation:checked').val();
 		build_url();
 		get_widget();
 	});
