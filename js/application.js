@@ -1,7 +1,7 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
 var urlObj = {}
-var url, key, selectedColor = '';
+var baseUrl, url, key, selectedColor = '';
 
 $(document).ready(function(){
 	init_variables();
@@ -15,6 +15,9 @@ $(document).ready(function(){
 	choose_font();
 });
 
+/**
+* This function initializes the variables. It is the place to update the default color, base url, etc
+*/
 function init_variables(){
 	urlObj = {
 	'cfc': '000000',
@@ -34,13 +37,14 @@ function init_variables(){
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'fsz' : '12'
 	};
+	baseUrl = "http://192.168.87.196:/widget.php"
 	build_url();
 	key='';
 	selectedColor='';
 }
 
 function build_url(){
-	url='http://devel@192.168.87.196:/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
 }
 
 //Generates the widget in an iframe (via HTML)
