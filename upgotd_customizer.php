@@ -45,19 +45,7 @@ $footer_bg_color = (isset($_GET['fbg'])) ? '#'.$_GET['fbg'] : '#BBDDFF';
 $footer_font_color = (isset($_GET['ffc'])) ? '#'.$_GET['ffc'] : '#000000';
 $footer_link_color = (isset($_GET['flc'])) ? '#'.$_GET['flc'] : '#0000FF';
 $footer_hover_color = (isset($_GET['fhc'])) ? '#'.$_GET['fhc'] : '#0000FF';
-/**
- * Set the widget border details
- *
- * @author Johnathan Pulos
- */
-$border = '';
-$has_border = (isset($_GET['nb'])) ? $_GET['nb'] : 'false';
-if($has_border == 'false') {
-	$border_type = (isset($_GET['bdt'])) ? $_GET['bdt'] : 'dashed';
-	$border_color = (isset($_GET['bdc'])) ? '#'.$_GET['bdc'] : '#CCCCCC';
-	$border_width = (isset($_GET['bdw'])) ? $_GET['bdw'] : '1px';
-	$border = 'border: ' . $border_color . ' ' . $border_width . ' ' . $border_type. ';';
-}
+
 /**
  * Set the final language
  *
@@ -90,7 +78,7 @@ header("Content-type: application/x-javascript");
 
 document.write('<style type="text/css">\n');
 document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
-document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> text-align: center; width:<?php echo $width; ?>; font-size:<?php echo $info_font_size ?>;}\n');
+document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; text-align: center; width:<?php echo $width; ?>; font-size:<?php echo $info_font_size ?>;}\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-title a { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
