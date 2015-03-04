@@ -11,7 +11,7 @@ $(document).ready(function(){
 	initiate_color_picker();
 	border_options();
 	reset_all_settings();
-	settings_options();
+	//settings_options();
 	choose_font();
 });
 
@@ -40,7 +40,7 @@ function init_variables(){
 }
 
 function build_url(){
-	url='http://devel@192.168.87.196:/jp_widget_code/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
+	url='http://devel@192.168.87.196:/widget.php?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+'&fhc='+ urlObj['fhc'] +'&bdt='+ urlObj['bdt'] +'&bdw='+ urlObj['bdw'] +'&bdc='+ urlObj['bdc'] + '&oft='+urlObj['oft'] + '&fsz='+urlObj['fsz'] + 'px'+ '';
 }
 
 //Generates the widget in an iframe (via HTML)
