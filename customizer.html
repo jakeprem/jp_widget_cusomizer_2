@@ -79,6 +79,12 @@
 		<center><h2>Unreached of the Day Widget</h2></center>
 		<div id="content_container">
 	        <div id="options_container">
+	        	<div class="accordion">
+	        		<h3>Color Templates</h3>
+	        		<div>
+	        			Color templates go here.
+	        		</div>
+	        	</div>
 		        <div class="accordion">
 		        	<h3>Color Options</h3>
 		        	<div>
@@ -250,10 +256,17 @@
 					    </form>
 					</div>
 				</div>
-
 				<table id="selectors" class="left">
 				    <tr><td>Width:</td>
 				        <td><input type="text" id="wpw" class="widthpicker" value="200"/></td></tr>
+				    <tr><td>
+				    	<form style="margin-top: 1em;">
+					    	<div id="radioset">
+								<input type="radio" id="radio_portrait" name="radio" checked="checked"><label for="radio_portrait">Portrait</label>
+								<input type="radio" id="radio_horizontal" name="radio"><label for="radio_horizontal">Horizontal</label>
+							</div>
+						</form>
+				    </td></tr>
 					<tr><td>Default Settings: </td>
 						<td><button class="reset">Reset All</button><br/></td></tr>		
 				</table>

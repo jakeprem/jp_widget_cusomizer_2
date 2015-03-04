@@ -6,11 +6,10 @@ var baseUrl, url, key, selectedColor = '';
 $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
-	init_accordion();
+	init_jQuery_UI();
 	build_url();
 	get_widget();
 	reset_all_settings();
-	//settings_options();
 	choose_font();
 });
 
@@ -41,7 +40,6 @@ function init_variables(){
 	build_url();
 	key='';
 	selectedColor='';
-
 	init_colors();
 }
 
@@ -79,11 +77,12 @@ function init_colors() {
 	});
 }
 
-function init_accordion(){
+function init_jQuery_UI(){
 	$( ".accordion" ).accordion({
 		collapsible: true,
 		active:false
 	});
+	$( "#radioset" ).buttonset();
 }
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
