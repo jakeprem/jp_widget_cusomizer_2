@@ -93,8 +93,8 @@ document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: 
 document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> text-align: center; width:<?php echo $width; ?>; font-size:12px;}\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
-document.write('.upgotd-title, { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
-document.write('.upgotd-title a {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: normal; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
+document.write('.upgotd-title a { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
+document.write('.upgotd-title a:hover {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-family:<?php echo $overall_font_type; ?>; font-weight: bold; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
 document.write('.upgotd-image { text-align: center; }\n');
 document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 9px;}\n'); // **ADD CHANGE ABILITY
 document.write('.upgotd-people { font-weight: normal; font-size:<?php echo $people_font_size; ?> !important; padding-bottom:2px; }\n');
