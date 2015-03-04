@@ -6,6 +6,7 @@ var baseUrl, url, key, selectedColor = '';
 $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
+	init_accordion();
 	build_url();
 	hide_border_options();
 	get_widget();
@@ -40,7 +41,7 @@ function init_variables(){
 	'ffsz' : '13'
 	};
 
-	baseUrl = "http://192.168.87.196:/widget.php"
+	baseUrl = "http://192.168.87.196/widget.php"
 	build_url();
 	key='';
 	selectedColor='';
@@ -82,6 +83,12 @@ function init_colors() {
 	});
 }
 
+function init_accordion(){
+	$( ".accordion" ).accordion({
+		collapsible: true,
+		active:false
+	});
+}
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
@@ -104,10 +111,15 @@ function initiate_color_picker(){
 	    	update_Widget();
 	    },
 	    palette: [
-	        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
-	        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
-	        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
-	        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+	    	["#000000", "#FFFFFF","#0000FF","#FF0000","#00FF00"],
+	    	["#E6E2AF", "#A7A37E", "#EFECCA", "#046380", "#002F2F"],
+	    	["#FCFFF5", "#D1DBBD", "#91AA9D", "#3E606F", "#193441"],
+	    	["#105B63", "#FFFAD5", "#FFD34E", "#DB9E36", "#BD4932"],
+
+	    	//The default color picker palette
+	        /*["#000000", "#0000ff", "#000000", "#cccccc", "#dadada","#fff"],
+	        ["#980000", "#f00", "#000", "#000", "#000",
+	        "#000", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
 	        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
 	        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
 	        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
@@ -117,7 +129,7 @@ function initiate_color_picker(){
 	        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
 	        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
 	        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
-	        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+	        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]*/
 	    ]
 	});	
 }

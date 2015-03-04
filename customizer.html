@@ -38,11 +38,15 @@
 
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid Serif:400,700,400italic,700italic">
 		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
-		<link rel="stylesheet" href="css/colorpicker.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/jquery-ui.structure.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/jquery-ui.theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/spectrum.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
 		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/spectrum.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="js/spectrum.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/* <![CDATA[ */
 			/*var _gaq = _gaq || [];
@@ -73,175 +77,184 @@
 		
 	<div id="container">
         <center><h2>Unreached of the Day Widget</h2></center>
+        <div class="accordion">
+        	<h3>Color Options</h3>
+        	<div>
+        		 <table id="colorSelectors" class="left">     
+					<tr><td>Background Color: </td>
+						<td><input type="text" id="cbg" class="colorpicker"/></td></tr>
+					<tr><td>Header Color: </td>
+						<td><input type="text" id="bbg" class="colorpicker"/></td></tr>
+					<tr><td>Header Font Color: </td>
+						<td><input type="text" id="blc" class="colorpicker"/></td></tr>
+					<tr><td>Header Font Hover Color: </td>
+						<td><input type="text" id="bhc" class="colorpicker"/></td></tr>
+					<tr><td>Center Font Color: </td>
+						<td><input type="text" id="cfc" class="colorpicker"/></td></tr>
+					<tr><td>Center Font Link Color: </td>
+						<td><input type="text" id="clc" class="colorpicker"/></td></tr>
+					<tr><td>Center Font Link Hover Color:</td>
+						<td><input type="text" id="chc" class="colorpicker"/></td></tr>
+					<tr><td>Footer Background Color: </td>
+						<td><input type="text" id="fbg" class="colorpicker"/></td></tr>
+					<tr><td>Footer Font Color: </td>
+						<td><input type="text" id="ffc" class="colorpicker"/></td></tr>
+					<tr><td>Footer Links Color: </td>
+						<td><input type="text" id="flc" class="colorpicker"/></td></tr>
+					<tr><td>Footer Link Hover Color: </td>
+						<td><input type="text" id="fhc" class="colorpicker" value="#FFFFFF"/></td></tr>
+				</table>
+        	</div>
+        </div>
+        <div class="accordion">
+        	<h3>Font Options</h3>
+        	<div>
+				<form class="fonts">
+				    Font type:
+				    <select id="font-type">
+				        <option value="">Select Font Type</option>
+				        <option value="Andale Mono">Andale Mono</option>
+				        <option value="Arial">Arial</option>
+				        <option value="Arial Black">Arial Black</option>
+				        <option value="Arial Narrow">Arial Narrow</option>
+				        <option value="Arial Rounded MT Bold">Arial Rounded MT Bold</option>
+				        <option value="Avant Garde">Avant Garde</option>
+				        <option value="Baskerville">Baskerville</option>
+				        <option value="Big Caslon">Big Caslon</option>
+				        <option value="Bodoni MT">Bodoni MT</option>
+				        <option value="Book Antiqua">Book Antiqua</option>
+				        <option value="Brush Script MT">Brush Script MT</option>
+				        <option value="Calibri">Calibri</option>
+				        <option value="Calisto MT">Calisto MT</option>
+				        <option value="Cambrio">Cambrio</option>
+				        <option value="Candara">Candara</option>
+				        <option value="Century Gothic">Century Gothic</option>
+				        <option value="Consolas">Consolas</option>
+				        <option value="Copperplate">Copperplate</option>
+				        <option value="Courier New">Courier New</option>
+				        <option value="Droid Serif">Droid Serif</option>
+				        <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+				        <option value="Futura">Futura</option>
+				        <option value="Garamond">Garamond</option>
+				        <option value="Geneva">Geneva</option>
+				        <option value="Georgia">Georgia</option>
+				        <option value="Gill Sans">Gill Sans</option>
+				        <option value="Goudy Old Style">Goudy Old Style</option>
+				        <option value="Helvetica">Helvetica</option>
+				        <option value="Hoefler Text">Hoefler Text</option>
+				        <option value="Impact">Impact</option>
+				        <option value="Lucida Bright">Lucida Bright</option>
+				        <option value="Lucida Console">Lucida Console</option>
+				        <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
+				        <option value="Lucida Grande">Lucida Grande</option>
+				        <option value="Monaco">Monaco</option>
+				        <option value="Optima">Optima</option>
+				        <option value="Palatino">Palatino</option>
+				        <option value="Papyrus">Papyrus</option>
+				        <option value="Perpetua">Perpetua</option>
+				        <option value="Rockwell">Rockwell</option>
+				        <option value="Rockwell Extra Bold">Rockwell Extra Bold</option>
+				        <option value="Segoe UI">Segoe UI</option>
+				        <option value="Tahoma">Tahoma</option>
+				        <option value="Times New Roman">Times New Roman</option>
+				        <option value="Trebuchet MS">Trebuchet MS</option>
+				        <option value="Verdana">Verdana</option>
+				    </select>
+				</form>
+
+			    <form class="title-font-sz">
+				    Title font size:
+				    <select id="title-sz">
+				        <option value="">Select Font Size</option>
+				        <option value="8">8px</option>
+				        <option value="9">9px</option>
+				        <option value="10">10px</option>
+				        <option value="11">11px</option>
+				        <option value="12">12px</option>
+				        <option value="14">14px</option>
+				        <option value="16">16px</option>
+				        <option value="18">18px</option>
+				        <option value="20">20px</option>
+				        <option value="24">24px</option>
+				        <option value="28">28px</option>
+				        <option value="36">36px</option>
+				        <option value="48">48px</option>
+				    </select>
+				</form>
+
+				<form class="people-font-sz">
+				    People font size:
+				    <select id="people-sz">
+				        <option value="">Select Font Size</option>
+				        <option value="8">8px</option>
+				        <option value="9">9px</option>
+				        <option value="10">10px</option>
+				        <option value="11">11px</option>
+				        <option value="12">12px</option>
+				        <option value="14">14px</option>
+				        <option value="16">16px</option>
+				        <option value="18">18px</option>
+				        <option value="20">20px</option>
+				        <option value="24">24px</option>
+				        <option value="28">28px</option>
+				        <option value="36">36px</option>
+				        <option value="48">48px</option>
+				    </select>
+				</form>
+
+				<form class="info-font-sz">
+				    Info font size:
+				    <select id="info-sz">
+				        <option value="">Select Font Size</option>
+				        <option value="8">8px</option>
+				        <option value="9">9px</option>
+				        <option value="10">10px</option>
+				        <option value="11">11px</option>
+				        <option value="12">12px</option>
+				        <option value="14">14px</option>
+				        <option value="16">16px</option>
+				        <option value="18">18px</option>
+				        <option value="20">20px</option>
+				        <option value="24">24px</option>
+				        <option value="28">28px</option>
+				        <option value="36">36px</option>
+				        <option value="48">48px</option>
+				    </select>
+				</form>
+
+				<form class="footer-font-sz">
+				    Footer font size:
+				    <select id="footer-sz">
+				        <option value="">Select Font Size</option>
+				        <option value="8">8px</option>
+				        <option value="9">9px</option>
+				        <option value="10">10px</option>
+				        <option value="11">11px</option>
+				        <option value="12">12px</option>
+				        <option value="14">14px</option>
+				        <option value="16">16px</option>
+				        <option value="18">18px</option>
+				        <option value="20">20px</option>
+				        <option value="24">24px</option>
+				        <option value="28">28px</option>
+				        <option value="36">36px</option>
+				        <option value="48">48px</option>
+				    </select>
+				</form>
+		    
+			    <form class="font-sz2">
+			    	Font size:
+			    	<input type="text" id="font-size2" >
+			    </form>
+			</div>
+		</div>
+
 		<table id="selectors" class="left">
-            <tr><td>Width:</td>
-                <td><input type="text" id="wpw" class="widthpicker" value="200"/></td></tr>
-                
-			<tr><td>Background Color: </td>
-				<td><input type="text" id="cbg" class="colorpicker"/></td></tr>
-			<tr><td>Header Color: </td>
-				<td><input type="text" id="bbg" class="colorpicker"/></td></tr>
-			<tr><td>Header Font Color: </td>
-				<td><input type="text" id="blc" class="colorpicker"/></td></tr>
-			<tr><td>Header Font Hover Color: </td>
-				<td><input type="text" id="bhc" class="colorpicker"/></td></tr>
-			<tr><td>Center Font Color: </td>
-				<td><input type="text" id="cfc" class="colorpicker"/></td></tr>
-			<tr><td>Center Font Link Color: </td>
-				<td><input type="text" id="clc" class="colorpicker"/></td></tr>
-			<tr><td>Center Font Link Hover Color:</td>
-				<td><input type="text" id="chc" class="colorpicker"/></td></tr>
-			<tr><td>Footer Background Color: </td>
-				<td><input type="text" id="fbg" class="colorpicker"/></td></tr>
-			<tr><td>Footer Font Color: </td>
-				<td><input type="text" id="ffc" class="colorpicker"/></td></tr>
-			<tr><td>Footer Links Color: </td>
-				<td><input type="text" id="flc" class="colorpicker"/></td></tr>
-			<tr><td>Footer Link Hover Color: </td>
-
-				<td><input type="text" id="fhc" class="colorpicker" value="#FFFFFF"/></td></tr>
-
+		    <tr><td>Width:</td>
+		        <td><input type="text" id="wpw" class="widthpicker" value="200"/></td></tr>
 			<tr><td>Default Settings: </td>
 				<td><button class="reset">Reset All</button><br/></td></tr>		
-			</table>
-
-			<form class="fonts">
-			    Font type:
-			    <select id="font-type">
-			        <option value="">Select Font Type</option>
-			        <option value="Andale Mono">Andale Mono</option>
-			        <option value="Arial">Arial</option>
-			        <option value="Arial Black">Arial Black</option>
-			        <option value="Arial Narrow">Arial Narrow</option>
-			        <option value="Arial Rounded MT Bold">Arial Rounded MT Bold</option>
-			        <option value="Avant Garde">Avant Garde</option>
-			        <option value="Baskerville">Baskerville</option>
-			        <option value="Big Caslon">Big Caslon</option>
-			        <option value="Bodoni MT">Bodoni MT</option>
-			        <option value="Book Antiqua">Book Antiqua</option>
-			        <option value="Brush Script MT">Brush Script MT</option>
-			        <option value="Calibri">Calibri</option>
-			        <option value="Calisto MT">Calisto MT</option>
-			        <option value="Cambrio">Cambrio</option>
-			        <option value="Candara">Candara</option>
-			        <option value="Century Gothic">Century Gothic</option>
-			        <option value="Consolas">Consolas</option>
-			        <option value="Copperplate">Copperplate</option>
-			        <option value="Courier New">Courier New</option>
-			        <option value="Droid Serif">Droid Serif</option>
-			        <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
-			        <option value="Futura">Futura</option>
-			        <option value="Garamond">Garamond</option>
-			        <option value="Geneva">Geneva</option>
-			        <option value="Georgia">Georgia</option>
-			        <option value="Gill Sans">Gill Sans</option>
-			        <option value="Goudy Old Style">Goudy Old Style</option>
-			        <option value="Helvetica">Helvetica</option>
-			        <option value="Hoefler Text">Hoefler Text</option>
-			        <option value="Impact">Impact</option>
-			        <option value="Lucida Bright">Lucida Bright</option>
-			        <option value="Lucida Console">Lucida Console</option>
-			        <option value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
-			        <option value="Lucida Grande">Lucida Grande</option>
-			        <option value="Monaco">Monaco</option>
-			        <option value="Optima">Optima</option>
-			        <option value="Palatino">Palatino</option>
-			        <option value="Papyrus">Papyrus</option>
-			        <option value="Perpetua">Perpetua</option>
-			        <option value="Rockwell">Rockwell</option>
-			        <option value="Rockwell Extra Bold">Rockwell Extra Bold</option>
-			        <option value="Segoe UI">Segoe UI</option>
-			        <option value="Tahoma">Tahoma</option>
-			        <option value="Times New Roman">Times New Roman</option>
-			        <option value="Trebuchet MS">Trebuchet MS</option>
-			        <option value="Verdana">Verdana</option>
-			    </select>
-			</form>
-
-		    <form class="title-font-sz">
-			    Title font size:
-			    <select id="title-sz">
-			        <option value="">Select Font Size</option>
-			        <option value="8">8px</option>
-			        <option value="9">9px</option>
-			        <option value="10">10px</option>
-			        <option value="11">11px</option>
-			        <option value="12">12px</option>
-			        <option value="14">14px</option>
-			        <option value="16">16px</option>
-			        <option value="18">18px</option>
-			        <option value="20">20px</option>
-			        <option value="24">24px</option>
-			        <option value="28">28px</option>
-			        <option value="36">36px</option>
-			        <option value="48">48px</option>
-			    </select>
-			</form>
-
-			<form class="people-font-sz">
-			    People font size:
-			    <select id="people-sz">
-			        <option value="">Select Font Size</option>
-			        <option value="8">8px</option>
-			        <option value="9">9px</option>
-			        <option value="10">10px</option>
-			        <option value="11">11px</option>
-			        <option value="12">12px</option>
-			        <option value="14">14px</option>
-			        <option value="16">16px</option>
-			        <option value="18">18px</option>
-			        <option value="20">20px</option>
-			        <option value="24">24px</option>
-			        <option value="28">28px</option>
-			        <option value="36">36px</option>
-			        <option value="48">48px</option>
-			    </select>
-			</form>
-
-			<form class="info-font-sz">
-			    Info font size:
-			    <select id="info-sz">
-			        <option value="">Select Font Size</option>
-			        <option value="8">8px</option>
-			        <option value="9">9px</option>
-			        <option value="10">10px</option>
-			        <option value="11">11px</option>
-			        <option value="12">12px</option>
-			        <option value="14">14px</option>
-			        <option value="16">16px</option>
-			        <option value="18">18px</option>
-			        <option value="20">20px</option>
-			        <option value="24">24px</option>
-			        <option value="28">28px</option>
-			        <option value="36">36px</option>
-			        <option value="48">48px</option>
-			    </select>
-			</form>
-
-			<form class="footer-font-sz">
-			    Footer font size:
-			    <select id="footer-sz">
-			        <option value="">Select Font Size</option>
-			        <option value="8">8px</option>
-			        <option value="9">9px</option>
-			        <option value="10">10px</option>
-			        <option value="11">11px</option>
-			        <option value="12">12px</option>
-			        <option value="14">14px</option>
-			        <option value="16">16px</option>
-			        <option value="18">18px</option>
-			        <option value="20">20px</option>
-			        <option value="24">24px</option>
-			        <option value="28">28px</option>
-			        <option value="36">36px</option>
-			        <option value="48">48px</option>
-			    </select>
-			</form>
-		    
-		    <form class="font-sz2">
-		    	Font size:
-		    	<input type="text" id="font-size2" >
-		    </form>
+		</table>
 
 			<div id="result" class="left">
 				<div id="widget_container">
