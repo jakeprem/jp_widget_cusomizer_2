@@ -4,11 +4,11 @@ var urlObj = {}
 var baseUrl, url, key, selectedColor = '';
 
 $(document).ready(function(){
+	initiate_color_picker();
 	init_variables();
 	build_url();
 	hide_border_options();
 	get_widget();
-	initiate_color_picker();
 	border_options();
 	reset_all_settings();
 	//settings_options();
@@ -21,16 +21,16 @@ $(document).ready(function(){
 function init_variables(){
 	urlObj = {
 	'cfc': '000000',
-	'chc' : '0000ff',
+	'chc' : 'ed7c31',
 	'clc' : '000000',
-	'cbg' : 'eeeeee',
-	'bbg' : '2870C0',
+	'cbg' : 'FFFFFF',
+	'bbg' : '42ad9e',
 	'blc' : 'FFFFFF',
 	'bhc' : 'FFFFFF',
-	'fbg' : '2870C0',
+	'fbg' : 'FFFFFF',
 	'ffc' : 'FFFFFF',
-	'flc' : 'FFFFFF',
-	'fhc' : 'FFFFFF',
+	'flc' : 'ed7c31',
+	'fhc' : 'ed7c31',
 	'bdt' : 'double',
 	'bdw' : '0px',
 	'bdc' : 'FFFFFF',
@@ -41,6 +41,8 @@ function init_variables(){
 	build_url();
 	key='';
 	selectedColor='';
+
+	init_colors();
 }
 
 function build_url(){
@@ -67,6 +69,13 @@ function get_widget(){
 function update_Widget(){
     build_url();
 	get_widget();
+}
+
+function init_colors() {
+	$('.colorpicker').each(function () {
+		var id = $(this).attr('id');
+		$(this).spectrum('set', urlObj[id]);
+	});
 }
 
 function initiate_color_picker(){
@@ -105,7 +114,7 @@ function initiate_color_picker(){
 	        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
 	        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
 	    ]
-	});
+	});	
 }
 
 //Deprecated (not within project specifications, not completely functional, ugly, breaks design)
