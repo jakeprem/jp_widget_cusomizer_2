@@ -97,7 +97,6 @@ function init_jQuery_UI(){
 	$( ".spinner" ).spinner({
 		min: 175,
 		max: 250,
-		value: 215,
 	});
 }
 function initiate_color_picker(){
