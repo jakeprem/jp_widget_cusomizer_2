@@ -143,20 +143,6 @@ function hide_border_options(){
 	});
 }
 
-//Deprecated, needs to be carefully extracted without breaking anything
-function settings_options(){
-	$('.background_color').hide();
-	$('.advanced_on').toggle(function(){
-			$('.background_color').fadeIn('slow',function(){
-				$('button.advanced_on').text('On');
-			});
-		},function(){
-			$('.background_color').fadeOut('slow',function(){
-				$('button.advanced_on').text('Off')});
-		}
-	);
-}
-
 //Font style, type and size
 function choose_font() {
 	$('.fonts').change(function() {
