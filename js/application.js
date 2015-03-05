@@ -9,7 +9,7 @@ $(document).ready(function(){
 	init_jQuery_UI();
 	build_url();
 	get_widget();
-	reset_all_settings();
+	//reset_all_settings();
 	choose_font();
 });
 
@@ -93,10 +93,27 @@ function init_jQuery_UI(){
 		min: 175,
 		max: 250,
 		value: 215,
+		change: function ( event, ui) {
+			var sliderVal = $("#width_slider").slider("value");
+			$("#wpw").spinner("value", sliderVal);
+		}
 	});
 	$( ".spinner" ).spinner({
 		min: 175,
 		max: 250,
+		change: function ( event, ui) {
+			var spinnerVal = $("#wpw").spinner("value");
+			$("#width_slider").slider("value", spinnerVal);
+		},
+		spin: function( event, ui ) {
+			var spinnerVal = $("#wpw").spinner("value");
+			$("#width_slider").slider("value", spinnerVal);
+		},
+	});
+}
+
+function jq_updater() {
+	$("#width_slider").slider({
 	});
 }
 function initiate_color_picker(){
