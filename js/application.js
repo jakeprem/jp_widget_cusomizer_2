@@ -111,6 +111,9 @@ function init_jQuery_UI(){
 			$("#width_slider").slider("value", spinnerVal);
 		},
 	});
+	$(".reset").click(function() {
+		reset_all_settings();
+	});
 }
 
 function jq_updater() {
