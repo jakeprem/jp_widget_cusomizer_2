@@ -34,7 +34,8 @@ function init_variables(){
 	'pfsz' : '12',
 	'ifsz' : '11.5',
 	'ffsz' : '13',
-	'ori' : "vert"
+	'ori' : "vert",
+	'wpw' : "215"
 	};
 
 	baseUrl = "http://192.168.87.196/widget.php"
@@ -92,7 +93,7 @@ function init_jQuery_UI(){
 	$( ".slider" ).slider({
 		min: 175,
 		max: 250,
-		value: 215,
+		value: urlObj['wpw'],
 		change: function ( event, ui) {
 			var sliderVal = $("#width_slider").slider("value");
 			$("#wpw").spinner("value", sliderVal);
