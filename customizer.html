@@ -115,7 +115,7 @@
 					<h3>Font Options</h3>
 		        	<div>
 			        	<table>
-	                        <tr><form class="fonts">
+	                        <tr>
 							    <td>Font type:</td>
 							    <td><select id="font-type">
 							        <option value="">Select Font Type</option>
@@ -166,8 +166,8 @@
 							        <option value="Trebuchet MS">Trebuchet MS</option>
 							        <option value="Verdana">Verdana</option>
 							    </select></td>
-							</form></tr>
-						    <tr><form class="title-font-sz">
+							</tr>
+						    <tr>
 							    <td>Title font size:</td>
 							    <td><select id="title-sz">
 							        <option value="">Select Font Size</option>
@@ -185,8 +185,8 @@
 							        <option value="36">36px</option>
 							        <option value="48">48px</option>
 							    </select></td>
-							</form></tr>
-							<tr><form class="people-font-sz">
+							</tr>
+							<tr>
 							    <td>People font size:</td>
 							    <td><select id="people-sz">
 							        <option value="">Select Font Size</option>
@@ -204,8 +204,8 @@
 							        <option value="36">36px</option>
 							        <option value="48">48px</option>
 							    </select></td>
-							</form></tr>
-							<tr><form class="info-font-sz">
+							</tr>
+							<tr>
 							    <td>Info font size:</td>
 							    <td><select id="info-sz">
 							        <option value="">Select Font Size</option>
@@ -223,8 +223,8 @@
 							        <option value="36">36px</option>
 							        <option value="48">48px</option>
 							    </select></td>
-							</form></tr>
-							<tr><form class="footer-font-sz">
+							</tr>
+							<tr>
 							    <td>Footer font size:</td>
 							    <td><select id="footer-sz">
 							        <option value="">Select Font Size</option>
@@ -242,31 +242,33 @@
 							        <option value="36">36px</option>
 							        <option value="48">48px</option>
 							    </select></td>
-							</form></tr>
+							</tr>
 				    
-					    <tr><form class="font-sz2">
+					    <tr>
 					    	<td>Font size:</td>
-					    	<td><input type="text" id="font-size2" ></td>
+					    	<td><input type="text" id="font-size_insert" ></td>
                         </form></tr>
 					</table>
 				</div>
+
 					<h3>Size and Shape</h3>
 					<div>
 						<div id="width_slider" class="slider"></div>
 					    <div id="width_spinner">
 					    	Width: 
-					    	<input type="text" id="wpw" class="spinner" value="215"/>
+					    	<input type="text" id="wpw" class="spinner" value="200"/>
 					    </div>
 				    	<form style="margin-top: 1em;">
 					    	<div id="radioset">
-								<input type="radio" id="radio_portrait" name="radio" checked="checked"><label for="radio_portrait">Portrait</label>
-								<input type="radio" id="radio_horizontal" name="radio"><label for="radio_horizontal">Landscape</label>
+								<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
+								<input type="radio" id="radio_horizontal" value="horz" name="radio"><label for="radio_horizontal">Landscape</label>
 							</div>
 							<br><br>
 						</form>
 					</div>
 	        	</div>
 				<button class="reset">Reset to Default</button><br/>		
+
 			</div>
 
 			<div id="result" class="left">

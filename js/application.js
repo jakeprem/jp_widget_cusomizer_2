@@ -154,32 +154,38 @@ function reset_all_settings(){
 }
 
 //Font style, type and size
-function choose_font() {
-	$('.title-font-sz').change(function() {
+function choose_font() { 
+	$('#font-type').change(function() {
+		urlObj['oft'] = $('#font-type').val();
+		build_url();
+		get_widget();
+	});
+
+	$('#title-sz').change(function() {
 		urlObj['tfsz'] = $('#title-sz').val();
 		build_url();
 		get_widget();
 	});
 
-	$('.people-font-sz').change(function() {
+	$('#people-sz').change(function() {
 		urlObj['pfsz'] = $('#people-sz').val();
 		build_url();
 		get_widget();
 	});
 
-	$('.info-font-sz').change(function() {
+	$('#info-sz').change(function() {
 		urlObj['ifsz'] = $('#info-sz').val(); 
 		build_url();
 		get_widget();
 	});
 
-	$('.footer-font-sz').change(function() {
+	$('#footer-sz').change(function() {
 		urlObj['ffsz'] = $('#footer-sz').val(); 
 		build_url();
 		get_widget();
 	});
 
-	$('.font-sz2').change(function() {
+	$('#font-size2').change(function() {
 		urlObj['ffsz'] = $('#font-size2').val(); 
 		build_url();
 		get_widget();
