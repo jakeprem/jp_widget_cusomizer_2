@@ -11,6 +11,7 @@ $(document).ready(function(){
 	get_widget();
 	//reset_all_settings();
 	choose_font();
+	choose_orientation();
 });
 
 /**
@@ -216,9 +217,19 @@ function choose_font() {
 
 //Widget orientation
 function choose_orientation() {
-	$('.widget-orientation').change(function() {
-		urlObj['ori'] = $('input:radio[name=orientation:checked').val();
-		build_url();
-		get_widget();
+	$('#radio_portrait').click(function() {
+		if ($(this).is(':checked')) {
+			urlObj['ori'] = 'vert'; 
+			build_url();
+			get_widget();
+		}	
+	});
+
+	$('#radio_horizontal').click(function() {
+		if ($(this).is(':checked')) {
+			urlObj['ori'] = 'horz'; 
+			build_url();
+			get_widget();
+		}	
 	});
 }
