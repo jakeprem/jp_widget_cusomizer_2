@@ -21,7 +21,7 @@ function init_variables(){
 	urlObj = {
 	'cfc': '7b7670',
 	'chc' : 'ed7c31',
-	'clc' : '7b7670',
+	'clc' : 'ed7c31',
 	'cbg' : 'FFFFFF',
 	'bbg' : '42ad9e',
 	'blc' : 'FFFFFF',
@@ -39,7 +39,10 @@ function init_variables(){
 	'wpw' : '215',
 	'bdw' : '0px',
 	'bdc' : '7b7670',
-	'bdr' : '0px',
+	'bdrtl' : '0',
+	'bdrtr' : '0',
+	'bdrbl' : '0',
+	'bdrbr' : '0',
 	'pop' : 1,
 	'lan' : 1,
 	'relg' : 1,
@@ -59,7 +62,8 @@ function build_url(){
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
 					'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + 
 					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '&wpw=' + urlObj['wpw'] + 'px' + 
-					'&bdr=' + urlObj['bdr'] + '&bdc=' + urlObj['bdc'] + '&bdw=' + urlObj['bdw'] + '&pop=' + urlObj['pop'] + 
+					'&bdrtl=' + urlObj['bdrtl'] + 'px' + '&bdrtr=' + urlObj['bdrtr'] + 'px' + '&bdrbl=' + urlObj['bdrbl'] + 'px' +
+					'&bdrbr=' + urlObj['bdrbr'] + 'px' + '&bdc=' + urlObj['bdc'] + '&bdw=' + urlObj['bdw'] + '&pop=' + urlObj['pop'] + 
 					'&lan=' + urlObj['lan'] + '&relg=' + urlObj['relg'] + '&eva=' + urlObj['eva'] + '&stat=' + urlObj['stat'] + '';
 
 }
