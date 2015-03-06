@@ -88,7 +88,7 @@ function init_jQuery_UI(){
 		heightStyle: "content",
 	});
 	$( ".radioset" ).buttonset();
-	$( ".reset" ).button();
+	$( ".button" ).button();
 	$( ".slider" ).slider({
 		min: 175,
 		max: 250,
@@ -120,7 +120,7 @@ function init_jQuery_UI(){
 			update_Widget();
 		},
 	});
-	$(".reset").click(function() {
+	$("#reset").click(function() {
 		reset_all_settings();
 	});
 }
@@ -172,11 +172,9 @@ function initiate_color_picker(){
 
 //Resets all settings
 function reset_all_settings(){
-	$('button.reset').click(function(){
 		init_variables();
 		$('select').val("");
 		update_Widget();
-	});
 }
 
 //Widget orientation
