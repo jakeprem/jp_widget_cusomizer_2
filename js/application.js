@@ -92,17 +92,28 @@ function init_variables(){
 			'fhc' : 'FFFFFF',
 		},
 		'temp3' : {
-			'cfc' : 'FFFFFF',
+			//Center Font
+			'cfc' : '000000',
+			//Center Hover
 			'chc' : 'FFFFFF',
-			'clc' : 'FFFFFF',
-			'cbg' : 'FFFFFF',
-			'bbg' : 'FFFFFF',
+			//Center Link
+			'clc' : '000000',
+			//Background Color
+			'cbg' : 'EEEEEE',
+			//Header Background
+			'bbg' : '2870C0',
+			//Header Font
 			'blc' : 'FFFFFF',
-			'bhc' : 'FFFFFF',
-			'fbg' : 'FFFFFF',
+			//Header Hover
+			'bhc' : '000000',
+			//Footer Background
+			'fbg' : '2870C0',
+			//Footer Font
 			'ffc' : 'FFFFFF',
+			//Footer Link
 			'flc' : 'FFFFFF',
-			'fhc' : 'FFFFFF',
+			//Footer Hover
+			'fhc' : '000000',
 		},
 	};
 	//The variable should be replaced with the url of the widget.php
