@@ -78,11 +78,13 @@ $image_text_align = "text-align: center;";
 $people_display = "";
 $footer_display = "";
 
-$width = (isset($_GET['oft'])) ? $_GET['wpw'] : '215px';
-
-
-
 $landscape = (isset($_GET['ori'])) ? $_GET['ori'] : 'vert';
+$width = '215px';
+
+if($landscape == 'vert') {
+	$width = (isset($_GET['wpw'])) ? $_GET['wpw'] : '215px';
+}
+
 if($landscape == 'horz') {
 	$width = '350px';
 	$image_display = "display: inline-block;";
