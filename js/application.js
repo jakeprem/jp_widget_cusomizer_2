@@ -10,7 +10,6 @@ $(document).ready(function(){
 	init_jQuery_UI();
 	choose_orientation();
 	init_fonts();
-	border_options();
 	build_url();
 	get_widget();
 });
@@ -114,6 +113,26 @@ function init_jQuery_UI(){
 			$("#wpw").spinner("value", sliderVal);
 		}
 	});
+	$( "#border_width" ).slider({
+		min: 0,
+		max: 6,
+		value: 0,
+		change: function ( event, ui) {
+			urlObj['bdw'] = $('#border_width').slider("value");
+			build_url();
+			update_Widget();
+		}
+	});
+	$("#bdr").slider({
+		min: 0,
+		max: 25,
+		value: 0,
+		change: function ( event, ui) {
+			urlObj['bdr'] = $('#bdr').slider("value");
+			build_url();
+			update_Widget();
+		}
+	})
 	$( ".spinner" ).spinner({
 		min: 175,
 		max: 250,
@@ -241,12 +260,3 @@ function init_fonts() {
 		i++;
 	})
 }
-
-// Border options
-function border_options(){
-	$('#border_width').change(function() {
-		urlObj['bdw'] = $('#border_width').val();
-		build_url();
-		update_Widget();
-	});
-};
