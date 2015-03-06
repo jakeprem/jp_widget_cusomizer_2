@@ -192,6 +192,7 @@ function init_jQuery_UI(){
 	});
 	//This creates border radius slider
 	$("#bdr").slider({
+		disabled: true,
 		min: 0,
 		max: 25,
 		value: 0,
@@ -307,6 +308,10 @@ function init_jQuery_UI(){
 			else { border_rb = false; }
 		}
 		$slider = $('#bdr');
+		if (border_rb == true || border_rt == true) {
+			$slider.slider("enable");
+		}
+		else { 	$slider.slider("disable"); }
 		$slider.slider('option', 'change').call($slider);
 	});
 }
