@@ -91,7 +91,13 @@ $landscape = (isset($_GET['ori'])) ? $_GET['ori'] : 'vert';
 $width = '215px';
 
 if($landscape == 'vert') {
-	$width = (isset($_GET['wpw'])) ? $_GET['wpw'] : '215px';
+	$temp = (isset($_GET['wpw'])) ? $_GET['wpw'] : '215px';
+	if ($temp <= 250 && $temp >= 175)
+	{
+		$width = $temp;
+	}
+	else if ($temp < 175) { $width = 175; }
+	else { $width = 250; }
 }
 
 if($landscape == 'horz') {
