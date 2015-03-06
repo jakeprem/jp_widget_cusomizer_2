@@ -3,7 +3,7 @@
 
 //Modified by Jake Prem, John Nagelkirk and Andrei Popa
 var urlObj = {}
-var baseUrl, url, key, selectedColor = '';
+var baseUrl, url, key, selectedColor = '', border_rt = false, border_rb = false;
 
 $(document).ready(function(){
 	initiate_color_picker();
@@ -41,10 +41,10 @@ function init_variables(){
 	'wpw' : '215',
 	'bdw' : '0px',
 	'bdc' : '7b7670',
-	'bdrtl' : '0',
-	'bdrtr' : '0',
-	'bdrbl' : '0',
-	'bdrbr' : '0',
+	'bdrtl' : 0,
+	'bdrtr' : 0,
+	'bdrbl' : 0,
+	'bdrbr' : 0,
 	'pop' : 1,
 	'lan' : 1,
 	'relg' : 1,
@@ -141,7 +141,24 @@ function init_jQuery_UI(){
 		max: 25,
 		value: 0,
 		change: function ( event, ui) {
-			urlObj['bdr'] = $('#bdr').slider("value");
+			var value = $('#bdr').slider("value");
+			urlObj['bdrtl'] = value;
+			urlObj['bdrtr'] = value;
+			urlObj['bdrbl'] = value;
+			urlObj['bdrbr'] = value;
+
+			if (border_rt == true)
+			{
+				urlObj['bdrbl'] = 0;
+				urlObj['bdrbr'] = 0;
+			}
+			
+			if (border_rb == true)
+			{
+				urlObj['bdrtl'] = 0;
+				urlObj['bdrtr'] = 0;
+			}
+			
 			build_url();
 			update_Widget();
 		}
@@ -205,6 +222,24 @@ function init_jQuery_UI(){
 			urlObj[key] = '0';
 			update_Widget();
 		}
+	});
+	//The button event handler for the border-radius toggles
+	$(".br_check").click(function() { 
+		key = $(this).attr('id'); 
+		if ($(this).is(':checked')) {
+			if(key == 'top') {
+				border_rt = true;
+			}
+			else { border_rb = true; }
+		}
+		else {
+			if(key == 'top') {
+				border_rt = false;
+			}
+			else { border_rb = false; }
+		}
+		$slider = $('#bdr');
+		$slider.slider('option', 'change').call($slider);
 	});
 }
 

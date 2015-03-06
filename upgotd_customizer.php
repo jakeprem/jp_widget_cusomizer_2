@@ -129,7 +129,7 @@ $border_radius_bl = (isset($_GET['bdrbl'])) ? $_GET['bdrbl'] : '0px';
 $border_radius_br = (isset($_GET['bdrbr'])) ? $_GET['bdrbr'] : '0px';
 
 $border_rad = 'border-top-left-radius: ' . $border_radius_tl . ';\n border-top-right-radius: ' . $border_radius_tr . 
-			  'border-bottom-left-radius: ' . $border_radius_bl . ';\n border-bottom-right-radius: ' . $border_radius_br . ';';
+			  ';\n border-bottom-left-radius: ' . $border_radius_bl . ';\n border-bottom-right-radius: ' . $border_radius_br . ';';
 $border_rad_banner = 'border-top-left-radius: ' . ($border_radius_tl) . ';\n border-top-right-radius: ' . ($border_radius_tr) . ';';
 $border_rad_footer = 'border-bottom-left-radius: ' . ($border_radius_bl) . ';\n border-bottom-right-radius: ' . ($border_radius_br) . ';';
 $border = 'border: ' . $border_width . ' solid ' . $border_color . ';';
