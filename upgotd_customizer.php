@@ -78,7 +78,9 @@ $image_text_align = "text-align: center;";
 $people_display = "";
 $footer_display = "";
 
-$width = '215px';
+$width = (isset($_GET['oft'])) ? $_GET['wpw'] : '215px';
+
+
 
 $landscape = (isset($_GET['ori'])) ? $_GET['ori'] : 'vert';
 if($landscape == 'horz') {
