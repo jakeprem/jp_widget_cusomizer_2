@@ -212,7 +212,7 @@ function init_fonts() {
 	var i = 2;
 	$('.font').each(function () {
 		var font = $(this).val();
-		$( "<style>#oft-menu li:nth-child(" + i + ") { font-family: " + font + "; }</style>" ).appendTo( "head" );
+		$( "<style>#oft li:nth-child(" + i + ") { font-family: " + font + "; }</style>" ).appendTo( "head" );
 		i++;
 	})
 }
