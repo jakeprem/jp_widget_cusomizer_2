@@ -9,7 +9,7 @@ $(document).ready(function(){
 	init_accordion();
 	init_jQuery_UI();
 	choose_orientation();
-	//init_fonts();
+	init_fonts();
 	build_url();
 	get_widget();
 });
@@ -209,8 +209,10 @@ function choose_orientation() {
 }
 
 function init_fonts() { 
-	$('.font').each(function () {console.log($(this).val())
+	var i = 2;
+	$('.font').each(function () {
 		var font = $(this).val();
-		$(this).css({'color':'red'});
+		$( "<style>#oft-menu li:nth-child(" + i + ") { font-family: " + font + "; }</style>" ).appendTo( "head" );
+		i++;
 	})
 }
