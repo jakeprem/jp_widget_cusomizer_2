@@ -59,8 +59,7 @@ $custom_js = ($lang == '') ? 'http://legacy.joshuaproject.net/upgotd_custom.php'
  *
  * @author Johnathan Pulos
  */
-$is_narrow = (isset($_GET['narrow'])) ? $_GET['narrow'] : 'false';
-$width = ($is_narrow == 'true') ? '185px' : '215px';
+
 $center_font_size = ($is_narrow == 'true') ? '11px' : '12px';
 $banner_font_size = ($is_narrow == 'true') ? '11px' : '14px';
 $footer_font_size = ($is_narrow == 'true') ? '10px' : '11px';
@@ -78,6 +77,8 @@ $image_float = "";
 $image_text_align = "text-align: center;";
 $people_display = "";
 $footer_display = "";
+
+$width = '215px';
 
 $landscape = (isset($_GET['ori'])) ? $_GET['ori'] : 'vert';
 if($landscape == 'horz') {
