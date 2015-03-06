@@ -9,8 +9,6 @@ $(document).ready(function(){
 	init_jQuery_UI();
 	build_url();
 	get_widget();
-	//reset_all_settings();
-	choose_font();
 	choose_orientation();
 });
 
@@ -110,7 +108,16 @@ function init_jQuery_UI(){
 		},
 		spin: function( event, ui ) {
 			var spinnerVal = $("#wpw").spinner("value");
-			$("#width_slider").slider("value", spinnerVal);
+			$("#width_slider").slider("value", spinnerVal);			
+		},
+	});
+	$(".font_spinner").spinner();
+	$(".fontpicker").selectmenu({
+		width: 200,
+		change: function( event, ui ) {
+			key = $(this).attr('id');
+			urlObj[key] = $('#'+key).val();
+			update_Widget();
 		},
 	});
 	$(".reset").click(function() {
@@ -118,10 +125,6 @@ function init_jQuery_UI(){
 	});
 }
 
-function jq_updater() {
-	$("#width_slider").slider({
-	});
-}
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
@@ -138,7 +141,7 @@ function initiate_color_picker(){
 	    beforeShow: function () {},
 	    hide: function () {},
 	    change: function(color) {
-	    	key = $(this).attr('id')
+	    	key = $(this).attr('id');
 	    	str = color.toHexString().replace('#','');
 	    	urlObj[key] = str;
 	    	update_Widget();
@@ -173,45 +176,6 @@ function reset_all_settings(){
 		init_variables();
 		$('select').val("");
 		update_Widget();
-	});
-}
-
-//Font style, type and size
-function choose_font() { 
-	$('#font-type').change(function() {
-		urlObj['oft'] = $('#font-type').val();
-		build_url();
-		get_widget();
-	});
-
-	$('#title-sz').change(function() {
-		urlObj['tfsz'] = $('#title-sz').val();
-		build_url();
-		get_widget();
-	});
-
-	$('#people-sz').change(function() {
-		urlObj['pfsz'] = $('#people-sz').val();
-		build_url();
-		get_widget();
-	});
-
-	$('#info-sz').change(function() {
-		urlObj['ifsz'] = $('#info-sz').val(); 
-		build_url();
-		get_widget();
-	});
-
-	$('#footer-sz').change(function() {
-		urlObj['ffsz'] = $('#footer-sz').val(); 
-		build_url();
-		get_widget();
-	});
-
-	$('#font-size2').change(function() {
-		urlObj['ffsz'] = $('#font-size2').val(); 
-		build_url();
-		get_widget();
 	});
 }
 
