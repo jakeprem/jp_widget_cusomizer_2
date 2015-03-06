@@ -37,11 +37,11 @@
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid Serif:400,700,400italic,700italic">
-		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/jquery-ui.structure.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/jquery-ui.theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/spectrum.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
@@ -89,7 +89,7 @@
 					    	<input type="text" id="wpw" class="spinner" value="215"/>
 					    </div>
 				    	
-				    	<div id="radioset">
+				    	<div class="radioset" id="orientation">
 							<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
 							<input type="radio" id="radio_horizontal" value="horz" name="radio"><label for="radio_horizontal">Landscape</label>
 						</div>
@@ -268,8 +268,17 @@
 					</table>
 
 					</div>
+					<h3>Fields to Display</h3>
+	        		<div>
+	        			Choose which fields to display on your widget.<br/>
+						<input type="checkbox" class="button jq_check" id="pop" name="field" value="Population" checked><label class="jq_check_label" for="pop">Population</label><br/>
+						<input type="checkbox" class="button jq_check" id="lang" name="field" value="Language" checked><label class="jq_check_label" for="lang">Language</label><br/>
+						<input type="checkbox" class="button jq_check" id="relig" name="field" value="Religion" checked><label class="jq_check_label" for="relig">Religion</label><br/>
+						<input type="checkbox" class="button jq_check" id="evang" name="field" value="Evangelical" checked><label class="jq_check_label" for="evang">Evangelical</label><br/>
+						<input type="checkbox" class="button jq_check" id="status" name="field" value="Status" checked><label class="jq_check_label" for="status">Status</label><br/>
+	        		</div>
 	        	</div>
-				<button class="reset">Reset to Default</button><br/>		
+				<button class="button" id="reset">Reset to Default</button><br/>		
 			</div>
 
 			<div id="result" class="left">

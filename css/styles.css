@@ -106,19 +106,17 @@ select {
 #radioset {
 	margin-top:5px;
 }
-<<<<<<< HEAD
 
 #result {
-	margin-left: 20px;
+	margin-left: 10%;
 	padding: 0;
 }
 
 #widget-container {
-	text-align: left;
+	text-align: center;
 	margin: auto;
 }
 
-=======
 .slider {
 	margin-top:5px;
 	margin-left:1px;
@@ -128,4 +126,7 @@ select {
 	margin-top:5px;
 	text-align: center;
 }
->>>>>>> e7b88a3293faa25b814c4b55b7952f7ecf6d4ed8
+.jq_check_label {
+	margin-top:5px;
+	width:150px;
+}
