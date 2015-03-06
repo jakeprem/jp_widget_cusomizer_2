@@ -87,7 +87,7 @@ function init_jQuery_UI(){
 		active:0,
 		heightStyle: "content",
 	});
-	$( "#radioset" ).buttonset();
+	$( ".radioset" ).buttonset();
 	$( ".reset" ).button();
 	$( ".slider" ).slider({
 		min: 175,
