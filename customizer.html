@@ -47,7 +47,6 @@
 		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/spectrum.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/combo.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script type="text/javascript">
 			/* <![CDATA[ */
@@ -91,8 +90,10 @@
 					    </div> 
 				    	
 				    	<div class="radioset" id="orientation">
-							<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
-							<input type="radio" id="radio_horizontal" name="radio" value="horz"><label for="radio_horizontal">Landscape</label>
+				    		<form>
+								<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
+								<input type="radio" id="radio_horizontal" name="radio" value="horz"><label for="radio_horizontal">Landscape</label>
+							</form>
 						</div>
 						<br/><br/>
 
@@ -118,32 +119,34 @@
 		        	<h3>Colors</h3>
 		        	<div>
 			        	<div class="radioset" id="color_templates">
-								<input type="radio" id="template1" name="radio" value="1"><label for="template1">Template1</label>
+			        		<form>
+								<input type="radio" id="template1" name="radio" value="1" checked="checked"><label for="template1">Template1</label>
 								<input type="radio" id="template2" name="radio" value="2"><label for="template2">Template2</label>
 								<input type="radio" id="template3" name="radio" value="3"><label for="template3">Template3</label>
+							</form>
 						</div>
 		        		 <table id="colorSelectors" class="left">     							
-							<tr><td>Background Color: </td>
+							<tr><td>Background: </td>
 								<td><input type="text" id="cbg" class="colorpicker"/></td></tr>
-							<tr><td>Header Color: </td>
+							<tr><td>Header: </td>
 								<td><input type="text" id="bbg" class="colorpicker"/></td></tr>
-							<tr><td>Header Font Color: </td>
+							<tr><td>Header Font: </td>
 								<td><input type="text" id="blc" class="colorpicker"/></td></tr>
-							<tr><td>Header Font Hover Color: </td>
+							<tr><td>Header Font Hover: </td>
 								<td><input type="text" id="bhc" class="colorpicker"/></td></tr>
-							<tr><td>Center Font Color: </td>
+							<tr><td>Center Font: </td>
 								<td><input type="text" id="cfc" class="colorpicker"/></td></tr>
-							<tr><td>Center Font Link Color: </td>
+							<tr><td>Center Font Link: </td>
 								<td><input type="text" id="clc" class="colorpicker"/></td></tr>
-							<tr><td>Center Font Link Hover Color:</td>
+							<tr><td>Center Font Link Hover:</td>
 								<td><input type="text" id="chc" class="colorpicker"/></td></tr>
-							<tr><td>Footer Background Color: </td>
+							<tr><td>Footer Background: </td>
 								<td><input type="text" id="fbg" class="colorpicker"/></td></tr>
-							<tr><td>Footer Font Color: </td>
+							<tr><td>Footer Font: </td>
 								<td><input type="text" id="ffc" class="colorpicker"/></td></tr>
-							<tr><td>Footer Links Color: </td>
+							<tr><td>Footer Links: </td>
 								<td><input type="text" id="flc" class="colorpicker"/></td></tr>
-							<tr><td>Footer Link Hover Color: </td>
+							<tr><td>Footer Link Hover: </td>
 								<td><input type="text" id="fhc" class="colorpicker"/></td></tr>
 						</table>
 		        	</div>

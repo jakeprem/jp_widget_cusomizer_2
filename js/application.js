@@ -61,7 +61,9 @@ function build_url(){
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
 					'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + 
 					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '&wpw=' + urlObj['wpw'] + 'px' + 
-					'&bdr=' + urlObj['bdr'] + '&bdc=' + urlObj['bdc'] + '&bdw=' + urlObj['bdw'] + '';
+					'&bdr=' + urlObj['bdr'] + '&bdc=' + urlObj['bdc'] + '&bdw=' + urlObj['bdw'] + '&pop=' + urlObj['pop'] + 
+					'&lan=' + urlObj['lan'] + '&relg=' + urlObj['relg'] + '&eva=' + urlObj['eva'] + '&stat=' + urlObj['stat'] + '';
+
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -143,9 +145,14 @@ function init_jQuery_UI(){
 	});
 	$(".jq_check").click(function() {
 		key = $(this).attr('id');
-		urlObj[key] = $('#'+key).val();
-		update_Widget();
-		//Figure out how toggles and button values work.
+		if ($(this).is(':checked')) {
+			urlObj[key] = '1';
+			update_Widget();
+		}
+		else {
+			urlObj[key] = '0';
+			update_Widget();
+		}
 	});
 }
 
@@ -196,9 +203,9 @@ function initiate_color_picker(){
 
 //Resets all settings
 function reset_all_settings(){
-		init_variables();
-		$('select').val("");
-		update_Widget();
+		//init_variables();
+		//update_Widget();
+		location.reload(true);
 }
 
 //Widget orientation

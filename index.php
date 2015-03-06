@@ -1,3 +1,4 @@
+
 <!-- 
 /**
  * This file is part of Joshua Project Customizer for People of the Day Widget.
@@ -29,251 +30,272 @@
 		<title>Unreached of the Day Widget</title>
 		<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
 		<!-- Date: 2012-05-11 -->
+		<script type="text/javascript">
+			//<![CDATA[
+			try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"a883296692aef0ebb1056a17686a93b7",petok:"15740aad2578f7bacf1f55c6aedc8249fe3882c2-1425316930-1800",zone:"joshuaproject.net",rocket:"0",apps:{"abetterbrowser":{"ie":"8"},"ga_key":{"ua":"UA-145147-1","ga_bs":"2"}}}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+			//]]>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid Serif:400,700,400italic,700italic">
+		<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/jquery-ui.structure.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/jquery-ui.theme.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/spectrum.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
-		<link rel="stylesheet" href="css/colorpicker.css" type="text/css" media="screen" title="no title" charset="utf-8">
-		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="/widget/js/application.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/widget/js/colorpicker.js" type="text/javascript" charset="utf-8"></script>	
+		
+		<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/spectrum.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/combo.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			/*var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-145147-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+			})();
+
+			(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window); */
+			/* ]]> */
+		</script>
 	</head>
-	<body style="background-color:#FFF">
-		<div id="container">
-        	<center><h2>Unreached of the Day Widget</h2></center>
-			<div id="selectors" class="left">Advanced color options: 
-				<button class="advanced_on">Off</button>
-				<br/ >
-				<br/ >
-				Background: 
-					<select rel="cbg">
-						<option>Select Color</option>
-						<option value="EEE">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-					<input type="text" id="cbg" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Header: 
-					<select rel="bbg">
-						<option>Select Color</option>
-						<option value="2870C0">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="bbg" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Header Font: 
-					<select rel="blc">
-						<option>Select Color</option>
-						<option value="FFF">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="blc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Header Font Hover: 
-					<select rel="bhc">
-						<option>Select Color</option>
-						<option value="FFFFFF">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="bhc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Center Font: 
-					<select rel="cfc">
-						<option>Select Color</option>
-						<option value="000000">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="cfc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Center Font Link: 
-					<select rel="clc">
-						<option>Select Color</option>
-						<option value="000000">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="clc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Center Font Link Hover: 
-					<select rel="chc">
-						<option>Select Color</option>
-						<option value="0000FF">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="chc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Footer Background: 
-					<select rel="fbg">
-						<option>Select Color</option>
-						<option value="2870C0">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="fbg" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Footer Font: 
-					<select rel="ffc">
-						<option>Select Color</option>
-						<option value="FFF">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="ffc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Footer Links: 
-					<select rel="flc">
-						<option>Select Color</option>
-						<option value="FFF">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="flc" readonly class="background_color" size="17" maxlength="8" />
-				<br/>
-				Footer Link Hover: 
-					<select rel="fhc">
-						<option>Select Color</option>
-						<option value="">Default</option>
-						<option value="FFFFFF">White</option>
-            			<option value="000000">Black</option>
-                        <option value="848484">Gray</option>
-                        <option value="FF0000">Red</option>
-                        <option value="FF8000">Orange</option>
-                        <option value="F7FE2E">Yellow</option>
-                        <option value="00FF00">Green</option>
-						<option value="0101DF">Blue</option>
-						<option value="DF01D7">Purple</option>
-					</select>
-				<input type="text" id="fhc" readonly class="background_color" size="17" maxlength="8" />
-				<br/><br/>
-					Would you like a border? 	
-					<button id="button_yes">Yes</button><button id="button_no">No</button>
-					<div id="border_options">
-						Border Width: 
-						<select id="border_width">
-							<option>1px</option>
-							<option>2px</option> 
-							<option>3px</option> 
-							<option>4px</option> 
-							<option>5px</option> 
-							<option>6px</option> 
-						</select>
-           <br/>
-						Border: 
-            <select rel="bdc">
-                <option>Select Color</option>
-                <option value="FFFFFF">White</option>
-                <option value="000000">Black</option>
-                <option value="848484">Gray</option>
-                <option value="FF0000">Red</option>
-                <option value="FF8000">Orange</option>
-                <option value="F7FE2E">Yellow</option>
-                <option value="00FF00">Green</option>
-                <option value="0101DF">Blue</option>
-                <option value="DF01D7">Purple</option>
-            </select>
-            <input type="text" id="bdc" readonly class="background_color" size="17" maxlength="8" />
-						<br/>
-						Border Style: 
-						<select id="select">
-							<option>none</option>
-              				<option>double</option>
-							<option>dotted</option> 
-							<option>dashed</option> 
-							<option>solid</option> 
-							<option>groove</option> 
-							<option>ridge</option> 
-							<option>inset</option> 
-							<option>outset</option>
-						</select><br/>
-					</div><!-- border_options -->                
-					<br/><br/>
-				Default Settings: 
-				<button class="reset">Reset All</button><br/>		
+
+<body>
+	<script type="text/javascript">
+		//<![CDATA[
+		//I think this reloads the widget when a new option is selected. -Jake
+		try{(function(a){var b="http://",c="legacy.joshuaproject.net",d="/cdn-cgi/cl/",e="img.gif",f=new a;f.src=[b,c,d,e].join("")})(Image)}catch(e){}
+	//]]>
+	</script>
+
+	<div id="container">
+		<center><h2>Unreached of the Day Widget</h2></center>
+		<div id="content_container">
+	        <div id="options_container">
+	        	<div class="accordion">
+					<h3>Size and Shape</h3>
+					<div>
+						<div id="width_slider" class="slider"></div>
+					    <div id="width_spinner">
+					    	Width: 
+					    	<input type="text" id="wpw" class="spinner" value="215"/>
+					    </div>
+				    	
+				    	<div class="radioset" id="orientation">
+				    		<form>
+								<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
+								<input type="radio" id="radio_horizontal" name="radio" value="horz"><label for="radio_horizontal">Landscape</label>
+							</form>
+						</div>
+						<br/><br/>						
+					</div>	        		
+
+		        	<h3>Colors</h3>
+		        	<div>
+			        	<div class="radioset" id="color_templates">
+			        		<form>
+								<input type="radio" id="template1" name="radio" value="1" checked="checked"><label for="template1">Template1</label>
+								<input type="radio" id="template2" name="radio" value="2"><label for="template2">Template2</label>
+								<input type="radio" id="template3" name="radio" value="3"><label for="template3">Template3</label>
+							</form>
+						</div>
+		        		 <table id="colorSelectors" class="left">     							
+							<tr><td>Background Color: </td>
+								<td><input type="text" id="cbg" class="colorpicker"/></td></tr>
+							<tr><td>Header Color: </td>
+								<td><input type="text" id="bbg" class="colorpicker"/></td></tr>
+							<tr><td>Header Font Color: </td>
+								<td><input type="text" id="blc" class="colorpicker"/></td></tr>
+							<tr><td>Header Font Hover Color: </td>
+								<td><input type="text" id="bhc" class="colorpicker"/></td></tr>
+							<tr><td>Center Font Color: </td>
+								<td><input type="text" id="cfc" class="colorpicker"/></td></tr>
+							<tr><td>Center Font Link Color: </td>
+								<td><input type="text" id="clc" class="colorpicker"/></td></tr>
+							<tr><td>Center Font Link Hover Color:</td>
+								<td><input type="text" id="chc" class="colorpicker"/></td></tr>
+							<tr><td>Footer Background Color: </td>
+								<td><input type="text" id="fbg" class="colorpicker"/></td></tr>
+							<tr><td>Footer Font Color: </td>
+								<td><input type="text" id="ffc" class="colorpicker"/></td></tr>
+							<tr><td>Footer Links Color: </td>
+								<td><input type="text" id="flc" class="colorpicker"/></td></tr>
+							<tr><td>Footer Link Hover Color: </td>
+								<td><input type="text" id="fhc" class="colorpicker"/></td></tr>
+						</table>
+		        	</div>
+					<h3>Fonts</h3>
+		        	<div>
+			        	<table>
+	                        <tr>
+							    <td>Font type:</td>
+							    <td><select id="oft" class="fontpicker">
+							        <option value="">Select Font Style</option>
+							        <option class="font" value="Andale Mono">Andale Mono</option>
+							        <option class="font" value="Arial">Arial</option>
+							        <option class="font" value="Arial Black">Arial Black</option>
+							        <option class="font" value="Arial Narrow">Arial Narrow</option>
+							        <option class="font" value="Arial Rounded MT Bold">Arial Rounded MT Bold</option>
+							        <option class="font" value="Avant Garde">Avant Garde</option>
+							        <option class="font" value="Baskerville">Baskerville</option>
+							        <option class="font" value="Big Caslon">Big Caslon</option>
+							        <option class="font" value="Bodoni MT">Bodoni MT</option>
+							        <option class="font" value="Book Antiqua">Book Antiqua</option>
+							        <option class="font" value="Brush Script MT">Brush Script MT</option>
+							        <option class="font" value="Caoptionbri">Caoptionbri</option>
+							        <option class="font" value="Caoptionsto MT">Caoptionsto MT</option>
+							        <option class="font" value="Cambrio">Cambrio</option>
+							        <option class="font" value="Candara">Candara</option>
+							        <option class="font" value="Century Gothic">Century Gothic</option>
+							        <option class="font" value="Consolas">Consolas</option>
+							        <option class="font" value="Copperplate">Copperplate</option>
+							        <option class="font" value="Courier New">Courier New</option>
+							        <option class="font" value="Droid Serif">Droid Serif</option>
+							        <option class="font" value="Frankoptionn Gothic Medium">Frankoptionn Gothic Medium</option>
+							        <option class="font" value="Futura">Futura</option>
+							        <option class="font" value="Garamond">Garamond</option>
+							        <option class="font" value="Geneva">Geneva</option>
+							        <option class="font" value="Georgia">Georgia</option>
+							        <option class="font" value="Gill Sans">Gill Sans</option>
+							        <option class="font" value="Goudy Old Style">Goudy Old Style</option>
+							        <option class="font" value="Helvetica">Helvetica</option>
+							        <option class="font" value="Hoefler Text">Hoefler Text</option>
+							        <option class="font" value="Impact">Impact</option>
+							        <option class="font" value="Lucida Bright">Lucida Bright</option>
+							        <option class="font" value="Lucida Console">Lucida Console</option>
+							        <option class="font" value="Lucida Sans Typewriter">Lucida Sans Typewriter</option>
+							        <option class="font" value="Lucida Grande">Lucida Grande</option>
+							        <option class="font" value="Monaco">Monaco</option>
+							        <option class="font" value="Optima">Optima</option>
+							        <option class="font" value="Palatino">Palatino</option>
+							        <option class="font" value="Papyrus">Papyrus</option>
+							        <option class="font" value="Perpetua">Perpetua</option>
+							        <option class="font" value="Rockwell">Rockwell</option>
+							        <option class="font" value="Rockwell Extra Bold">Rockwell Extra Bold</option>
+							        <option class="font" value="Segoe UI">Segoe UI</option>
+							        <option class="font" value="Tahoma">Tahoma</option>
+							        <option class="font" value="Times New Roman">Times New Roman</option>
+							        <option class="font" value="Trebuchet MS">Trebuchet MS</option>
+							        <option class="font" value="Verdana">Verdana</option>
+							    </select>
+							</tr>
+						    <tr>
+							    <td>Title font size:</td>
+							    <td><select id="tfsz" class="fontpicker">
+							        <option value="">Select Font Size</option>
+							        <option value="8">8px</option>
+							        <option value="9">9px</option>
+							        <option value="10">10px</option>
+							        <option value="11">11px</option>
+							        <option value="12">12px</option>
+							        <option value="14">14px</option>
+							        <option value="16">16px</option>
+							        <option value="18">18px</option>
+							        <option value="20">20px</option>
+							        <option value="24">24px</option>
+							        <option value="28">28px</option>
+							        <option value="36">36px</option>
+							        <option value="48">48px</option>
+							    </select></td>
+							</tr>
+							<tr>
+							    <td>People font size:</td>
+							    <td><select id="pfsz" class="fontpicker">
+							        <option value="">Select Font Size</option>
+							        <option value="8">8px</option>
+							        <option value="9">9px</option>
+							        <option value="10">10px</option>
+							        <option value="11">11px</option>
+							        <option value="12">12px</option>
+							        <option value="14">14px</option>
+							        <option value="16">16px</option>
+							        <option value="18">18px</option>
+							        <option value="20">20px</option>
+							        <option value="24">24px</option>
+							        <option value="28">28px</option>
+							        <option value="36">36px</option>
+							        <option value="48">48px</option>
+							    </select></td>
+							</tr>
+							<tr>
+							    <td>Info font size:</td>
+							    <td><select id="ifsz" class="fontpicker">
+							        <option value="">Select Font Size</option>
+							        <option value="8">8px</option>
+							        <option value="9">9px</option>
+							        <option value="10">10px</option>
+							        <option value="11">11px</option>
+							        <option value="12">12px</option>
+							        <option value="14">14px</option>
+							        <option value="16">16px</option>
+							        <option value="18">18px</option>
+							        <option value="20">20px</option>
+							        <option value="24">24px</option>
+							        <option value="28">28px</option>
+							        <option value="36">36px</option>
+							        <option value="48">48px</option>
+							    </select></td>
+							</tr>
+							<tr>
+							    <td>Footer font size:</td>
+							    <td><select id="ffsz" class="fontpicker">
+							        <option value="">Select Font Size</option>
+							        <option value="8">8px</option>
+							        <option value="9">9px</option>
+							        <option value="10">10px</option>
+							        <option value="11">11px</option>
+							        <option value="12">12px</option>
+							        <option value="14">14px</option>
+							        <option value="16">16px</option>
+							        <option value="18">18px</option>
+							        <option value="20">20px</option>
+							        <option value="24">24px</option>
+							        <option value="28">28px</option>
+							        <option value="36">36px</option>
+							        <option value="48">48px</option>
+							    </select></td>
+							</tr>
+				    
+					    	<tr>
+					    	<td>Font size:</td>
+					    	<td><input type="text" id="font-size_insert" class="font_spinner"></td>
+                        </tr>
+					</table>
+
+					</div>
+					<h3>Fields to Display</h3>
+	        		<div>
+	        			Choose which fields to display on your widget.<br/>
+						<input type="checkbox" class="button jq_check" id="pop" name="field" value="Population" checked><label class="jq_check_label" for="pop">Population</label><br/>
+						<input type="checkbox" class="button jq_check" id="lan" name="field" value="Language" checked><label class="jq_check_label" for="lan">Language</label><br/>
+						<input type="checkbox" class="button jq_check" id="relg" name="field" value="Religion" checked><label class="jq_check_label" for="relg">Religion</label><br/>
+						<input type="checkbox" class="button jq_check" id="eva" name="field" value="Evangelical" checked><label class="jq_check_label" for="eva">Evangelical</label><br/>
+						<input type="checkbox" class="button jq_check" id="stat" name="field" value="Status" checked><label class="jq_check_label" for="stat">Status</label><br/>
+	        		</div>
+	        	</div>
+				<button class="button" id="reset">Reset to Default</button><br/>		
 			</div>
-			
+
 			<div id="result" class="left">
 				<div id="widget_container">
-					<center><div id="widget"></div></center>
+					<div id="widget"></div>
 					<!-- alternative for no javascript --><noscript>
-					<a href="http://legacy.joshuaproject.net/upgotdfeed.php">View Unreached People of the Day</a></noscript>
+					<a href="http://legacy.joshuaproject.net/upgotd_new.php">View Unreached People of the Day</a></noscript>
 				</div>
-                Copy and paste the below code into your website:<br/><br/>
+	            Copy and paste the below code into your website:<br/><br/>
 					<textarea id="textarea" type="textarea"> </textarea>
 			</div>
-			<div class="clear"></div>
-		</div> <!-- container -->
-	</body>
+		</div>
+		<div class="clear"></div>
+	</div> <!-- container -->
+</body>
 </html>
