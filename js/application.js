@@ -36,7 +36,12 @@ function init_variables(){
 	'ifsz' : '11.5',
 	'ffsz' : '13',
 	'ori' : "vert",
-	'wpw' : "215"
+	'wpw' : "215",
+	'pop' : 1,
+	'lan' : 1,
+	'relg' : 1,
+	'eva' : 1,
+	'stat' : 1,
 	};
 
 	baseUrl = "http://192.168.87.196/widget.php"
@@ -120,7 +125,7 @@ function init_jQuery_UI(){
 		},
 	});
 	$(".font_spinner").spinner();
-	$(".fontpicker").combobox({
+	$(".fontpicker").selectmenu({
 		width: 200,
 		change: function( event, ui ) {
 			key = $(this).attr('id');
