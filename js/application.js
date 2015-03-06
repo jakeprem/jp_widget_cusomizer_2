@@ -2,7 +2,7 @@
 //https://github.com/naysayer
 
 //Modified by Jake Prem, John Nagelkirk and Andrei Popa
-var urlObj = {}
+var urlObj, colTemp = {};
 var baseUrl, url, key, selectedColor = '', border_rt = false, border_rb = false;
 
 $(document).ready(function(){
@@ -10,6 +10,7 @@ $(document).ready(function(){
 	init_variables();
 	init_accordion();
 	init_jQuery_UI();
+	colorTemplate();
 	choose_orientation();
 	init_fonts();
 	build_url();
@@ -50,6 +51,59 @@ function init_variables(){
 	'relg' : 1,
 	'eva' : 1,
 	'stat' : 1,
+	};
+
+	colTemp = {
+		'temp1' : {
+			//Center Font
+			'cfc' : '7b7670',
+			//Center Hover
+			'chc' : 'ed7c31',
+			//Center Link
+			'clc' : 'ed7c31',
+			//Background Color
+			'cbg' : 'FFFFFF',
+			//Header Background
+			'bbg' : '42ad9e',
+			//Header Font
+			'blc' : 'FFFFFF',
+			//Header Hover
+			'bhc' : '000000',
+			//Footer Background
+			'fbg' : 'FFFFFF',
+			//Footer Font
+			'ffc' : 'ed7c31',
+			//Footer Link
+			'flc' : 'ed7c31',
+			//Footer Hover
+			'fhc' : 'ed7c31',
+		},
+		'temp2' : {
+			'cfc' : '000000',			
+			'chc' : '000000',			
+			'clc' : '000000',			
+			'cbg' : 'FFFFFF',			
+			'bbg' : '000000',			
+			'blc' : 'FFFFFF',			
+			'bhc' : 'FFFFFF',			
+			'fbg' : '000000',			
+			'ffc' : 'FFFFFF',			
+			'flc' : 'FFFFFF',			
+			'fhc' : 'FFFFFF',
+		},
+		'temp3' : {
+			'cfc' : 'FFFFFF',
+			'chc' : 'FFFFFF',
+			'clc' : 'FFFFFF',
+			'cbg' : 'FFFFFF',
+			'bbg' : 'FFFFFF',
+			'blc' : 'FFFFFF',
+			'bhc' : 'FFFFFF',
+			'fbg' : 'FFFFFF',
+			'ffc' : 'FFFFFF',
+			'flc' : 'FFFFFF',
+			'fhc' : 'FFFFFF',
+		},
 	};
 
 	baseUrl = "http://192.168.87.196/widget.php"
@@ -195,6 +249,8 @@ function init_jQuery_UI(){
 			update_Widget();
 		},
 	});
+	//This enables scrolling on the fontpicker select menus. For some reason it's only applying to the first one currently.
+	$(".fontpicker").selectmenu("menuWidget").addClass( "overflow" );
 	//This creates border width select menu
 	$( "#border_width" ).selectmenu({
 		width: 200,
@@ -223,6 +279,7 @@ function init_jQuery_UI(){
 			update_Widget();
 		}
 	});
+
 	//The button event handler for the border-radius toggles
 	$(".br_check").click(function() { 
 		key = $(this).attr('id'); 
@@ -256,26 +313,35 @@ function initiate_color_picker(){
 	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
-	    showAlpha: true,
+	    showAlpha: false,
 	    showSelectionPalette: true,
 	    hideAfterPaletteSelect:true,
+	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
 	    localStorageKey: "colorpicker.local",
 	    move: function () {   },
 	    show: function () {},
 	    beforeShow: function () {},
-	    hide: function () {},
-	    change: function(color) {
+	    hide: function (color) {
 	    	key = $(this).attr('id');
 	    	str = color.toHexString().replace('#','');
 	    	urlObj[key] = str;
 	    	update_Widget();
 	    },
+	    change: function(color) {
+	    	key = $(this).attr('id');
+	    	str = color.toHexString().replace('#','');
+	    	urlObj[key] = str;
+	    	update_Widget();
+	    	$(".color_temp_radio").attr("checked", false);
+	    	$(".color_temp_radio").button("refresh");
+	    },
 	    /**
 	     * Creates the palette. Each set of [] is one row in the palette.
 	     */
 	    palette: [
+	    	["#7b7670", "#42ad9e", "#FFFFFF", "#000000", "#ed7c31"],
 	    	["#000000", "#FFFFFF","#0000FF","#FF0000","#00FF00"],
 	    	["#E6E2AF", "#A7A37E", "#EFECCA", "#046380", "#002F2F"],
 	    	["#FCFFF5", "#D1DBBD", "#91AA9D", "#3E606F", "#193441"],
@@ -341,6 +407,18 @@ function choose_orientation() {
 			get_widget();
 			$('#width_slider').slider("disable");
 			$('#wpw').spinner("disable");
+		}	
+	});
+}
+function colorTemplate() {
+	$('.color_temp_radio').click(function() {
+		if ($(this).is(':checked')) {
+			key = $(this).attr('id');
+			$.each(colTemp[key], function(keys, value) {
+    			urlObj[keys] = value;
+			});
+			init_colors();
+			update_Widget();
 		}	
 	});
 }
