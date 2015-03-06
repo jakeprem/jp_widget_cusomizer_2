@@ -45,6 +45,13 @@ $width	 						= 140;
 $peopleimage 					= getimagesize("profiles/photos/".$rs1['PhotoAddress']); 
 $height 						= round($peopleimage[1] *($width / $peopleimage[0]));
 
+// Choose specific demographic fields to display
+$showPop = (isset($_GET["pop"])) ? $showPop = $_GET["pop"] : $showPop = 1;
+$showLang = (isset($_GET["lan"])) ? $showPop = $_GET["lan"] : $showLang = 1;
+$showRel = (isset($_GET["relg"])) ? $showPop = $_GET["relg"] : $showRel = 1;
+$showEva = (isset($_GET["eva"])) ? $showPop = $_GET["eva"] : $showEva = 1;
+$showStat = (isset($_GET["stat"])) ? $showPop = $_GET["stat"] : $showStat = 1;
+
 // Build Javascript 
 header("Content-type: application/x-javascript");
 ?>
@@ -54,11 +61,18 @@ document.write('<div class="upgotd-image">\n<a href="<?php echo  $itemProfileLin
 document.write('<div class="upgotd upgotd-pray">Please pray for the ...</div>\n\n');
 document.write('<div class="upgotd upgotd-people">\n<a href="<?php echo  $itemPeopleLink; ?>" class="upgotd-link" title="Click for listing of the <?php echo str_replace("'", "\'", $rs1['PeopNameInCountry']); ?> in all countries." target="_blank"><?php echo str_replace("'", "\'", $rs1['PeopNameInCountry']); ?></a> of <a href="<?php echo $itemCountryLink; ?>" class="upgotd-link" title="Click for listing of all People Groups in <?php echo str_replace("'", "\'", $rs1['Ctry']); ?>" target="_blank"><?php echo str_replace("'", "\'", $rs1['Ctry']); ?></a>\n</div>\n\n'); 
 document.write('<table class="upgotd-table" align="center" cellpadding="0" cellspacing="0">'); 
-document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Population:</td>\n<td class="upgotd-stats"><?php echo $itemPopulation; ?></td>\n</tr>\n'); 
-document.write('<tr class="upgotd-even">\n<td class="upgotd-headings">Language:</td>\n<td class="upgotd-stats"><?php echo str_replace("'", "\'", $rs1['PrimaryLanguageName']); ?></td>\n</tr>\n'); 
-document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Religion:</td>\n<td class="upgotd-stats"><?php echo $rs1['PrimaryReligion']; ?></td>\n</tr>\n'); 
-document.write('<tr class="upgotd-even">\n<td class="upgotd-headings">Evangelical:</td>\n<td class="upgotd-stats"><?php echo number_format($rs1['PercentEvangelical'],2); ?>%</td>\n</tr>\n'); 
-document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Status:</td>\n<td class="upgotd-stats"><a href="<?php echo $itemUnreachedLink; ?>" class="upgotd-link" title="Click for listing of the largest unreached groups." target="_blank">Unreached</a> (<a href="<?php echo $itemScaleDescriptionLink; ?>" class="upgotd-link" title="Click for a description of the Joshua Project Progress Scale." target="_blank"><?php echo $rs1['JPScale']; ?></a> <a href="<?php echo $itemScaleDescriptionLink; ?>" class="upgotd-link" title="Click for a description of the Joshua Project Progress Scale" target="_blank"><img src="<?php echo $itemScaleBlockLink; ?>" border="0"></a>)</td>\n</tr>'); 
+// Specify the fields to be displayed
+if(<?php echo $showPop; ?> == 1) {
+	document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Population:</td>\n<td class="upgotd-stats"><?php echo $itemPopulation; ?></td>\n</tr>\n'); 
+} if(<?php echo $showLang; ?> == 1) {
+	document.write('<tr class="upgotd-even">\n<td class="upgotd-headings">Language:</td>\n<td class="upgotd-stats"><?php echo str_replace("'", "\'", $rs1['PrimaryLanguageName']); ?></td>\n</tr>\n'); 
+} if(<?php echo $showRel; ?> == 1) {
+	document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Religion:</td>\n<td class="upgotd-stats"><?php echo $rs1['PrimaryReligion']; ?></td>\n</tr>\n'); 
+} if(<?php echo $showEva; ?> == 1) {
+	document.write('<tr class="upgotd-even">\n<td class="upgotd-headings">Evangelical:</td>\n<td class="upgotd-stats"><?php echo number_format($rs1['PercentEvangelical'],2); ?>%</td>\n</tr>\n'); 
+} if(<?php echo $showStat; ?> == 1) {
+	document.write('<tr class="upgotd-odd">\n<td class="upgotd-headings">Status:</td>\n<td class="upgotd-stats"><a href="<?php echo $itemUnreachedLink; ?>" class="upgotd-link" title="Click for listing of the largest unreached groups." target="_blank">Unreached</a> (<a href="<?php echo $itemScaleDescriptionLink; ?>" class="upgotd-link" title="Click for a description of the Joshua Project Progress Scale." target="_blank"><?php echo $rs1['JPScale']; ?></a> <a href="<?php echo $itemScaleDescriptionLink; ?>" class="upgotd-link" title="Click for a description of the Joshua Project Progress Scale" target="_blank"><img src="<?php echo $itemScaleBlockLink; ?>" border="0"></a>)</td>\n</tr>'); 
+}
 document.write('</table>\n\n');
 document.write('<div class="upgotd upgotd-footer">\n<div style="padding: 0px 0px 1px 0px;"><a href="<?php echo $itemEmailLink; ?>" title="Get the complete Unreached People of the Day profile by daily email" target="_blank">Get <b>Unreached of the Day</b> by Email</a>\n</div>\nProvided by <a href="<?php echo $itemBaseLink; ?>" title="Visit the Joshua Project Website"  target="_blank"><b>Joshua Project</b></a>\n</div>\n'); 
 document.write('</div>\n'); 
