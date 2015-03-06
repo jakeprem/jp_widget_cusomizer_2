@@ -189,6 +189,8 @@ function choose_orientation() {
 			urlObj['ori'] = 'vert'; 
 			build_url();
 			get_widget();
+			$('#width_slider').slider("enable");
+			$('#wpw').spinner("enable");
 		}	
 	});
 
@@ -197,6 +199,8 @@ function choose_orientation() {
 			urlObj['ori'] = 'horz'; 
 			build_url();
 			get_widget();
+			$('#width_slider').slider("disable");
+			$('#wpw').spinner("disable");
 		}	
 	});
 }
