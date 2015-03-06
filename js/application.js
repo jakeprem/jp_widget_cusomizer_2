@@ -102,6 +102,7 @@ function init_jQuery_UI(){
 	$( ".spinner" ).spinner({
 		min: 175,
 		max: 250,
+		value: urlObj['wpw'],
 		change: function ( event, ui) {
 			var spinnerVal = $("#wpw").spinner("value");
 			$("#width_slider").slider("value", spinnerVal);

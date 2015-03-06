@@ -81,6 +81,21 @@
 		<div id="content_container">
 	        <div id="options_container">
 	        	<div class="accordion">
+					<h3>Size and Shape</h3>
+					<div>
+						<div id="width_slider" class="slider"></div>
+					    <div id="width_spinner">
+					    	Width: 
+					    	<input type="text" id="wpw" class="spinner" value="215"/>
+					    </div>
+				    	<form style="margin-top: 1em;">
+					    	<div id="radioset">
+								<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
+								<input type="radio" id="radio_horizontal" value="horz" name="radio"><label for="radio_horizontal">Landscape</label>
+							</div>
+							<br><br>
+						</form>
+					</div>	        		
 	        		<h3>Templates</h3>
 	        		<div>
 	        			Color templates go here.
@@ -245,31 +260,14 @@
 							    </select></td>
 							</tr>
 				    
-					    <tr>
+					    	<tr>
 					    	<td>Font size:</td>
 					    	<td><input type="text" id="font-size_insert" ></td>
-                        </form></tr>
+                        </tr>
 					</table>
-				</div>
-
-					<h3>Size and Shape</h3>
-					<div>
-						<div id="width_slider" class="slider"></div>
-					    <div id="width_spinner">
-					    	Width: 
-					    	<input type="text" id="wpw" class="spinner" value="200"/>
-					    </div>
-				    	<form style="margin-top: 1em;">
-					    	<div id="radioset">
-								<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
-								<input type="radio" id="radio_horizontal" value="horz" name="radio"><label for="radio_horizontal">Landscape</label>
-							</div>
-							<br><br>
-						</form>
 					</div>
 	        	</div>
 				<button class="reset">Reset to Default</button><br/>		
-
 			</div>
 
 			<div id="result" class="left">
