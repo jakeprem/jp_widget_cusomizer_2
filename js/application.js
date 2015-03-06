@@ -109,18 +109,18 @@ function init_jQuery_UI(){
 		},
 		spin: function( event, ui ) {
 			var spinnerVal = $("#wpw").spinner("value");
-			$("#width_slider").slider("value", spinnerVal);
+			$("#width_slider").slider("value", spinnerVal);			
 		},
+	});
+	$(".font_spinner").spinner();
+	$(".fontpicker").selectmenu({
+		width: 200,
 	});
 	$(".reset").click(function() {
 		reset_all_settings();
 	});
 }
 
-function jq_updater() {
-	$("#width_slider").slider({
-	});
-}
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
