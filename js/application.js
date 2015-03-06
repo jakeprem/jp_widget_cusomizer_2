@@ -55,17 +55,28 @@ function init_variables(){
 
 	colTemp = {
 		'temp1' : {
+			//Center Font
 			'cfc' : '000000',
+			//Center Hover
 			'chc' : '000000',
+			//Center Link
 			'clc' : '000000',
-			'cbg' : '000000',
+			//Background Color
+			'cbg' : 'FFFFFF',
+			//Header Background
 			'bbg' : '000000',
-			'blc' : '000000',
-			'bhc' : '000000',
+			//Header Font
+			'blc' : 'FFFFFF',
+			//Header Hover
+			'bhc' : 'FFFFFF',
+			//Footer Background
 			'fbg' : '000000',
-			'ffc' : '000000',
-			'flc' : '000000',
-			'fhc' : '000000',
+			//Footer Font
+			'ffc' : 'FFFFFF',
+			//Footer Link
+			'flc' : 'FFFFFF',
+			//Footer Hover
+			'fhc' : 'FFFFFF',
 		},
 		'temp2' : {
 			'cfc' : 'FFFFFF',
@@ -354,7 +365,7 @@ function choose_orientation() {
 	});
 }
 function colorTemplate() {
-	$('#temp1').click(function() {
+	$('.color_temp_radio').click(function() {
 		if ($(this).is(':checked')) {
 			key = $(this).attr('id');
 			$.each(colTemp[key], function(keys, value) {
