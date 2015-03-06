@@ -10,6 +10,7 @@ $(document).ready(function(){
 	init_jQuery_UI();
 	choose_orientation();
 	init_fonts();
+	border_options();
 	build_url();
 	get_widget();
 });
@@ -19,24 +20,27 @@ $(document).ready(function(){
 */
 function init_variables(){
 	urlObj = {
-	'cfc': '000000',
+	'cfc': '7b7670',
 	'chc' : 'ed7c31',
-	'clc' : '000000',
+	'clc' : '7b7670',
 	'cbg' : 'FFFFFF',
 	'bbg' : '42ad9e',
 	'blc' : 'FFFFFF',
-	'bhc' : 'FFFFFF',
+	'bhc' : '000000',
 	'fbg' : 'FFFFFF',
 	'ffc' : 'ed7c31',
 	'flc' : 'ed7c31',
 	'fhc' : 'ed7c31',
 	'oft' : 'Tahoma, Geneva, sans-serif',
 	'tfsz' : '14',
-	'pfsz' : '12',
+	'pfsz' : '14',
 	'ifsz' : '11.5',
 	'ffsz' : '13',
-	'ori' : "vert",
-	'wpw' : "215",
+	'ori' : 'vert',
+	'wpw' : '215',
+	'bdw' : '0px',
+	'bdc' : '7b7670',
+	'bdr' : '0px',
 	'pop' : 1,
 	'lan' : 1,
 	'relg' : 1,
@@ -55,7 +59,10 @@ function build_url(){
 	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
 					'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + 
-					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '&wpw=' + urlObj['wpw'] + 'px' + '&pop=' + urlObj['pop'] + '&lan=' + urlObj['lan'] + '&relg=' + urlObj['relg'] + '&eva=' + urlObj['eva'] + '&stat=' + urlObj['stat'] + '';
+					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '&wpw=' + urlObj['wpw'] + 'px' + 
+					'&bdr=' + urlObj['bdr'] + '&bdc=' + urlObj['bdc'] + '&bdw=' + urlObj['bdw'] + '&pop=' + urlObj['pop'] + 
+					'&lan=' + urlObj['lan'] + '&relg=' + urlObj['relg'] + '&eva=' + urlObj['eva'] + '&stat=' + urlObj['stat'] + '';
+
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -205,7 +212,8 @@ function reset_all_settings(){
 function choose_orientation() {
 	$('#radio_portrait').click(function() {
 		if ($(this).is(':checked')) {
-			urlObj['ori'] = 'vert'; 
+			urlObj['ori'] = 'vert';
+			urlObj['pfsz'] = '15'; 
 			build_url();
 			get_widget();
 			$('#width_slider').slider("enable");
@@ -216,6 +224,7 @@ function choose_orientation() {
 	$('#radio_horizontal').click(function() {
 		if ($(this).is(':checked')) {
 			urlObj['ori'] = 'horz'; 
+			urlObj['pfsz'] = '15'; 
 			build_url();
 			get_widget();
 			$('#width_slider').slider("disable");
@@ -232,3 +241,12 @@ function init_fonts() {
 		i++;
 	})
 }
+
+// Border options
+function border_options(){
+	$('#border_width').change(function() {
+		urlObj['bdw'] = $('#border_width').val();
+		build_url();
+		update_Widget();
+	});
+};

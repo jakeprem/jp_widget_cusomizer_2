@@ -77,7 +77,7 @@ $table_font_size = ($is_narrow == 'true') ? '10px' : '11px';
 
 $overall_font_type = (isset($_GET['oft'])) ? $_GET['oft'] : 'Arial';
 $title_font_size = (isset($_GET['tfsz'])) ? $_GET['tfsz'] : '14px'; 
-$people_font_size = (isset($_GET['pfsz'])) ? $_GET['pfsz'] : '12px';
+$people_font_size = (isset($_GET['pfsz'])) ? $_GET['pfsz'] : '14px';
 $info_font_size = (isset($_GET['ifsz'])) ? $_GET['ifsz'] : '11.5px'; 
 $footer_font_size = (isset($_GET['ffsz'])) ? $_GET['ffsz'] : '14px'; 
 
@@ -100,8 +100,17 @@ if($landscape == 'vert') {
 	else { $width = 250; }
 }
 
+$title_margin = '7px';
+$pray_top_margin = '0px';
+$people_top_margin = '0px';
+$people_bottom_margin = '0px';
+
 if($landscape == 'horz') {
 	$width = '350px';
+	$title_margin = '0px';
+	$pray_top_margin = '3px';
+	$people_top_margin = '5px';
+	$people_bottom_margin = '7px';
 	$image_display = "display: inline-block;";
 	$image_float = "float: left;";
 	$image_text_align = "text-align: left;";
@@ -109,29 +118,35 @@ if($landscape == 'horz') {
 	$footer_display = "display:inline-block;";
 }
 
+$border_color = (isset($_GET['bdc'])) ? '#'.$_GET['bdc'] : '#CCCCCC';
+$border_width = (isset($_GET['bdw'])) ? $_GET['bdw'] : '0px';
+$border_radius = (isset($_GET['bdr'])) ? $_GET['bdr'] : '0px';
+$border_rad = 'border-radius: ' . $border_rad . ';';
+$border = 'border: ' . $border_width . ' solid ' . $border_color . ';';
+
 header("Content-type: application/x-javascript");
 ?>
 
 document.write('<style type="text/css">\n');
 document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
-document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; text-align: center; width:<?php echo $width; ?>; ?>; font-size:<?php echo $info_font_size ?>;}\n');
+document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> <?php echo $border_rad; ?> text-align: center; width:<?php echo $width; ?>; ?>; font-size:<?php echo $info_font_size ?>; padding: 0; }\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
-document.write('.upgotd-title { background-color: <?php echo $banner_bg_color; ?>; }\n');
-document.write('.upgotd-title a { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
+document.write('.upgotd-title { background-color: <?php echo $banner_bg_color; ?>; margin-bottom: <?php echo $title_margin; ?>; padding: 5px;}\n');
+document.write('.upgotd-title a { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: <?php echo $title_margin; ?>; }\n');
 document.write('.upgotd-title a:hover {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-weight: bold; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
 document.write('.upgotd-image { <?php echo $image_display; ?>  <?php echo $image_text_align; ?> <?php echo $image_float; ?>;}\n');
-document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 10px;}\n'); // **ADD CHANGE ABILITY
+document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 10px; margin-bottom: <?php echo $people_top_margin; ?>; margin-top: <?php echo $pray_top_margin; ?>; }\n'); 
 document.write('.upgotd-people { <?php echo $people_display; ?> font-weight: normal; font-size:<?php echo $people_font_size; ?> !important; padding-bottom:2px; }\n');
 document.write('.upgotd-people a { color: <?php echo $footer_link_color; ?> !important; font-size: <?php echo $people_font_size; ?>; font-weight: 800; }\n');
 document.write('.upgotd-people a:hover { color: <?php echo $center_hover_color; ?> !important; }\n');
-document.write('.upgotd-table { margin-bottom: 5px; text-align: left; }\n');
+document.write('.upgotd-table { margin-bottom: 5px; margin-top: <?php echo $people_bottom_margin; ?>; text-align: left; }\n');
 document.write('.upgotd-table tr { border:none; text-align: left;}\n');
 document.write('.upgotd-table td { background-color:<?php echo $center_bg_color; ?>; font-size:<?php echo $info_font_size ?>; font-family: <?php echo $overall_font_type; ?>; font-weight: normal; color: <?php echo $center_font_color ?>; line-height: 12px; text-align: left; border: 0px;  margin: 0px; padding: 0px 0px 0px 5px; line-height: 18px; }\n');
-document.write('.upgotd-footer { width: 100%; <?php echo $footer_display; ?> padding-top: 7px; background-color:<?php echo $footer_bg_color; ?>; color: <?php echo $footer_font_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
+document.write('.upgotd-footer { width: 100%; <?php echo $footer_display; ?> padding-top: 7px; background-color:<?php echo $footer_bg_color; ?>; color: <?php echo $footer_font_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; padding-bottom: 5px;}\n');
 document.write('.upgotd-footer a { color: <?php echo $footer_link_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
 document.write('.upgotd-footer a:hover { color: <?php echo $footer_hover_color; ?> !important; font-weight: normal ;font-size: <?php echo $footer_font_size ?>; }\n');
-document.write('.upgotd-cite, .upgotd-cite a { color: #7b7670 !important; font-weight: normal ;font-size: 10px;  }\n');
+document.write('.upgotd-cite, .upgotd-cite a { font-weight: normal ; font-size: 10px;  }\n');
 document.write('.upgotd-logo {padding: 0px 2px 4px 2px; width: 22px; height: 20px; }\n');
 document.write('</style>\n');
 
