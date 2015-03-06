@@ -56,39 +56,39 @@ function init_variables(){
 	colTemp = {
 		'temp1' : {
 			//Center Font
-			'cfc' : '000000',
+			'cfc' : '7b7670',
 			//Center Hover
-			'chc' : '000000',
+			'chc' : 'ed7c31',
 			//Center Link
-			'clc' : '000000',
+			'clc' : 'ed7c31',
 			//Background Color
 			'cbg' : 'FFFFFF',
 			//Header Background
-			'bbg' : '000000',
+			'bbg' : '42ad9e',
 			//Header Font
 			'blc' : 'FFFFFF',
 			//Header Hover
-			'bhc' : 'FFFFFF',
+			'bhc' : '000000',
 			//Footer Background
-			'fbg' : '000000',
+			'fbg' : 'FFFFFF',
 			//Footer Font
-			'ffc' : 'FFFFFF',
+			'ffc' : 'ed7c31',
 			//Footer Link
-			'flc' : 'FFFFFF',
+			'flc' : 'ed7c31',
 			//Footer Hover
-			'fhc' : 'FFFFFF',
+			'fhc' : 'ed7c31',
 		},
 		'temp2' : {
-			'cfc' : 'FFFFFF',
-			'chc' : 'FFFFFF',
-			'clc' : 'FFFFFF',
-			'cbg' : 'FFFFFF',
-			'bbg' : 'FFFFFF',
-			'blc' : 'FFFFFF',
-			'bhc' : 'FFFFFF',
-			'fbg' : 'FFFFFF',
-			'ffc' : 'FFFFFF',
-			'flc' : 'FFFFFF',
+			'cfc' : '000000',			
+			'chc' : '000000',			
+			'clc' : '000000',			
+			'cbg' : 'FFFFFF',			
+			'bbg' : '000000',			
+			'blc' : 'FFFFFF',			
+			'bhc' : 'FFFFFF',			
+			'fbg' : '000000',			
+			'ffc' : 'FFFFFF',			
+			'flc' : 'FFFFFF',			
 			'fhc' : 'FFFFFF',
 		},
 		'temp3' : {
@@ -276,26 +276,35 @@ function initiate_color_picker(){
 	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
-	    showAlpha: true,
+	    showAlpha: false,
 	    showSelectionPalette: true,
 	    hideAfterPaletteSelect:true,
+	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
 	    localStorageKey: "colorpicker.local",
 	    move: function () {   },
 	    show: function () {},
 	    beforeShow: function () {},
-	    hide: function () {},
-	    change: function(color) {
+	    hide: function (color) {
 	    	key = $(this).attr('id');
 	    	str = color.toHexString().replace('#','');
 	    	urlObj[key] = str;
 	    	update_Widget();
 	    },
+	    change: function(color) {
+	    	key = $(this).attr('id');
+	    	str = color.toHexString().replace('#','');
+	    	urlObj[key] = str;
+	    	update_Widget();
+	    	$(".color_temp_radio").attr("checked", false);
+	    	$(".color_temp_radio").button("refresh");
+	    },
 	    /**
 	     * Creates the palette. Each set of [] is one row in the palette.
 	     */
 	    palette: [
+	    	["#7b7670", "#42ad9e", "#FFFFFF", "#000000", "#ed7c31"],
 	    	["#000000", "#FFFFFF","#0000FF","#FF0000","#00FF00"],
 	    	["#E6E2AF", "#A7A37E", "#EFECCA", "#046380", "#002F2F"],
 	    	["#FCFFF5", "#D1DBBD", "#91AA9D", "#3E606F", "#193441"],
@@ -372,8 +381,7 @@ function colorTemplate() {
     			urlObj[keys] = value;
 			});
 			init_colors();
-			build_url();
-			get_widget();
+			update_Widget();
 		}	
 	});
 }
