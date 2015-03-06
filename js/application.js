@@ -136,6 +136,12 @@ function init_jQuery_UI(){
 	$("#reset").click(function() {
 		reset_all_settings();
 	});
+	$(".jq_check").click(function() {
+		key = $(this).attr('id');
+		urlObj[key] = $('#'+key).val();
+		update_Widget();
+		//Figure out how toggles and button values work.
+	});
 }
 
 function initiate_color_picker(){
