@@ -100,7 +100,7 @@ if($landscape == 'vert') {
 	else { $width = 250; }
 }
 
-$title_margin = '7px';
+$title_margin = '5px';
 $pray_top_margin = '0px';
 $people_top_margin = '0px';
 $people_bottom_margin = '0px';

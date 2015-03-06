@@ -182,6 +182,7 @@ function init_jQuery_UI(){
 	 */
 	$(".fontpicker").selectmenu({
 		width: 200,
+		maxHeight: 100,
 		change: function( event, ui ) {
 			key = $(this).attr('id');
 			urlObj[key] = $('#'+key).val();

@@ -2,7 +2,6 @@ body {
 	font-family:Arial;
 	font-size:14px;
 	background-color:black;
-	height:100%;
 }
 	
 #container {
@@ -18,7 +17,6 @@ body {
 }
 
 #result {
-	width:390px;
 	padding-left:10px;
 	margin-left: 10%;
 }
@@ -36,7 +34,6 @@ body {
 }
 
 #widget_container {
-	height:375px;
 	overflow:hidden;
 	text-align:center;
 }
@@ -52,8 +49,8 @@ float:left;
 }
 
 iframe#widget_iframe {
-	height:400px;
-	width:400px;
+	height:420px;
+	width:420px;
 }
 
 input {
