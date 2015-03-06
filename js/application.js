@@ -83,20 +83,24 @@ function get_widget(){
 
 /**
  * Updates URL with new options and calls get_widget to refresh the widget. It
- * is called after every color changing funciton.
+ * is called after every option change.
  */
 function update_Widget(){
     build_url();
 	get_widget();
 }
 
-// Set the colors displayed by the colorpicker to the defaults
+// Set the colors displayed by the colorpicker to the colors stored in urlObj.
 function init_colors() {
 	$('.colorpicker').each(function () {
 		var id = $(this).attr('id');
 		$(this).spectrum('set', urlObj[id]);
 	});
 }
+
+/**
+ * Creates the accordion. This is in it's own function so that init_jQuery_UI can be called in a reset function. (Currently not in use)
+*/
 function init_accordion(){
 	$( ".accordion" ).accordion({
 		collapsible: true,
@@ -105,9 +109,21 @@ function init_accordion(){
 	});
 }
 
+/**
+ * This function initializes most of the jQuery UI elements. More comments within.
+ */
 function init_jQuery_UI(){
+	//This call creates all of the radio buttons.
 	$( ".radioset" ).buttonset();
+	//This call creates the normal buttons.
 	$( ".button" ).button();
+	/**
+	 * This call currently creates the width slider. If properly coded it could initialize all sliders.  
+	 * The problem is its min, max, and function calls are all set to the width values instead of being read in from a data object.
+	 * I would probably create min[], max[], and value[] objects of some sort so you could set key based on the id.
+	 * Then you could call min[key], max[key], and value[key] to set the options as well as in the function possibly.
+	 * You might still need a separate initialize for spinner/slider pairs and unpaired spinners and sliders.
+	 */
 	$( ".slider" ).slider({
 		min: 175,
 		max: 250,
@@ -117,6 +133,7 @@ function init_jQuery_UI(){
 			$("#wpw").spinner("value", sliderVal);
 		}
 	});
+	//This creates border width slider
 	$( "#border_width" ).slider({
 		min: 0,
 		max: 6,
@@ -127,6 +144,7 @@ function init_jQuery_UI(){
 			update_Widget();
 		}
 	});
+	//This creates border radius slider
 	$("#bdr").slider({
 		min: 0,
 		max: 25,
@@ -137,6 +155,7 @@ function init_jQuery_UI(){
 			update_Widget();
 		}
 	})
+	//The spinners have the same issue as sliders as far as duplicated code
 	$( ".spinner" ).spinner({
 		min: 175,
 		max: 250,
@@ -154,6 +173,11 @@ function init_jQuery_UI(){
 		},
 	});
 	$(".font_spinner").spinner();
+	/**
+	 * This creates the select menus for the fonts. It could probably be more dynamic
+	 * in the same way as the spinners and the sliders. I also haven't been able to
+	 * get the select menus to set to their default value on reset all.
+	 */
 	$(".fontpicker").selectmenu({
 		width: 200,
 		change: function( event, ui ) {
@@ -162,9 +186,14 @@ function init_jQuery_UI(){
 			update_Widget();
 		},
 	});
+	/**
+	 * These are the event handlers. They should maybe be in a separate function.
+	 */
+	//The button click handler for the reset button.
 	$("#reset").click(function() {
 		reset_all_settings();
 	});
+	//The button event handler for the field toggles.
 	$(".jq_check").click(function() {
 		key = $(this).attr('id');
 		if ($(this).is(':checked')) {
@@ -178,6 +207,13 @@ function init_jQuery_UI(){
 	});
 }
 
+/**
+ * The color picker generator. It uses spectrum.js
+ * Everything here works and is dynamically generated.
+ * The palette should probably have more options added.
+ * For documentation of spectrum.js visit
+ * https://bgrins.github.io/spectrum/
+ */
 function initiate_color_picker(){
 	$(".colorpicker").spectrum({
 	    showInput: true,
@@ -200,6 +236,9 @@ function initiate_color_picker(){
 	    	urlObj[key] = str;
 	    	update_Widget();
 	    },
+	    /**
+	     * Creates the palette. Each set of [] is one row in the palette.
+	     */
 	    palette: [
 	    	["#000000", "#FFFFFF","#0000FF","#FF0000","#00FF00"],
 	    	["#E6E2AF", "#A7A37E", "#EFECCA", "#046380", "#002F2F"],
@@ -224,14 +263,28 @@ function initiate_color_picker(){
 	});	
 }
 
-//Resets all settings
+/**
+ * Resets all settings
+ * This currently works by refreshing the page.
+ * It should work by resetting variables to their default values and then
+ * reloading the jQuery UI elements. However, not all of the elements
+ * currently default to the values set in the variable, so you would
+ * have to reset most jQuery UI elements individually. Rather than doing
+ * this we have made the reload the entire page as a temporary functionality.
+ */ 
+
 function reset_all_settings(){
 		//init_variables();
 		//update_Widget();
-		//location.reload(true);
+		location.reload(true);
 }
 
-//Widget orientation
+/**
+ * This is an event handler for the orientation radio button. It could probably be
+ * combined into one if statement by using a $(.class) instead of $(#id) and some creativity.
+ * It should also probably be added into a function with the other event handlers contained in
+ * init_jQuery_UI.
+ */
 function choose_orientation() {
 	$('#radio_portrait').click(function() {
 		if ($(this).is(':checked')) {
@@ -256,6 +309,9 @@ function choose_orientation() {
 	});
 }
 
+/**
+ * This generates the neccesary style tags to make the font-style previews show up in the font select menu.
+ */ 
 function init_fonts() { 
 	var i = 2;
 	$('.font').each(function () {
