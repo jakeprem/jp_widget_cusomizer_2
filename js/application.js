@@ -2,7 +2,7 @@
 //https://github.com/naysayer
 
 //Modified by Jake Prem, John Nagelkirk and Andrei Popa
-var urlObj = {}
+var urlObj, colTemp = {};
 var baseUrl, url, key, selectedColor = '';
 
 $(document).ready(function(){
@@ -10,6 +10,7 @@ $(document).ready(function(){
 	init_variables();
 	init_accordion();
 	init_jQuery_UI();
+	colorTemplate();
 	choose_orientation();
 	init_fonts();
 	build_url();
@@ -50,6 +51,48 @@ function init_variables(){
 	'relg' : 1,
 	'eva' : 1,
 	'stat' : 1,
+	};
+
+	colTemp = {
+		'temp1' : {
+			'cfc' : '000000',
+			'chc' : '000000',
+			'clc' : '000000',
+			'cbg' : '000000',
+			'bbg' : '000000',
+			'blc' : '000000',
+			'bhc' : '000000',
+			'fbg' : '000000',
+			'ffc' : '000000',
+			'flc' : '000000',
+			'fhc' : '000000',
+		},
+		'temp2' : {
+			'cfc' : 'FFFFFF',
+			'chc' : 'FFFFFF',
+			'clc' : 'FFFFFF',
+			'cbg' : 'FFFFFF',
+			'bbg' : 'FFFFFF',
+			'blc' : 'FFFFFF',
+			'bhc' : 'FFFFFF',
+			'fbg' : 'FFFFFF',
+			'ffc' : 'FFFFFF',
+			'flc' : 'FFFFFF',
+			'fhc' : 'FFFFFF',
+		},
+		'temp3' : {
+			'cfc' : 'FFFFFF',
+			'chc' : 'FFFFFF',
+			'clc' : 'FFFFFF',
+			'cbg' : 'FFFFFF',
+			'bbg' : 'FFFFFF',
+			'blc' : 'FFFFFF',
+			'bhc' : 'FFFFFF',
+			'fbg' : 'FFFFFF',
+			'ffc' : 'FFFFFF',
+			'flc' : 'FFFFFF',
+			'fhc' : 'FFFFFF',
+		},
 	};
 
 	baseUrl = "http://192.168.87.196/widget.php"
@@ -205,6 +248,7 @@ function init_jQuery_UI(){
 			update_Widget();
 		}
 	});
+	$()
 }
 
 /**
@@ -305,6 +349,19 @@ function choose_orientation() {
 			get_widget();
 			$('#width_slider').slider("disable");
 			$('#wpw').spinner("disable");
+		}	
+	});
+}
+function colorTemplate() {
+	$('#temp1').click(function() {
+		if ($(this).is(':checked')) {
+			key = $(this).attr('id');
+			$.each(colTemp[key], function(keys, value) {
+    			urlObj[keys] = value;
+			});
+			init_colors();
+			build_url();
+			get_widget();
 		}	
 	});
 }
