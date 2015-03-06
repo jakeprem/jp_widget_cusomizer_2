@@ -7,9 +7,10 @@ $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
 	init_jQuery_UI();
+	choose_orientation();
+	//init_fonts();
 	build_url();
 	get_widget();
-	choose_orientation();
 });
 
 /**
@@ -42,13 +43,14 @@ function init_variables(){
 	key='';
 	selectedColor='';
 	init_colors();
+
 }
 
 function build_url(){
 	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
 					'&fhc='+ urlObj['fhc'] + '&oft='+urlObj['oft'] + '&tfsz='+urlObj['tfsz'] + 'px'+ '&pfsz='+urlObj['pfsz'] + 'px' + 
-					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '';
+					'&ifsz='+urlObj['ifsz'] + 'px' + '&ffsz='+urlObj['ffsz'] + 'px' + '&ori='+ urlObj['ori'] + '&wpw=' + urlObj['wpw'] + 'px' + '';
 }
 
 //Generates the widget in an iframe (via HTML)
@@ -105,6 +107,9 @@ function init_jQuery_UI(){
 		change: function ( event, ui) {
 			var spinnerVal = $("#wpw").spinner("value");
 			$("#width_slider").slider("value", spinnerVal);
+			urlObj['wpw'] = spinnerVal;
+			build_url();
+			get_widget();
 		},
 		spin: function( event, ui ) {
 			var spinnerVal = $("#wpw").spinner("value");
@@ -194,4 +199,11 @@ function choose_orientation() {
 			get_widget();
 		}	
 	});
+}
+
+function init_fonts() { 
+	$('.font').each(function () {console.log($(this).val())
+		var font = $(this).val();
+		$(this).css({'color':'red'});
+	})
 }
