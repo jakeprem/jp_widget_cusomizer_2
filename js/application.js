@@ -196,9 +196,9 @@ function initiate_color_picker(){
 
 //Resets all settings
 function reset_all_settings(){
-		init_variables();
-		$('select').val("");
-		update_Widget();
+		//init_variables();
+		//update_Widget();
+		location.reload(true);
 }
 
 //Widget orientation
