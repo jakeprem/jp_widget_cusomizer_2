@@ -196,25 +196,35 @@ function init_jQuery_UI(){
 		value: 0,
 		change: function ( event, ui) {
 			var value = $('#bdr').slider("value");
-			urlObj['bdrtl'] = value;
-			urlObj['bdrtr'] = value;
-			urlObj['bdrbl'] = value;
-			urlObj['bdrbr'] = value;
+			if (border_rt == true || border_rb == true) {
+				urlObj['bdrtl'] = value;
+				urlObj['bdrtr'] = value;
+				urlObj['bdrbl'] = value;
+				urlObj['bdrbr'] = value;
 
-			if (border_rt == true)
-			{
+				if (border_rt == true && border_rb == false)
+				{
+					urlObj['bdrbl'] = 0;
+					urlObj['bdrbr'] = 0;
+				}
+				
+				if (border_rt == false && border_rb == true)
+				{
+					urlObj['bdrtl'] = 0;
+					urlObj['bdrtr'] = 0;
+				}
+				
+				build_url();
+				update_Widget();
+			}
+			else {
 				urlObj['bdrbl'] = 0;
 				urlObj['bdrbr'] = 0;
-			}
-			
-			if (border_rb == true)
-			{
 				urlObj['bdrtl'] = 0;
 				urlObj['bdrtr'] = 0;
+				build_url();
+				update_Widget();
 			}
-			
-			build_url();
-			update_Widget();
 		}
 	})
 	//The spinners have the same issue as sliders as far as duplicated code
