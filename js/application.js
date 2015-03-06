@@ -49,7 +49,6 @@ function init_variables(){
 	key='';
 	selectedColor='';
 	init_colors();
-
 }
 
 function build_url(){
@@ -155,6 +154,7 @@ function initiate_color_picker(){
 	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
+	    showAlpha: true,
 	    showSelectionPalette: true,
 	    hideAfterPaletteSelect:true,
 	    maxPaletteSize: 10,
@@ -198,7 +198,7 @@ function initiate_color_picker(){
 function reset_all_settings(){
 		//init_variables();
 		//update_Widget();
-		location.reload(true);
+		//location.reload(true);
 }
 
 //Widget orientation
