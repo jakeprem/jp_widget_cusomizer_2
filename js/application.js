@@ -135,17 +135,6 @@ function init_jQuery_UI(){
 			$("#wpw").spinner("value", sliderVal);
 		}
 	});
-	//This creates border width slider
-	$( "#border_width" ).slider({
-		min: 0,
-		max: 6,
-		value: 0,
-		change: function ( event, ui) {
-			urlObj['bdw'] = $('#border_width').slider("value");
-			build_url();
-			update_Widget();
-		}
-	});
 	//This creates border radius slider
 	$("#bdr").slider({
 		min: 0,
@@ -187,6 +176,15 @@ function init_jQuery_UI(){
 			urlObj[key] = $('#'+key).val();
 			update_Widget();
 		},
+	});
+	//This creates border width select menu
+	$( "#border_width" ).selectmenu({
+		width: 200,
+		change: function ( event, ui) {
+			urlObj['bdw'] = $('#border_width').val();
+			build_url();
+			update_Widget();
+		}
 	});
 	/**
 	 * These are the event handlers. They should maybe be in a separate function.
