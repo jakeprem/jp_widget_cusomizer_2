@@ -130,8 +130,8 @@ $border_radius_br = (isset($_GET['bdrbr'])) ? $_GET['bdrbr'] : '0px';
 
 $border_rad = 'border-top-left-radius: ' . $border_radius_tl . ';\n border-top-right-radius: ' . $border_radius_tr . 
 			  ';\n border-bottom-left-radius: ' . $border_radius_bl . ';\n border-bottom-right-radius: ' . $border_radius_br . ';';
-$border_rad_banner = 'border-top-left-radius: ' . ($border_radius_tl-$border_width) . ';\n border-top-right-radius: ' . ($border_radius_tr-$border_width) . ';';
-$border_rad_footer = 'border-bottom-left-radius: ' . ($border_radius_bl-$border_width) . ';\n border-bottom-right-radius: ' . ($border_radius_br-$border_width) . ';';
+$border_rad_banner = 'border-top-left-radius: ' . ($border_radius_tl-$border_width-1) . ';\n border-top-right-radius: ' . ($border_radius_tr-$border_width-1) . ';';
+$border_rad_footer = 'border-bottom-left-radius: ' . ($border_radius_bl-$border_width-1) . ';\n border-bottom-right-radius: ' . ($border_radius_br-$border_width-1) . ';';
 $border = 'border: ' . $border_width . ' solid ' . $border_color . ';';
 
 header("Content-type: application/x-javascript");
@@ -139,15 +139,15 @@ header("Content-type: application/x-javascript");
 
 document.write('<style type="text/css">\n');
 document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
-document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; text-align: center; width:<?php echo $width; ?>; ?>; font-size:<?php echo $info_font_size ?>; padding: 0; }\n');
+document.write('.upgotd-box { <?php echo $border; ?> <?php echo $border_rad; ?> background-color: <?php echo $center_bg_color; ?>; text-align: center; width:<?php echo $width; ?>; font-size:<?php echo $info_font_size ?>; padding: 0; }\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
-document.write('.upgotd-title { background-color: <?php echo $banner_bg_color; ?>; <?php echo $border_rad_banner; ?> margin-bottom: <?php echo $title_margin; ?>; padding: 5px;}\n');
+document.write('.upgotd-title { background-color: <?php echo $banner_bg_color; ?>; <?php echo $border_rad_banner; ?> padding: 5px;}\n');
 document.write('.upgotd-title a { text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-weight: bold; color: <?php echo $banner_link_color; ?> !important;  font-size:<?php echo $title_font_size; ?> !important; margin-bottom: <?php echo $title_margin; ?>; }\n');
 document.write('.upgotd-title a:hover {text-transform:uppercase; background-color: <?php echo $banner_bg_color; ?>; font-weight: bold; color: <?php echo $banner_hover_color; ?> !important; font-size:<?php echo $title_font_size; ?> !important; margin-bottom: 7px; }\n');
-document.write('.upgotd-image { <?php echo $image_display; ?>  <?php echo $image_text_align; ?> <?php echo $image_float; ?>;}\n');
+document.write('.upgotd-image { <?php echo $image_display; ?>  <?php echo $image_text_align; ?> <?php echo $image_float; ?>; padding-top: <?php echo $title_margin; ?>;}\n');
 document.write('.upgotd-pray { font-weight: normal; padding: 0px; font-size: 10px; margin-bottom: <?php echo $people_top_margin; ?>; margin-top: <?php echo $pray_top_margin; ?>; }\n'); 
-document.write('.upgotd-people { <?php echo $people_display; ?> font-weight: normal; font-size:<?php echo $people_font_size; ?> !important; padding-bottom:2px; }\n');
+document.write('.upgotd-people {  <?php echo $people_display; ?> font-weight: normal; font-size:<?php echo $people_font_size; ?> !important; padding-bottom:2px; }\n');
 document.write('.upgotd-people a { color: <?php echo $center_link_color; ?> !important; font-size: <?php echo $people_font_size; ?>; font-weight: 800; }\n');
 document.write('.upgotd-people a:hover { color: <?php echo $center_hover_color; ?> !important; }\n');
 document.write('.upgotd-table { margin-bottom: 5px; margin-top: <?php echo $people_bottom_margin; ?>; text-align: left; }\n');
