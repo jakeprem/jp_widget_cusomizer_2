@@ -232,6 +232,8 @@ function init_jQuery_UI(){
 			update_Widget();
 		},
 	});
+	//This enables scrolling on the fontpicker select menus. For some reason it's only applying to the first one currently.
+	$(".fontpicker").selectmenu("menuWidget").addClass( "overflow" );
 	//This creates border width select menu
 	$( "#border_width" ).selectmenu({
 		width: 200,
