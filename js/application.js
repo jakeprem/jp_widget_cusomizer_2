@@ -206,8 +206,10 @@ function choose_orientation() {
 }
 
 function init_fonts() { 
-	$('.font').each(function () {console.log($(this).val())
+	var i = 2;
+	$('.font').each(function () {
 		var font = $(this).val();
-		$(this).css({'font-family':'font'});
+		$( "<style>#oft-menu li:nth-child(" + i + ") { font-family: " + font + "; }</style>" ).appendTo( "head" );
+		i++;
 	})
 }
