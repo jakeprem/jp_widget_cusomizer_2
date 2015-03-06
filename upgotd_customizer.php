@@ -53,6 +53,15 @@ $footer_hover_color = (isset($_GET['fhc'])) ? '#'.$_GET['fhc'] : '#0000FF';
  * @author Johnathan Pulos
  */
 $lang = (isset($_GET['lang'])) ? $_GET['lang'] : '';
+// Choose specific demographic fields to display
+$Population = (isset($_GET["pop"])) ? $_GET["pop"] : 1;
+$Language = (isset($_GET["lan"])) ? $_GET["lan"] : 1;
+$Religion = (isset($_GET["relg"])) ? $_GET["relg"] : 1;
+$Evangelical = (isset($_GET["eva"])) ? $_GET["eva"] : 1;
+$Status = (isset($_GET["stat"])) ? $_GET["stat"] : 1;
+/*$custom_js = 'upgotd_custom.php?pop='.$Population
+		.'&lan='.$Language.'&relg='.$Religion.'&eva='.$Evangelical.'&stat='
+		.$Status;*/
 $custom_js = ($lang == '') ? 'http://legacy.joshuaproject.net/upgotd_custom.php' : 'http://www.joshuaproject.net/international/'.$lang.'/upgotd_custom.php';
 /**
  * Handle narrow widget
