@@ -6,6 +6,7 @@ var baseUrl, url, key, selectedColor = '';
 $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
+	init_accordion();
 	init_jQuery_UI();
 	choose_orientation();
 	//init_fonts();
@@ -82,13 +83,15 @@ function init_colors() {
 		$(this).spectrum('set', urlObj[id]);
 	});
 }
-
-function init_jQuery_UI(){
+function init_accordion(){
 	$( ".accordion" ).accordion({
 		collapsible: true,
 		active:0,
 		heightStyle: "content",
 	});
+}
+
+function init_jQuery_UI(){
 	$( ".radioset" ).buttonset();
 	$( ".button" ).button();
 	$( ".slider" ).slider({
@@ -117,7 +120,7 @@ function init_jQuery_UI(){
 		},
 	});
 	$(".font_spinner").spinner();
-	$(".fontpicker").selectmenu({
+	$(".fontpicker").combobox({
 		width: 200,
 		change: function( event, ui ) {
 			key = $(this).attr('id');

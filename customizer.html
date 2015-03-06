@@ -92,20 +92,19 @@
 				    	
 				    	<div class="radioset" id="orientation">
 							<input type="radio" id="radio_portrait" name="radio" value="vert" checked="checked"><label for="radio_portrait">Portrait</label>
-							<input type="radio" id="radio_horizontal" value="horz" name="radio"><label for="radio_horizontal">Landscape</label>
+							<input type="radio" id="radio_horizontal" name="radio" value="horz"><label for="radio_horizontal">Landscape</label>
 						</div>
 						<br/><br/>						
 					</div>	        		
-	        		<h3>Templates</h3>
-	        		<div>
-	        			Color templates go here.
-	        		</div>
 
-		        	<h3>Individual Color Options</h3>
+		        	<h3>Colors</h3>
 		        	<div>
-		        		 <table id="colorSelectors" class="left">     
-							<tr><td>Color Template:</td>
-								<td></td>
+			        	<div class="radioset" id="color_templates">
+								<input type="radio" id="template1" name="radio" value="1"><label for="template1">Template1</label>
+								<input type="radio" id="template2" name="radio" value="2"><label for="template2">Template2</label>
+								<input type="radio" id="template3" name="radio" value="3"><label for="template3">Template3</label>
+						</div>
+		        		 <table id="colorSelectors" class="left">     							
 							<tr><td>Background Color: </td>
 								<td><input type="text" id="cbg" class="colorpicker"/></td></tr>
 							<tr><td>Header Color: </td>
@@ -130,13 +129,13 @@
 								<td><input type="text" id="fhc" class="colorpicker" value="#FFFFFF"/></td></tr>
 						</table>
 		        	</div>
-					<h3>Font Options</h3>
+					<h3>Fonts</h3>
 		        	<div>
 			        	<table>
 	                        <tr>
 							    <td>Font type:</td>
 							    <td><select id="oft" class="fontpicker">
-							        <option value="">Select Font Type</option>
+							        <option value=""></option>
 							        <option class="font" value="Andale Mono">Andale Mono</option>
 							        <option class="font" value="Arial">Arial</option>
 							        <option class="font" value="Arial Black">Arial Black</option>
