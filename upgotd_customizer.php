@@ -100,7 +100,7 @@ if($landscape == 'vert') {
 	else { $width = 250; }
 }
 
-$title_margin = '7px';
+$title_margin = '5px';
 $pray_top_margin = '0px';
 $people_top_margin = '0px';
 $people_bottom_margin = '0px';
@@ -129,9 +129,9 @@ $border_radius_bl = (isset($_GET['bdrbl'])) ? $_GET['bdrbl'] : '0px';
 $border_radius_br = (isset($_GET['bdrbr'])) ? $_GET['bdrbr'] : '0px';
 
 $border_rad = 'border-top-left-radius: ' . $border_radius_tl . ';\n border-top-right-radius: ' . $border_radius_tr . 
-			  'border-bottom-left-radius: ' . $border_radius_bl . ';\n border-bottom-right-radius: ' . $border_radius_br . ';';
-$border_rad_banner = 'border-top-left-radius: ' . ($border_radius_tl) . ';\n border-top-right-radius: ' . ($border_radius_tr) . ';';
-$border_rad_footer = 'border-bottom-left-radius: ' . ($border_radius_bl) . ';\n border-bottom-right-radius: ' . ($border_radius_br) . ';';
+			  ';\n border-bottom-left-radius: ' . $border_radius_bl . ';\n border-bottom-right-radius: ' . $border_radius_br . ';';
+$border_rad_banner = 'border-top-left-radius: ' . ($border_radius_tl-$border_width) . ';\n border-top-right-radius: ' . ($border_radius_tr-$border_width) . ';';
+$border_rad_footer = 'border-bottom-left-radius: ' . ($border_radius_bl-$border_width) . ';\n border-bottom-right-radius: ' . ($border_radius_br-$border_width) . ';';
 $border = 'border: ' . $border_width . ' solid ' . $border_color . ';';
 
 header("Content-type: application/x-javascript");
@@ -139,7 +139,7 @@ header("Content-type: application/x-javascript");
 
 document.write('<style type="text/css">\n');
 document.write('.upgotd { color: <?php echo $center_font_color ?>; font-family: <?php echo $overall_font_type; ?>; }\n');
-document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; <?php echo $border; ?> <?php echo $border_rad; ?> text-align: center; width:<?php echo $width; ?>; ?>; font-size:<?php echo $info_font_size ?>; padding: 0; }\n');
+document.write('.upgotd-box { background-color: <?php echo $center_bg_color; ?>; text-align: center; width:<?php echo $width; ?>; ?>; font-size:<?php echo $info_font_size ?>; padding: 0; }\n');
 document.write('.upgotd-box a { color: <?php echo $center_link_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-box a:hover { color: <?php echo $center_hover_color; ?>; text-decoration: none; }\n');
 document.write('.upgotd-title { background-color: <?php echo $banner_bg_color; ?>; <?php echo $border_rad_banner; ?> margin-bottom: <?php echo $title_margin; ?>; padding: 5px;}\n');

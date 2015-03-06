@@ -2,14 +2,15 @@
 //https://github.com/naysayer
 
 //Modified by Jake Prem, John Nagelkirk and Andrei Popa
-var urlObj = {}
-var baseUrl, url, key, selectedColor = '';
+var urlObj, colTemp = {};
+var baseUrl, url, key, selectedColor = '', border_rt = false, border_rb = false;
 
 $(document).ready(function(){
 	initiate_color_picker();
 	init_variables();
 	init_accordion();
 	init_jQuery_UI();
+	colorTemplate();
 	choose_orientation();
 	init_fonts();
 	build_url();
@@ -41,17 +42,70 @@ function init_variables(){
 	'wpw' : '215',
 	'bdw' : '0px',
 	'bdc' : '7b7670',
-	'bdrtl' : '0',
-	'bdrtr' : '0',
-	'bdrbl' : '0',
-	'bdrbr' : '0',
+	'bdrtl' : 0,
+	'bdrtr' : 0,
+	'bdrbl' : 0,
+	'bdrbr' : 0,
 	'pop' : 1,
 	'lan' : 1,
 	'relg' : 1,
 	'eva' : 1,
 	'stat' : 1,
 	};
-
+//This data object contains the values for the color templates
+	colTemp = {
+		'temp1' : {
+			//Center Font
+			'cfc' : '7b7670',
+			//Center Hover
+			'chc' : 'ed7c31',
+			//Center Link
+			'clc' : 'ed7c31',
+			//Background Color
+			'cbg' : 'FFFFFF',
+			//Header Background
+			'bbg' : '42ad9e',
+			//Header Font
+			'blc' : 'FFFFFF',
+			//Header Hover
+			'bhc' : '000000',
+			//Footer Background
+			'fbg' : 'FFFFFF',
+			//Footer Font
+			'ffc' : 'ed7c31',
+			//Footer Link
+			'flc' : 'ed7c31',
+			//Footer Hover
+			'fhc' : 'ed7c31',
+		},
+		'temp2' : {
+			'cfc' : '000000',			
+			'chc' : '000000',			
+			'clc' : '000000',			
+			'cbg' : 'FFFFFF',			
+			'bbg' : '000000',			
+			'blc' : 'FFFFFF',			
+			'bhc' : 'FFFFFF',			
+			'fbg' : '000000',			
+			'ffc' : 'FFFFFF',			
+			'flc' : 'FFFFFF',			
+			'fhc' : 'FFFFFF',
+		},
+		'temp3' : {
+			'cfc' : 'FFFFFF',
+			'chc' : 'FFFFFF',
+			'clc' : 'FFFFFF',
+			'cbg' : 'FFFFFF',
+			'bbg' : 'FFFFFF',
+			'blc' : 'FFFFFF',
+			'bhc' : 'FFFFFF',
+			'fbg' : 'FFFFFF',
+			'ffc' : 'FFFFFF',
+			'flc' : 'FFFFFF',
+			'fhc' : 'FFFFFF',
+		},
+	};
+	//The variable should be replaced with the url of the widget.php
 	baseUrl = "http://192.168.87.196/widget.php"
 	build_url();
 	key='';
@@ -59,6 +113,7 @@ function init_variables(){
 	init_colors();
 }
 
+//Builds the url string
 function build_url(){
 	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
@@ -137,13 +192,41 @@ function init_jQuery_UI(){
 	});
 	//This creates border radius slider
 	$("#bdr").slider({
+		disabled: true,
 		min: 0,
 		max: 25,
 		value: 0,
 		change: function ( event, ui) {
-			urlObj['bdr'] = $('#bdr').slider("value");
-			build_url();
-			update_Widget();
+			var value = $('#bdr').slider("value");
+			if (border_rt == true || border_rb == true) {
+				urlObj['bdrtl'] = value;
+				urlObj['bdrtr'] = value;
+				urlObj['bdrbl'] = value;
+				urlObj['bdrbr'] = value;
+
+				if (border_rt == true && border_rb == false)
+				{
+					urlObj['bdrbl'] = 0;
+					urlObj['bdrbr'] = 0;
+				}
+				
+				if (border_rt == false && border_rb == true)
+				{
+					urlObj['bdrtl'] = 0;
+					urlObj['bdrtr'] = 0;
+				}
+				
+				build_url();
+				update_Widget();
+			}
+			else {
+				urlObj['bdrbl'] = 0;
+				urlObj['bdrbr'] = 0;
+				urlObj['bdrtl'] = 0;
+				urlObj['bdrtr'] = 0;
+				build_url();
+				update_Widget();
+			}
 		}
 	})
 	//The spinners have the same issue as sliders as far as duplicated code
@@ -171,12 +254,15 @@ function init_jQuery_UI(){
 	 */
 	$(".fontpicker").selectmenu({
 		width: 200,
+		maxHeight: 100,
 		change: function( event, ui ) {
 			key = $(this).attr('id');
 			urlObj[key] = $('#'+key).val();
 			update_Widget();
 		},
 	});
+	//This enables scrolling on the fontpicker select menus. For some reason it's only applying to the first one currently.
+	$(".fontpicker").selectmenu("menuWidget").addClass( "overflow" );
 	//This creates border width select menu
 	$( "#border_width" ).selectmenu({
 		width: 200,
@@ -205,6 +291,29 @@ function init_jQuery_UI(){
 			update_Widget();
 		}
 	});
+
+	//The button event handler for the border-radius toggles
+	$(".br_check").click(function() { 
+		key = $(this).attr('id'); 
+		if ($(this).is(':checked')) {
+			if(key == 'top') {
+				border_rt = true;
+			}
+			else { border_rb = true; }
+		}
+		else {
+			if(key == 'top') {
+				border_rt = false;
+			}
+			else { border_rb = false; }
+		}
+		$slider = $('#bdr');
+		if (border_rb == true || border_rt == true) {
+			$slider.slider("enable");
+		}
+		else { 	$slider.slider("disable"); }
+		$slider.slider('option', 'change').call($slider);
+	});
 }
 
 /**
@@ -220,33 +329,42 @@ function initiate_color_picker(){
 	    className: "colorClass",
 	    showInitial: true,
 	    showPalette: true,
-	    showAlpha: true,
+	    showAlpha: false,
 	    showSelectionPalette: true,
 	    hideAfterPaletteSelect:true,
+	    clickoutFiresChange: false,
 	    maxPaletteSize: 10,
 	    preferredFormat: "hex",
 	    localStorageKey: "colorpicker.local",
 	    move: function () {   },
 	    show: function () {},
 	    beforeShow: function () {},
-	    hide: function () {},
-	    change: function(color) {
+	    hide: function (color) {
 	    	key = $(this).attr('id');
 	    	str = color.toHexString().replace('#','');
 	    	urlObj[key] = str;
 	    	update_Widget();
 	    },
+	    change: function(color) {
+	    	key = $(this).attr('id');
+	    	str = color.toHexString().replace('#','');
+	    	urlObj[key] = str;
+	    	update_Widget();
+	    	$(".color_temp_radio").attr("checked", false);
+	    	$(".color_temp_radio").button("refresh");
+	    },
 	    /**
 	     * Creates the palette. Each set of [] is one row in the palette.
 	     */
 	    palette: [
+	    	/*["#7b7670", "#42ad9e", "#FFFFFF", "#000000", "#ed7c31"],
 	    	["#000000", "#FFFFFF","#0000FF","#FF0000","#00FF00"],
 	    	["#E6E2AF", "#A7A37E", "#EFECCA", "#046380", "#002F2F"],
 	    	["#FCFFF5", "#D1DBBD", "#91AA9D", "#3E606F", "#193441"],
-	    	["#105B63", "#FFFAD5", "#FFD34E", "#DB9E36", "#BD4932"],
+	    	["#105B63", "#FFFAD5", "#FFD34E", "#DB9E36", "#BD4932"],*/
 
 	    	//The default color picker palette
-	        /*["#000000", "#0000ff", "#000000", "#cccccc", "#dadada","#fff"],
+	        ["#000000", "#0000ff", "#000000", "#cccccc", "#dadada","#fff"],
 	        ["#980000", "#f00", "#000", "#000", "#000",
 	        "#000", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
 	        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
@@ -258,7 +376,7 @@ function initiate_color_picker(){
 	        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
 	        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
 	        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
-	        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]*/
+	        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"],
 	    ]
 	});	
 }
@@ -305,6 +423,24 @@ function choose_orientation() {
 			get_widget();
 			$('#width_slider').slider("disable");
 			$('#wpw').spinner("disable");
+		}	
+	});
+}
+
+/**
+ * This function has an event handler for clicks on the color template buttons.
+ * It updates urlObj with the template values, then call init_colors() to update
+ * the color picker dialogs with the appropriate values.
+ */
+function colorTemplate() {
+	$('.color_temp_radio').click(function() {
+		if ($(this).is(':checked')) {
+			key = $(this).attr('id');
+			$.each(colTemp[key], function(keys, value) {
+    			urlObj[keys] = value;
+			});
+			init_colors();
+			update_Widget();
 		}	
 	});
 }
