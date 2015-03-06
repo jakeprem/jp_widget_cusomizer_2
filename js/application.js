@@ -1,5 +1,7 @@
 //created by Joshua Shuster
 //https://github.com/naysayer
+
+//Modified by Jake Prem, John Nagelkirk and Andrei Popa
 var urlObj = {}
 var baseUrl, url, key, selectedColor = '';
 
