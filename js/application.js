@@ -52,7 +52,7 @@ function init_variables(){
 	'eva' : 1,
 	'stat' : 1,
 	};
-
+//This data object contains the values for the color templates
 	colTemp = {
 		'temp1' : {
 			//Center Font
@@ -105,7 +105,7 @@ function init_variables(){
 			'fhc' : 'FFFFFF',
 		},
 	};
-
+	//The variable should be replaced with the url of the widget.php
 	baseUrl = "http://192.168.87.196/widget.php"
 	build_url();
 	key='';
@@ -113,6 +113,7 @@ function init_variables(){
 	init_colors();
 }
 
+//Builds the url string
 function build_url(){
 	url= baseUrl + '?cfc='+ urlObj['cfc'] +'&chc='+ urlObj['chc'] +'&clc='+ urlObj['clc'] +'&cbg='+ urlObj['cbg'] +'&bbg='+ urlObj['bbg'] +
 					'&blc='+ urlObj['blc'] +'&bhc='+ urlObj['bhc'] +'&fbg='+ urlObj['fbg']+'&ffc='+ urlObj['ffc'] +'&flc='+ urlObj['flc']+
@@ -420,6 +421,12 @@ function choose_orientation() {
 		}	
 	});
 }
+
+/**
+ * This function has an event handler for clicks on the color template buttons.
+ * It updates urlObj with the template values, then call init_colors() to update
+ * the color picker dialogs with the appropriate values.
+ */
 function colorTemplate() {
 	$('.color_temp_radio').click(function() {
 		if ($(this).is(':checked')) {
