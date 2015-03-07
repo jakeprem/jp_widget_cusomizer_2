@@ -106,7 +106,7 @@ function init_variables(){
 		},
 	};
 	//The variable should be replaced with the url of the widget.php
-	baseUrl = "http://192.168.87.196/widget.php"
+	baseUrl = "widget.php"
 	build_url();
 	key='';
 	selectedColor='';
