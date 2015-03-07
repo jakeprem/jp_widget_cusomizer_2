@@ -19,7 +19,8 @@ $d = date("d");
 //$rs1 = mysql_fetch_array(mysql_query($sql1));
 
 // Get the JSON data
-$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=NV0nT8r1Szjt&fields=ROL3Profile|Population|Ctry|PeopNameInCountry|PrimaryReligion|PrimaryLanguageName|JPScale|PeopleID3|ROG3|PhotoAddress|PercentEvangelical";
+//replace api_key=XXXXXXXXX with a real API key
+$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=XXXXXXXXXjt&fields=ROL3Profile|Population|Ctry|PeopNameInCountry|PrimaryReligion|PrimaryLanguageName|JPScale|PeopleID3|ROG3|PhotoAddress|PercentEvangelical";
 $jsonData = file_get_contents($jsonUrl);
 $objData = json_decode($jsonData, true);
 //$arrayData->['a']->['b'];
