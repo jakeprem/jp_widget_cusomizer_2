@@ -23,6 +23,7 @@
  * Set the Center Background, Font, Link, & Link Hover Color
  *
  * @author Johnathan Pulos
+ * @editors Andrei Popa and John Nagelkirk
  */
 $center_bg_color = (isset($_GET['cbg'])) ? '#'.$_GET['cbg'] : '#000000';
 $center_font_color = (isset($_GET['cfc'])) ? '#'.$_GET['cfc'] : '#000000';
@@ -62,7 +63,11 @@ $Status = (isset($_GET["stat"])) ? $_GET["stat"] : 1;
 /*$custom_js = 'upgotd_custom.php?pop='.$Population
 		.'&lan='.$Language.'&relg='.$Religion.'&eva='.$Evangelical.'&stat='
 		.$Status;*/
-$custom_js = ($lang == '') ? 'http://legacy.joshuaproject.net/upgotd_custom.php' : 'http://www.joshuaproject.net/international/'.$lang.'/upgotd_custom.php';
+//$custom_js = ($lang == '') ? 'http://legacy.joshuaproject.net/upgotd_custom.php' : 'http://www.joshuaproject.net/international/'.$lang.'/upgotd_custom.php';
+
+// THIS IS THE PATH TO upgotd_custom.php
+$custom_js = 'upgotd_custom.php?pop='.$Population.'&lan='.$Language.'&relg='.
+		$Religion.'&eva='.$Evangelical.'&stat='.$Status;
 /**
  * Handle narrow widget
  *
