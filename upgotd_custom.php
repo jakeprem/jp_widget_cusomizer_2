@@ -29,7 +29,8 @@ $d = date("d");
 $day = date('d');
 $month = date('m');
 $ascDesc = ($day < 16) ? "asc" : "desc";
-$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=NV0nT8r1Szjt"
+//replace api_key=XXXXXXXXX with a real API key
+$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=XXXXXXXXX"
 		. "&fields=ROL3Profile|LRofTheDaySet|LRofTheDayMonth|LRofTheDayDay|"
 		. "Population|Ctry|10_40Window|PeopNameInCountry|PrimaryReligion|"
 		. "PrimaryLanguageName|JPScale|PeopleID3|ROG3|PhotoAddress|PercentEvangelical"

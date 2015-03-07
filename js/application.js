@@ -92,17 +92,28 @@ function init_variables(){
 			'fhc' : 'FFFFFF',
 		},
 		'temp3' : {
-			'cfc' : 'FFFFFF',
+			//Center Font
+			'cfc' : '000000',
+			//Center Hover
 			'chc' : 'FFFFFF',
-			'clc' : 'FFFFFF',
-			'cbg' : 'FFFFFF',
-			'bbg' : 'FFFFFF',
+			//Center Link
+			'clc' : '000000',
+			//Background Color
+			'cbg' : 'EEEEEE',
+			//Header Background
+			'bbg' : '2870C0',
+			//Header Font
 			'blc' : 'FFFFFF',
-			'bhc' : 'FFFFFF',
-			'fbg' : 'FFFFFF',
+			//Header Hover
+			'bhc' : '000000',
+			//Footer Background
+			'fbg' : '2870C0',
+			//Footer Font
 			'ffc' : 'FFFFFF',
+			//Footer Link
 			'flc' : 'FFFFFF',
-			'fhc' : 'FFFFFF',
+			//Footer Hover
+			'fhc' : '000000',
 		},
 	};
 	//The variable should be replaced with the url of the widget.php
@@ -364,9 +375,9 @@ function initiate_color_picker(){
 	    	["#105B63", "#FFFAD5", "#FFD34E", "#DB9E36", "#BD4932"],*/
 
 	    	//The default color picker palette
-	        ["#000000", "#0000ff", "#000000", "#cccccc", "#dadada","#fff"],
-	        ["#980000", "#f00", "#000", "#000", "#000",
-	        "#000", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+	        ["#000000", "#0000ff", "#FF0FFF", "#cccccc", "#dadada","#fff"],
+	        ["#980000", "#f00", "#00F", "#0F0", "#FF0000",
+	        "#FFFFF0", "rgb(74, 134, 232)", "rgb(0, 172, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
 	        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
 	        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
 	        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
