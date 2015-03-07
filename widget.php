@@ -27,4 +27,6 @@ foreach ($_GET as $key => $value) {
 	$count = $count+1;
 }
 ?>
+
+<!-- THIS IS THE PATH TO upgotd_customizer.php -->
 <script type="text/javascript" charset="utf-8" src="upgotd_customizer.php<?php echo $url_attr; ?>"></script>
