@@ -28,26 +28,34 @@ $d = date("d");
 // Get the JSON data
 $day = date('d');
 $month = date('m');
-$ascDesc = ($day < 16) ? "asc" : "desc";
+//$ascDesc = ($day < 16) ? "asc" : "desc";
 //replace api_key=XXXXXXXXX with a real API key
-$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=XXXXXXXXX"
+/*$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=XXXXXXXXX"
 		. "&fields=ROL3Profile|LRofTheDaySet|LRofTheDayMonth|LRofTheDayDay|"
 		. "Population|Ctry|10_40Window|PeopNameInCountry|PrimaryReligion|"
 		. "PrimaryLanguageName|JPScale|PeopleID3|ROG3|PhotoAddress|PercentEvangelical"
 		. "&limit=3000" // You might be able to shrink the limit
 		. "&sort=LRofTheDayDay"
-		. "&direction=" . $ascDesc;
+		. "&direction=" . $ascDesc;*/
+$jsonUrl = "http://joshuaproject.net/api/v2/upgotd?api_key=XXXXXXXXXXXX"
+                . "&fields=ROL3Profile|LRofTheDaySet|LRofTheDayMonth|LRofTheDayDay|"
+                . "Population|Ctry|10_40Window|PeopNameInCountry|PrimaryReligion|"
+                . "PrimaryLanguageName|JPScale|PeopleID3|ROG3|PhotoAddress|PercentEvangelical"
+                . "&ROL3Profile=eng"
+                . "&LRofTheDayMonth=" . $month
+                . "&LRofTheDayDay=" . $day;
 $jsonData = file_get_contents($jsonUrl);
 $objData = json_decode($jsonData, true);
+$dataIndex = 0;
 // Find the current value
-for($i = 0; $i < count($objData['data']); $i++) {
+/*for($i = 0; $i < count($objData['data']); $i++) {
 	if($objData['data'][$i]['LRofTheDayDay'] == $day
 			&& $objData['data'][$i]['LRofTheDayMonth'] == $month
 			&& $objData['data'][$i]['ROL3Profile'] == "eng") {
 		$dataIndex = $i;
 		break;
 	}
-}
+}*/
 // Grab the desired data
 $dataPopulation          = $objData['data'][$dataIndex]['Population'];
 $dataCtry                = $objData['data'][$dataIndex]['Ctry'];
